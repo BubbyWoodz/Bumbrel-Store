@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: kunthawat-octobot
+name: Octobot
+tagline: Crypto trading bot
+icon: https://github.com/kunthawat/umbrel-kunthawat-app-store/blob/master/kunthawat-octobot/opengraph-image.png?raw=true
+category: Crypto
+version: "2.0.6 with app_proxy 5001"
+port: 5001
+description: >-
+  Octobot is a powerful open-source cryptocurrency trading robot.
+developer: Drakkar-Software
+website: https://www.octobot.cloud/
+submitter: Kunthawat
+submission: https://github.com/Drakkar-Software/OctoBot/
+repo: https://github.com/Drakkar-Software/OctoBot/
+support: https://github.com/Drakkar-Software/OctoBot/issues
+gallery:
+  - https://github.com/Drakkar-Software/OctoBot/blob/assets/illustration.png
+releaseNotes: >-
+  Read here https://github.com/Drakkar-Software/OctoBot/blob/master/CHANGELOG.md
+dependencies: []
+path: ""
