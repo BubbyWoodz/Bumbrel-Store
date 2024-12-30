@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+
+<html>
+    <body>
+        <link rel="stylesheet" href="styles/styles.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
+        <link rel="stylesheet" href="styles/bookPage.css">
+        <link rel="stylesheet" href="styles/eventViewer.css">
+    </body>
+
+    <div class="page">
+        <!-- Sidebar -->
+        <header class="navbar navbar-expand-sm navbar-light d-print-none">
+          <div class="container-xl" id="test">
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+              <a href="index.html">
+                Book Tracker
+              </a>
+            </h1>
+      
+            <div class="navbar-nav flex-row order-md-last">
+              <div class="nav-item">
+                  <div>
+                    <a class="btn" href="search.html">Add New Book</a>
+                    <button class="btn" onclick="logOut()">Log Out</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <header class="navbar navbar-expand-sm navbar-light d-print-none" style="max-height: 56px">
+          <div class="container-xl">
+            <div class="nav nav-tabs border-0 flex-column flex-lg-row menuTest" style="flex-wrap: nowrap;">
+              <a class="nav-itemMenu" href="index.html">Home</a>
+              <a class="nav-itemMenu" href="booklist.html">My Books</a>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Collections</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="collections.html">Collections Home</a>
+                  <a class="dropdown-item" href="addNewCollection.html">Add New Collection</a>
+                </div>
+              </div>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Challenges</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="challenges.html">Challenges Home</a>
+                  <a class="dropdown-item" href="challengeBuilder.html">Add New Challenge</a>
+                </div>
+              </div>
+              <a class="nav-itemMenu" href="statistics.html">Statistics</a>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="settings.html">Settings</a>
+                  <a class="dropdown-item" href="books.html">Main Book Database</a>
+                  <a class="dropdown-item" href="users.html">User Management</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="page-wrapper">
+          <div class="page-header d-print-none">
+            <div class="container-xl">
+              <div class="row g-2 align-items-center">
+                <div class="col" id="titleColumn">
+                  <h2 class="page-title">
+                    Book Page
+                  </h2>
+                  <div id="bottomButtonContainer">
+                    <button onclick="saveJournalEdit()" class="btn btn-green disabled" id="saveEntryButton" style="display: none">Save</button>
+                    <button class="btn btn-red" data-bs-toggle="modal" data-bs-target="#deleteEntryModal" id="deleteEntryButton" style="display: none">Delete</button>
+                    <button class="btn" data-bs-toggle="modal" id="addEntryButton" style="display: none" data-bs-target="#addEntryModal">New Entry</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-body" style="height: 77vh">
+            <div class="container-xl" id="mainContainer">
+              <div class="row row-deck row-cards" style="height: 95%">
+                <div class="col-sm-10" style="width:600px; height: 100%">
+                  <div class="card" style="overflow-y: auto; height: 700px;">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs">
+                          <li class="nav-item">
+                            <a href="#tabs-home-ex1" class="nav-link active" data-bs-toggle="tab" onclick="hideJournalPane()">Info</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#tabs-profile-ex1" class="nav-link" data-bs-toggle="tab" id="journalTabButton" onclick="journalInitHandler()">Journal</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add to Collections</a>
+                            <div class="dropdown-menu" id="collectionContainer"></div>
+                          </li>
+                          <li class="nav-item">
+                            
+                            <button class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Document Progress</button>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" id="editButton">Edit Metadata</a>
+                              <a class="dropdown-item" href="#" onclick="toggleModal()"><span class="badge bg-red">Delete Book</span></a>
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="card-body" style="height: 100%">
+                        <div class="tab-content">
+                            <div class="tab-pane active show" id="tabs-home-ex1">
+                              <h2 id="title">Title</h2>
+                              <h4><span id="author">Author</span> | <span id="publisher">Publisher</span></h4>
+                              <div id="category">Genre / Genre / Genre</div>
+                              <p><span id="pageCount">243 pages</span> | <span id="isbn">9781408827000</span></p>
+                              
+                                 <div class="accordion" id="accordion-example" style="margin-bottom: 15px">
+                                  <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading-1" style="height: 30px">
+                                      <button class="accordion-button collapsed" style="height: 25px" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false">
+                                        <b>Description</b>
+                                      </button>
+                                    </h2>
+                                    <div id="collapse-1" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
+                                      <div class="accordion-body pt-0" id="description">
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                                 
+                                
+                                
+                                <div id="bottomContainer">
+                                    
+
+
+                                    <div id="imageContainer">
+                                        <img id="coverImage">
+                                    </div>
+                                    <div id="metadataContainer">
+                                        <div class="datagrid" id="metadataGrid">
+                                            <div class="datagrid-item">
+                                              <div class="datagrid-title">STATUS</div>
+                                              <div class="datagrid-content">
+                                                <span class="status dropdown-toggle" id="status" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unknown</span>
+                                                  <div class="dropdown-menu">
+                                                    <label class="dropdown-item" onclick="updateStatus('UNASSIGNED')"><span class="status status-yellow">UNASSIGNED</span></label>
+                                                    <label class="dropdown-item" onclick="updateStatus('READING')"><span class="status status-green">READING</span></label>
+                                                    <label class="dropdown-item" onclick="updateStatus('UP NEXT')"><span class="status status-teal">UP NEXT</span></label>
+                                                    <label class="dropdown-item" onclick="updateStatus('TO READ')"><span class="status status-azure">TO READ</span></label>
+                                                    <label class="dropdown-item" onclick="updateStatus('WISHLIST')"><span class="status status-blue">WISHLIST</span></label>
+                                                    <label class="dropdown-item" onclick="updateStatus('FINISHED')"><span class="status status-purple">FINISHED</span></label>
+                                                    <label class="dropdown-item" onclick="updateStatus('DNF')"><span class="status status-red">DNF</span></label>
+                                                  </div>
+
+                                              </div>
+                                            </div>
+                                            <div class="datagrid-item">
+                                                <div class="datagrid-title">RATING</div>
+                                                <div class="datagrid-content">
+                                                  
+                                                  <span class="status dropdown-toggle" id="rating" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">None</span>
+                                                  <div class="dropdown-menu">
+                                                    <label class="dropdown-item" onclick="updateRating(5)"><span class="status status-green">&#9734&#9734&#9734&#9734&#9734</span></label>
+                                                    <label class="dropdown-item" onclick="updateRating(4)"><span class="status status-blue">&#9734&#9734&#9734&#9734</span></label>
+                                                    <label class="dropdown-item" onclick="updateRating(3)"><span class="status status-yellow">&#9734&#9734&#9734</span></label>
+                                                    <label class="dropdown-item" onclick="updateRating(2)"><span class="status status-orange">&#9734&#9734</span></label>
+                                                    <label class="dropdown-item" onclick="updateRating(1)"><span class="status status-red">&#9734</span></label>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="datagrid-item">
+                                                <div class="datagrid-title">DATE STARTED</div>
+                                                
+                                                <input type="date" class="form-control" id="startDate" onchange="updateDate('start')">
+                                                  
+                                                
+                                            </div>
+                                            <div class="datagrid-item">
+                                                <div class="datagrid-title">DATE FINISHED</div>
+                                                <input type="date" class="form-control" id="finishDate" onchange="updateDate('finish')">
+                                            </div>
+                                            <div class="datagrid-item">
+                                                <div class="datagrid-title">OWNER</div>
+                                                <div class="datagrid-content" id="owner">
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="datagrid-item">
+                                                <div class="datagrid-title">Booklist ID</div>
+                                                <div class="datagrid-content" id="bookListID">
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="buttonContainer2">
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <div class="tab-pane" id="tabs-profile-ex1">
+                              <div class="table-responsive" style="height: 500px">
+                                <table class="table table-vcenter" id="journalEntryTable">
+                                  <tbody id="journalEntryTableBody">
+                                    <!-- <tr class="journalEntryRow">
+                                      <td class="journalRowDateTime">08/31 12:51</td>
+                                      <td class="journalRowTitle">What if the title was long?</td>
+                                      <td class="journalRowContent">Test Sample Journal entry</td>
+                                    </tr> -->
+                                  </tbody>
+                                </table>
+                              </div>
+
+                            </div>
+                          </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6" id="test">
+                  <div class="card" style="overflow-y: none; height: 700px" id="eventCard">
+                    <div class="card-header" style="display: flex; justify-content: space-between;">
+                      <h3 class="card-title">Event Tracker</h3>
+                      <div class="dropdown">
+                        <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="typeFilterButton">Filter</a>
+                        <div class="dropdown-menu" id="typeFilter">
+                          
+                          <label class="dropdown-item" onclick="filterByType()"><input class="form-check-input m-0 me-2" type="checkbox" value="Rating"/><span class="badge bg-green-lt">Rating</span></label>
+                          <label class="dropdown-item" onclick="filterByType()"><input class="form-check-input m-0 me-2" type="checkbox" value="Status"/><span class="badge bg-blue-lt">Status</span></label>
+                          <label class="dropdown-item" onclick="filterByType()"><input class="form-check-input m-0 me-2" type="checkbox" value="Journal"/><span class="badge bg-purple-lt">Journal</span></label>
+                          <label class="dropdown-item" onclick="filterByType()"><input class="form-check-input m-0 me-2" type="checkbox" value="Start Date"/><span class="badge bg-cyan-lt">Start Date</span></label>
+                          <label class="dropdown-item" onclick="filterByType()"><input class="form-check-input m-0 me-2" type="checkbox" value="Finish Date"/><span class="badge bg-cyan-lt">Finish Date</span></label>
+                          <label class="dropdown-item" onclick="filterByType()"><input class="form-check-input m-0 me-2" type="checkbox" value="Progress"/><span class="badge bg-lime-lt">Progress</span></label>
+                          
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body" id="eventCardBody" style="overflow-y: auto">
+                      <table id="eventTable">
+                        
+                      </table>
+                    </div>
+                    
+                  </div>
+                
+
+                
+                  <div class="card hide" style="overflow-y: auto" id="journalEditorPane">
+                    <form method="post">
+                      <textarea id="tinymce-default"></textarea>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal" id="addEntryModal" tabindex="-1">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">New Journal Entry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label class="form-label required">Journal Title</label>
+                      <input type="text" class="form-control" id="newEntryTitle">
+                    </div>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="newEntryHandler()">Create</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal" id="deleteBookModal" style="display: none">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  
+                  <div class="modal-status bg-danger"></div>
+                  <div class="modal-body text-center py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M12 9v2m0 4v.01" />
+                      <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+                    </svg>
+                    <h3>Are you sure?</h3>
+                    <div class="text-muted">Do you really want to delete this book from your book list? This will permanently delete all associated journal entries,
+                      events, and progress documentation. This action cannot be undone.</div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="w-100">
+                      <div class="row">
+                        <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal" onclick="toggleModal()">
+                            Cancel
+                          </a></div>
+                        <div class="col"><a href="#" class="btn btn-danger w-100" data-bs-dismiss="modal" onclick="submitBookDelete()">
+                            Delete
+                          </a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal" id="deleteEntryModal" tabindex="-1">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="modal-status bg-danger"></div>
+                  <div class="modal-body text-center py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M12 9v2m0 4v.01" />
+                      <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+                    </svg>
+                    <h3>Are you sure?</h3>
+                    <div class="text-secondary">Deleting a journal entry cannot be undone.</div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="w-100">
+                      <div class="row">
+                        <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal">
+                            Cancel
+                          </a></div>
+                        <div class="col"><a href="#" class="btn btn-danger w-100" data-bs-dismiss="modal" onclick="deleteEntry()">
+                            Delete Entry
+                          </a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal" id="exampleModal" tabindex="-1">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Document Reading Progress</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="pageContainer">
+                      <div class="mb-3">
+                        <label class="form-label required">Current Page</label>
+                        <div style="display: flex; gap: 15px;">
+                          <input type="number" onchange="validateCurrentPage(false)" id="currentPage" class="form-control" name="example-text-input"/>
+                          <button class="btn" onclick="inputLastPage()">Last Page</button>
+                        </div>
+                      </div>
+                      <div id="extraPageElements">
+
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label class="form-label required">Linked Journal Entry</label>
+                      <p>Link an existing journal entry to this progress update, or choose to create a new entry that can be edited later.</p>
+                      <select class="form-select" id="journalSelect" onchange="updateJournalQuestions()">
+                          
+                      </select>
+                    </div>
+                    <div id="journalSection">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Comment</label>
+                      <textarea class="form-control" rows="3" id="progressComment"></textarea>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="modal-footer">
+                    <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                      Cancel
+                    </a>
+                    <button class="btn btn-primary ms-auto" onclick="submissionHandler()">
+                      
+                      Save Progress
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+    <script src="src/checkAuth.js"></script>
+    <script src="src/bookPage.js"></script>
+    <script src="src/journal.js"></script>
+    <script src="src/eventClasses.js"></script>
+    <script src="src/events.js"></script>
+    <script src="src/docProgress.js"></script>
+    <script src="src/bookPageCollections.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/libs/tinymce/tinymce.min.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let options = {
+      selector: '#tinymce-default',
+      setup: function (editor) {
+        editor.on('input', function () {
+            checkForSave();
+        });
+      },
+      menubar: true,
+      height: "700px",
+      statusbar: true,
+      branding: false,
+      plugins: 'save',
+      resize: false,
+      toolbar: ' undo redo | formatselect | ' +
+        'bold italic backcolor | alignleft aligncenter ' +
+        'alignright alignjustify | bullist numlist outdent indent | ' +
+        'removeformat'
+      //content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }'
+    }
+    tinyMCE.init(options);
+  })
+</script>
+    
+</html>
+

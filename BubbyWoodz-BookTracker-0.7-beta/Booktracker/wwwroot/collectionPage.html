@@ -1,0 +1,158 @@
+<html>
+    <body>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/collectionPage.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
+        
+    </body>
+
+    <div class="page">
+        <!-- Sidebar -->
+        <header class="navbar navbar-expand-sm navbar-light d-print-none">
+          <div class="container-xl" id="test">
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+              <a href="index.html">
+                Book Tracker
+              </a>
+            </h1>
+      
+            <div class="navbar-nav flex-row order-md-last">
+              <div class="nav-item">
+                  <div>
+                    <a class="btn" href="search.html">Add New Book</a>
+                    <button class="btn" onclick="logOut()">Log Out</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <header class="navbar navbar-expand-sm navbar-light d-print-none" style="max-height: 56px">
+          <div class="container-xl">
+            <div class="nav nav-tabs border-0 flex-column flex-lg-row menuTest" style="flex-wrap: nowrap;">
+              <a class="nav-itemMenu" href="index.html">Home</a>
+              <a class="nav-itemMenu" href="booklist.html">My Books</a>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Collections</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="collections.html">Collections Home</a>
+                  <a class="dropdown-item" href="addNewCollection.html">Add New Collection</a>
+                </div>
+              </div>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Challenges</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="challenges.html">Challenges Home</a>
+                  <a class="dropdown-item" href="challengeBuilder.html">Add New Challenge</a>
+                </div>
+              </div>
+              <a class="nav-itemMenu" href="statistics.html">Statistics</a>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="settings.html">Settings</a>
+                  <a class="dropdown-item" href="books.html">Main Book Database</a>
+                  <a class="dropdown-item" href="users.html">User Management</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="page-wrapper">
+          
+          <div class="page-body" style="height: 77vh">
+            <div class="container-xl" id="container">
+                <div class="row row-deck row-cards">
+                    <div class="col-sm-12">
+                      <div class="card" id="collectionCard">
+                        <div class="card-header" id="cardHeader">
+                            <h3 class="card-title" id="collectionTitle">Collection Title</h3>
+                            <div id="rightSideContainer">
+                              <a class="btn" id="editCollectionButton">Edit Metadata</a>
+                              <button class="btn" onclick="initiateEditMode()">Remove Books</button>
+                              <button class="btn btn-red" onclick="toggleModal()">Delete</button>
+                            </div>
+                        </div>
+                        <div class="card-body" id="collectionDataContainer">
+                          <div class="metadataContainer">
+                            <div id="createdDate">Created: </div>
+                            <div id="description">Hello. This is a description.</div>
+                            <div class="hr-text">Collection Contents</div>
+                        </div>
+                            <div class="cardContainer" id="collectionBookContainer">
+                                
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card" id="addBookCard">
+                          <div class="card-header">
+                              <h3 class="card-title">Add book</h3>
+                              <input type="text" class="form-control" id="bookListSearch" style="width: 300px; margin-left: 20px; margin-right: 20px" placeholder="Search for a book." onkeyup="searchTable()"/>
+                              <button class="btn" onclick="initiateAddEditMode()">Bulk Add Books</button>
+                          </div>
+                          <div class="card-body">
+                              <div class="cardContainer table-responsive" id="bookListTableContainer">
+                                <table class="table table-vcenter bookListTable">
+                                  <thead class="sticky-top">
+                                    <tr>
+                                      <th>Title</th>
+                                      <th>Author</th>
+                                      <th class="w-1">Add</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="bookListTableBody" id="bookListTableBody">
+                                    
+                                  </tbody>
+                                </table>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="modal" id="deleteModal" style="display: none">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      
+                      <div class="modal-status bg-danger"></div>
+                      <div class="modal-body text-center py-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 9v2m0 4v.01" />
+                          <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+                        </svg>
+                        <h3>Are you sure?</h3>
+                        <div class="text-muted">Do you really want to delete this collection? This action cannot be undone.</div>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="w-100">
+                          <div class="row">
+                            <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal" onclick="toggleModal()">
+                                Cancel
+                              </a></div>
+                            <div class="col"><a href="#" class="btn btn-danger w-100" data-bs-dismiss="modal" onclick="submitCollectionDelete()">
+                                Delete
+                              </a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+    <script src="src/checkAuth.js"></script>
+    <script src="src/collectionPage.js"></script>
+    
+</html>

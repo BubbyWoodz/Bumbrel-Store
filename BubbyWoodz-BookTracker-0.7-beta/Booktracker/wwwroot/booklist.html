@@ -1,0 +1,237 @@
+<html>
+    <body>
+        <link rel="stylesheet" href="styles/styles.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
+        <link rel="stylesheet" href="styles/search.css">
+        <link rel="stylesheet" href="styles/bookList.css">
+    </body>
+
+    <div class="page">
+        <!-- Sidebar -->
+        <header class="navbar navbar-expand-sm navbar-light d-print-none">
+          <div class="container-xl" id="test">
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+              <a href="index.html">
+                Book Tracker
+              </a>
+            </h1>
+      
+            <div class="navbar-nav flex-row order-md-last">
+              <div class="nav-item">
+                  <div>
+                    <a class="btn" href="search.html">Add New Book</a>
+                    <button class="btn" onclick="logOut()">Log Out</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <header class="navbar navbar-expand-sm navbar-light d-print-none" style="max-height: 56px">
+          <div class="container-xl">
+            <div class="nav nav-tabs border-0 flex-column flex-lg-row menuTest" style="flex-wrap: nowrap;">
+              <a class="nav-itemMenu" href="index.html">Home</a>
+              <a class="nav-itemMenu" href="booklist.html">My Books</a>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Collections</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="collections.html">Collections Home</a>
+                  <a class="dropdown-item" href="addNewCollection.html">Add New Collection</a>
+                </div>
+              </div>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Challenges</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="challenges.html">Challenges Home</a>
+                  <a class="dropdown-item" href="challengeBuilder.html">Add New Challenge</a>
+                </div>
+              </div>
+              <a class="nav-itemMenu" href="statistics.html">Statistics</a>
+              <div class="dropdown" style="height: 48px !important">
+                <a class="nav-itemMenu dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="settings.html">Settings</a>
+                  <a class="dropdown-item" href="books.html">Main Book Database</a>
+                  <a class="dropdown-item" href="users.html">User Management</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="page-wrapper">
+          <div class="page-header d-print-none">
+            <div class="container-xl">
+              <div class="row g-2 align-items-center">
+                <div class="col" id="titleColumn">
+                  <h2 class="page-title">
+                    My Books
+                  </h2>
+                  <div id="rightSideContainer">
+                    <div class="dropdown">
+                      <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">View</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" onclick="createBookCards()">Card</a>
+                        <a class="dropdown-item" href="#" onclick="createBookTable(bookData)">Table</a>
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="statusFilterButton">Status</a>
+                      <div class="dropdown-menu" id="statusFilter">
+                        
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value ="UNASSIGNED"/><span class="status status-yellow">UNASSIGNED</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="READING"/><span class="status status-green">READING</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="UP NEXT"/><span class="status status-teal">UP NEXT</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="TO READ"/><span class="status status-azure">TO READ</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="WISHLIST"/><span class="status status-blue">WISHLIST</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="FINISHED"/><span class="status status-purple">FINISHED</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="DNF"/><span class="status status-red">DNF</span></label>
+                        
+                      </div>
+                    </div>
+
+                    <div class="dropdown">
+                      <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="ratingFilterButton">Rating</a>
+                      <div class="dropdown-menu" id="ratingFilter">
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="&#9734&#9734&#9734&#9734&#9734"/><span class="status status-green">&#9734&#9734&#9734&#9734&#9734</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="&#9734&#9734&#9734&#9734"/><span class="status status-blue">&#9734&#9734&#9734&#9734</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="&#9734&#9734&#9734"/><span class="status status-yellow">&#9734&#9734&#9734</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="&#9734&#9734"/><span class="status status-orange">&#9734&#9734</span></label>
+                        <label class="dropdown-item" onclick="filterByStatus()"><input class="form-check-input m-0 me-2" type="checkbox" value="&#9734"/><span class="status status-red">&#9734</span></label>
+                        
+                      </div>
+                    </div>
+
+                    <button class="btn dropdown-toggle" id="dateFilterButton" onclick="openDateFilter()">Date</button>
+
+                    <input type="text" class="form-control" id="bookListSearch" placeholder="Search for a book." onkeyup="searchTable()"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-body" style="height: 77vh">
+            <div class="container-xl">
+              <div class="row row-deck row-cards" style="height: 95%" id="row">
+                <div class="col-sm-10" style="width:100%; height: 100%" id="tableContainer">
+                  <div class="card" style="overflow-y: auto">
+                    <div class="card-body" style="height: 100%">
+                        <div class="table-responsive">
+                        <table class="table table-vcenter" id="bookListTable">
+                          <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Date of Publication</th>
+                                <th>Publisher</th>
+                                <th>Status</th>
+                                <th>Rating</th>
+                                <th>Date Started</th>
+                                <th>Date Completed</th>
+                                <th>Edit</th>
+                                <th>Open</th>
+                                
+                            </tr>
+                          </thead>
+                          <tbody id="bookListTableBody">
+
+                          </tbody>
+                        </table>
+                        </div>
+                    </div>
+                  </div>
+
+                </div>
+                
+                      <fieldset class="form-fieldset" id="editBox">
+                        <h3>Edit</h3>
+                        
+                        <div class="mb-3">
+                          <label class="form-label">Status & Rating</label>
+                          <div class="dropdown">
+                            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"><span class="status" id="editStatusBox">NO CHANGES</span></a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('NO CHANGES', 'status')"><span class="status">NO CHANGES</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('UNASSIGNED', 'status-yellow')"><span class="status status-yellow">UNASSIGNED</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('READING', 'status-green')"><span class="status status-green">READING</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('UP NEXT', 'status-teal')"><span class="status status-teal">UP NEXT</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('TO READ', 'status-azure')"><span class="status status-azure">TO READ</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('WISHLIST', 'status-blue')"><span class="status status-blue">WISHLIST</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('FINISHED', 'status-purple')"><span class="status status-purple">FINISHED</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateStatusView('DNF', 'status-red')"><span class="status status-red">DNF</span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="dropdown">
+                            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"><span class="status" id="editRatingBox">NO CHANGES</span></a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#" onclick="updateRatingView(this, 'status')"><span class="status">NO CHANGES</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateRatingView(this, 'status-green')"><span class="status status-green">&#9734&#9734&#9734&#9734&#9734</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateRatingView(this, 'status-blue')"><span class="status status-blue">&#9734&#9734&#9734&#9734</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateRatingView(this, 'status-yellow')"><span class="status status-yellow">&#9734&#9734&#9734</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateRatingView(this, 'status-orange')"><span class="status status-orange">&#9734&#9734</span></a>
+                              <a class="dropdown-item" href="#" onclick="updateRatingView(this, 'status-red')"><span class="status status-red">&#9734</span></a>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label class="form-label">Date Started</label>
+                          <input type="date" class="form-control" autocomplete="off" id="startDateEdit"/>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Date Finished</label>
+                          <input type="date" class="form-control" autocomplete="off" id="finishedDateEdit"/>
+                        </div>
+                        <button class="btn btn-success" id="submitEditButton">Submit</button> <button class="btn" id="cancelEditButton" onclick="hideEditBox()">Cancel</button> <button class="btn btn-danger" id="deleteBookButton">Delete</button>
+                      </fieldset>
+
+                      <div class="card hidden" id="dateFilterContent">
+                        <div class="card-body" id="dateFilterContentBody">
+                          <h3 class="card-title">Filter by Date</h3>
+                          <div class="dropdown">
+                            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="dateFilter1">Started</a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" onclick="updateDateFilter1('Started')" href="#">Started</a>
+                              <a class="dropdown-item" onclick="updateDateFilter1('Finished')" href="#">Finished</a>
+                            </div>
+                          </div>
+                          <div class="dropdown">
+                            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="dateFilter2">After</a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" onclick="updateDateFilter2('After')" href="#">After</a>
+                              <a class="dropdown-item" onclick="updateDateFilter2('Before')" href="#">Before</a>
+                              <a class="dropdown-item" onclick="updateDateFilter2('Between')" href="#">Between</a>
+                              <a class="dropdown-item" onclick="updateDateFilter2('On')" href="#">On</a>
+                            </div>
+                          </div>
+                          <input type="date" class="form-control" id="firstDate">
+                          <div id="extraDateFilters" class="hidden">
+                            <div style="padding-top: 10px; padding-left: 10px"><b>AND</b></div>
+                            <input type="date" class="form-control" id="secondDate">
+                          </div>
+                          <div style="padding-top: 10px">
+                            <button class="btn btn-green" onclick="filterByDate()">Submit</button>
+                            <button class="btn" onclick="clearDateFilter()">Clear</button>
+                          </div>
+                        </div>
+                      </div>
+               
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+
+        
+
+      </div>
+      
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+    <script src="src/checkAuth.js"></script>
+    <script src="src/bookList.js"></script>
+    
+</html>
