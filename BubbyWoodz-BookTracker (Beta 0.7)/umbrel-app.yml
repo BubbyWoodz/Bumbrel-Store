@@ -1,0 +1,34 @@
+manifestVersion: 1
+id: BubbyWoodz
+name: beszel
+tagline: 
+icon: https://i.ytimg.com/vi/Bz7gPYBH0AU/maxresdefault.jpg
+category: Reading
+version: "0.7"
+port: 20115
+description: >-
+
+Add books with metadata provided by the Google Books API.
+Add books manually without using an external metadata provider.
+Organize books into collections.
+Create customer reading/writing challenges and track your progress.
+Write private journal entries about a book.
+View book-related statistics like books read per month, etc.
+Multi-user support.
+Import book data and bookshelves from Goodreads.
+Export data to JSON or CSV.
+
+developer: henrygd
+website: https://github.com/BubbyWoodz/Bumbrel-Store
+submitter: Christian Wood
+submission:
+repo:
+support: 
+gallery:
+  - https://github.com/wars2k/booktracker/raw/main/screenshots/home.JPG
+  - https://github.com/wars2k/booktracker/raw/main/screenshots/challenges.png
+
+releaseNotes: >
+  
+dependencies: []
+path: ""
