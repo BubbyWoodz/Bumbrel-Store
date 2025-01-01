@@ -55,25 +55,7 @@ gallery:
   - https://i.imgur.com/tM9ojJq.png
   - https://i.imgur.com/9fXRfQC.png
 releaseNotes: >-
-- Authentication and multi-user system
-- Mixes generated based on your listening activity (experimental, only works with libraries with similar music)
-- Last.fm integration (beta)
-- Defaulting to alternate layout on the web client
-- A pairing mechanism for use with the Android client
-- Listening statistics:
-  - Charts data showing your top 10 albums, artists, and tracks over periods of the last week, month, or year
-  - Various data and play statistics in albums and artists, at the bottom of the page
-- More homepage items:
-  - Mixes for you
-  - Artist mixes
-  - Because you listened to artist (album recommendations)
-  - Artists you might like
-  - Top artists this week (shown at the end of the week)
-  - Top artists this month (shown at the middle and end of the month)
-- A (not finalized) backup and restore system for your playlists, favorites, and listening data
-- Fix: background playback in the background, thanks to @Type-Delta in swingmx/webclient#38
-- Fix: playback issue when track is ~30 seconds to end
-- More undocumented features, improvements, and bug fixes
+
 dependencies:
 path: ""
 defaultUsername: ""
