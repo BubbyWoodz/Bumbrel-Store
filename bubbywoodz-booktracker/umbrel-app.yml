@@ -1,0 +1,20 @@
+id: booktracker
+name: BookTracker
+version: 1.0.0
+description: A lightweight app to track your book collection.
+repository: https://github.com/wars2k/booktracker
+license: MIT
+type: app
+author: wars2k
+submitter: bubbywoodz
+website: https://github.com/wars2k/booktracker
+category: tools
+dependencies:
+  - docker
+specs:
+  compose:
+    file: docker-compose.yml
+  memory: 128mb
+  storage: 10mb
+  ports:
+    - 8080
