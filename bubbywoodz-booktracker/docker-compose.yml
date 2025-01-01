@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-booktracker_server_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: ghcr.io/wars2k/booktracker:latest
+    restart: on-failure
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+      - ${APP_DATA_DIR}/data:/data:rw
+      - /home/umbrel/umbrel/data/storage/Books:/app/data
+
+  fix_permissions:
+    image: ghcr.io/wars2k/booktracker:latest
+    container_name: bubbywoodz-booktracker_fix_permissions
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    entrypoint: ["sh", "-c", "chmod -R 777 /data"]
+    restart: "no"
