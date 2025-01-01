@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   app_proxy:
     environment:
@@ -10,8 +11,8 @@ services:
     image: ghcr.io/swingmx/swingmusic:v2.0.0.beta10.2
     restart: on-failure
     environment:
-      - PUID=1000
-      - PGID=1000
+      PUID: 1000
+      PGID: 1000
     volumes:
       - ${APP_DATA_DIR}/config:/config
       - ${APP_DATA_DIR}/music:/music:rw
