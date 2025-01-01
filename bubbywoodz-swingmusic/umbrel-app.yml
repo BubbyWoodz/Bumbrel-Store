@@ -4,7 +4,7 @@ name: Swing Music
 tagline: A beautiful, self-hosted music player for your local audio files
 icon: https://i.imgur.com/B9R2I6L.png
 category: media
-version: "1.4.8"
+version: "2.0"
 port: 1970
 description: >-
   Swing Music is a sleek, self-hosted music player built for your personal audio collection. Unlike streaming services like Spotify, you have complete control over your library—only the music you love makes the cut. Simply launch the app and access your entire collection right from your web browser. Enjoy seamless playback, advanced playlist features, and a user-friendly interface that feels like a custom-built music service. 
@@ -55,9 +55,25 @@ gallery:
   - https://i.imgur.com/tM9ojJq.png
   - https://i.imgur.com/9fXRfQC.png
 releaseNotes: >-
-  A new optional layout without a sidebar was added, along with a top bar search and centered content in the default layout. The app now uses a stronger WSGI server, supports ARM64, and has a proper timezone fix. Recent items display how long ago they were played/added, with no cutoff.
-
-  Bug fixes include improved queue management, playlist bounds, keyboard shortcuts, and lyrics plugin functionality.
+- Authentication and multi-user system
+- Mixes generated based on your listening activity (experimental, only works with libraries with similar music)
+- Last.fm integration (beta)
+- Defaulting to alternate layout on the web client
+- A pairing mechanism for use with the Android client
+- Listening statistics:
+  - Charts data showing your top 10 albums, artists, and tracks over periods of the last week, month, or year
+  - Various data and play statistics in albums and artists, at the bottom of the page
+- More homepage items:
+  - Mixes for you
+  - Artist mixes
+  - Because you listened to artist (album recommendations)
+  - Artists you might like
+  - Top artists this week (shown at the end of the week)
+  - Top artists this month (shown at the middle and end of the month)
+- A (not finalized) backup and restore system for your playlists, favorites, and listening data
+- Fix: background playback in the background, thanks to @Type-Delta in swingmx/webclient#38
+- Fix: playback issue when track is ~30 seconds to end
+- More undocumented features, improvements, and bug fixes
 dependencies:
 path: ""
 defaultUsername: ""
