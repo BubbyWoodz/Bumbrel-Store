@@ -7,7 +7,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   server:
-    image: ghcr.io/swingmx/swingmusic:v2.0.0.beta10@sha256:b2ade5d5f7d24343a584ac49da7f9911ab6490c9654241cb1596526a321e8337
+    image: ghcr.io/swingmx/swingmusic:v2.0.0.beta10
     restart: on-failure
     environment:
       - PUID=1000
@@ -18,7 +18,7 @@ services:
       - /home/umbrel/umbrel/data/storage/Music:/app/music
 
   fix_permissions:
-    image: ghcr.io/swingmx/swingmusic:v2.0.0.beta10@sha256:b2ade5d5f7d24343a584ac49da7f9911ab6490c9654241cb1596526a321e8337
+    image: ghcr.io/swingmx/swingmusic:v2.0.0.beta10
     container_name: bubbywoodz-swingmusic_fix_permissions
     volumes:
       - ${APP_DATA_DIR}/music:/music
