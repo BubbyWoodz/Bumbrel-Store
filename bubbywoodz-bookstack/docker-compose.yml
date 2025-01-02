@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  bookstack:
+    image: ghcr.io/linuxserver/bookstack:24.12.20241223
+    container_name: bookstack
+    environment:
+      - DB_HOST=db
+      - DB_USER=bookstack
+      - DB_PASS=bookstack_pass
+      - DB_DATABASE=bookstack
+      - APP_URL=http://localhost:8080
+      # Optional mail configuration:
+      # - MAIL_DRIVER=smtp
+      # - MAIL_HOST=smtp.example.com
+      # - MAIL_PORT=587
+      # - MAIL_USERNAME=example@example.com
+      # - MAIL_PASSWORD=your_password
+      # - MAIL_ENCRYPTION=tls
+    volumes:
+      - ./data/bookstack:/config
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mariadb:10.5
+    container_name: bookstack_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=supersecret
+      - MYSQL_DATABASE=bookstack
+      - MYSQL_USER=bookstack
+      - MYSQL_PASSWORD=bookstack_pass
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    restart: unless-stopped
