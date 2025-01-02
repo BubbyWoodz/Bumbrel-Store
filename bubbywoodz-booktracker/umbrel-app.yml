@@ -9,11 +9,11 @@ developer: wars2k
 submitter: bubbywoodz
 website: https://github.com/wars2k/booktracker
 gallery:
-  - https://github.com/wars2k/booktracker/raw/main/screenshots/home.jpg
-  - https://github.com/wars2k/booktracker/raw/main/screenshots/bookList.jpg
-  - https://github.com/wars2k/booktracker/raw/main/screenshots/challenges.png
-  - https://github.com/wars2k/booktracker/raw/main/screenshots/settings.jpg
-  - https://github.com/wars2k/booktracker/raw/main/screenshots/Users.jpg
+  - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/home.jpg
+  - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/bookList.jpg
+  - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/challenges.png
+  - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/settings.jpg
+  - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/Users.jpg
 icon: https://i.imgur.com/BF2uoE4.png
 category: reading
 dependencies:
