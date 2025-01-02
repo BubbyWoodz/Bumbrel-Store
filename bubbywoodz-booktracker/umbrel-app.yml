@@ -1,11 +1,11 @@
-id: booktracker
+id: bubbywoodz-booktracker
 name: BookTracker
 version: 1.0.0
 description: A lightweight app to track your book collection.
 repository: https://github.com/wars2k/booktracker
 license: MIT
 type: app
-author: wars2k
+developer: wars2k
 submitter: bubbywoodz
 website: https://github.com/wars2k/booktracker
 icon: https://i.imgur.com/BF2uoE4.png
