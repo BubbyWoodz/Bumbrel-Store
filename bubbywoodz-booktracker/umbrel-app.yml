@@ -9,7 +9,7 @@ developer: wars2k
 submitter: bubbywoodz
 website: https://github.com/wars2k/booktracker
 icon: https://i.imgur.com/BF2uoE4.png
-category: tools
+category: reading
 dependencies:
   - docker
 specs:
