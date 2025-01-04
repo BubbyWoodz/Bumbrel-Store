@@ -24,7 +24,7 @@ services:
       - db
     restart: unless-stopped
 
-  db:
+  server:
     image: mariadb:10.5
     container_name: bookstack_db
     environment:
