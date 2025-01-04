@@ -6,7 +6,8 @@ version: "0.0.1" # Initial app version
 category: Social 
 icon: https://avatars.githubusercontent.com/u/77590734?v=4
 tagline: Self-hosted private blog instead of using Facebook
-developer: "Your Name/Organization"
+developer: "mawise"
+submitter: "Bu88yW00dz"
 website: "https://havenweb.org"
 repository: "https://github.com/havenweb/haven"
 
