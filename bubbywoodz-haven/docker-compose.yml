@@ -10,12 +10,31 @@ services:
     volumes:
       - haven_data:/app/data
     environment:
-      PUID: 1000 # Replace with your user's UID
-      PGID: 1000 # Replace with your user's GID
-      TZ: "America/Los_Angeles" # California LA Timezone
-      # Add other Haven specific environment variables here as per the documentation
-      # Example for a potential configuration value (replace with correct values):
-      # HAVEN_SOMETHING: "some_value"
+      PUID: "1000" # Replace with your user's UID
+      PGID: "1000" # Replace with your user's GID
+      TZ: "America/Los_Angeles"
+      # Configure Haven to connect to the PostgreSQL service
+      DATABASE_URL: postgres://haven:password@db:5432/haven_development # IMPORTANT
+      RAILS_ENV: production
+      RAILS_SERVE_STATIC_FILES: true
+      HAVEN_DEPLOY: docker # This is important for docker deployments
+
+    depends_on: # Make sure the db starts before haven
+      - db
+
+  db: # PostgreSQL service
+    image: postgres:14 # Use a specific PostgreSQL version
+    container_name: haven_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: haven # Database user
+      POSTGRES_PASSWORD: password # Database password (CHANGE THIS!)
+      POSTGRES_DB: haven_development # Database name
+    volumes:
+      - haven_db_data:/var/lib/postgresql/data # Persistent storage for the database
+    ports:
+      - "5432:5432" # only for debugging, REMOVE FOR PRODUCTION
 
 volumes:
   haven_data:
+  haven_db_data:
