@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  haven:
+    image: ghcr.io/havenweb/haven:ed8777c
+    container_name: haven
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - haven_data:/app/data
+    environment:
+      PUID: 1000 # Replace with your user's UID
+      PGID: 1000 # Replace with your user's GID
+      TZ: "America/Los_Angeles" # California LA Timezone
+      # Add other Haven specific environment variables here as per the documentation
+      # Example for a potential configuration value (replace with correct values):
+      # HAVEN_SOMETHING: "some_value"
+
+volumes:
+  haven_data:

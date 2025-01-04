@@ -1,0 +1,58 @@
+manifestVersion: "0.1"
+id: haven # Unique app ID (choose a unique ID, preferably using reverse domain name notation e.g., com.example.haven)
+name: Haven
+description: Self-host a private blog instead of using Facebook
+version: "0.0.1" # Initial app version
+category: Social 
+icon: https://avatars.githubusercontent.com/u/77590734?v=4
+tagline: Self-hosted private blog instead of using Facebook
+developer: "Your Name/Organization"
+website: "https://havenweb.org"
+repository: "https://github.com/havenweb/haven"
+
+container:
+  dockerComposeFile: docker-compose.yml
+  image: ghcr.io/havenweb/haven:ed8777c #redundant but good to have
+  ports:
+    - "8080:8080"
+  environment:
+    PUID: "1000" # Important: Make this configurable in the future (see below)
+    PGID: "1000" # Important: Make this configurable in the future (see below)
+    TZ: "America/Los_Angeles" # Make this configurable in the future
+    # Add other Haven specific environment variables here as per the documentation
+    # Example:
+    # HAVEN_SOMETHING: "some_value"
+
+# Optional, but highly recommended for user experience
+configuration:
+  properties:
+    - id: puid
+      name: PUID
+      description: The User ID for file permissions.
+      type: number
+      default: 1000
+    - id: pgid
+      name: PGID
+      description: The Group ID for file permissions.
+      type: number
+      default: 1000
+    - id: timezone
+      name: Timezone
+      description: Your timezone (e.g., America/New_York).
+      type: string
+      default: America/Los_Angeles
+      examples:
+        - America/New_York
+        - Europe/London
+        - Asia/Tokyo
+
+# Optional, but useful
+# services:
+#   haven:
+#     ports:
+#       - 8080
+
+# Optional, for persistent data
+volumes:
+  - name: haven_data
+    path: /app/data
