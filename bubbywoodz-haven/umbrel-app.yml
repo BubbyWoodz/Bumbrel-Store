@@ -1,5 +1,5 @@
 manifestVersion: "0.1"
-id: haven # Unique app ID (choose a unique ID, preferably using reverse domain name notation e.g., com.example.haven)
+id: bubbywoodz-haven
 name: Haven
 description: Self-host a private blog instead of using Facebook
 version: "0.0.1" # Initial app version
