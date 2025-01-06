@@ -1,0 +1,23 @@
+manifestVersion: 1
+id: bubbywoodz-actualbudget
+name: Atual budget
+tagline: Your Finances — made simple
+icon: https://avatars.githubusercontent.com/u/37879538?v=4
+category: Finance
+version: "24.12.0"
+port: 5006
+description: >-
+Actual Budget is a super fast and privacy-focused app for managing your finances. At its heart is the well proven and much loved Envelope Budgeting methodology. You own your data and can do whatever you want with it. Featuring multi-device sync, optional end-to-end encryption and so much more. 
+developer: James Long
+submitter: bubbywoodz
+website: https://actualbudget.org/
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/actualbudget/actual
+https://github.com/actualbudget/actual/issues
+gallery:
+  - https://raw.githubusercontent.com/actualbudget/actual/master/demo.png
+releaseNotes: >-
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
