@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-spacedrive_server_1
+      APP_PORT: 8080
+  server:
+    image: ghcr.io/spacedriveapp/spacedrive/server
+    restart: on-failure
+    volumes:
+      - ${UMBREL_ROOT}/var/spacedrive:/var/spacedrive
+    environment:
+      - SD_AUTH=disabled
+      - TZ=Europe/Berlin
