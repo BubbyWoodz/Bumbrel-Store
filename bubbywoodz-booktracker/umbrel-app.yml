@@ -1,27 +1,21 @@
 id: bubbywoodz-booktracker
-name: BookShelf
-version: 1.0.0
-description: A lightweight app to track your book collection.
-repository: https://github.com/wars2k/booktracker
-license: MIT
-type: app
+name: Booktracker
+version: 0.7-beta
+tagline: Track and organize your book collection
+description: |
+  Booktracker is a self-hosted app for managing your personal book library. Add books with metadata from Google Books, organize them into collections, track reading progress, and import data from Goodreads. Perfect for book enthusiasts looking for a privacy-focused alternative.
+icon: icon.png
+category: Productivity
 developer: wars2k
-submitter: bubbywoodz
 website: https://github.com/wars2k/booktracker
+repository: https://github.com/wars2k/booktracker
+permissions:
+  - storage
+port: 2341
 gallery:
   - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/home.jpg
   - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/bookList.jpg
   - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/challenges.png
   - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/settings.jpg
   - https://raw.githubusercontent.com/wars2k/booktracker/main/screenshots/Users.jpg
-icon: https://i.imgur.com/BF2uoE4.png
-category: reading
-dependencies:
-  - docker
-specs:
-  compose:
-    file: docker-compose.yml
-  memory: 128mb
-  storage: 10mb
-  ports:
-    - 8080
+dependencies: []
