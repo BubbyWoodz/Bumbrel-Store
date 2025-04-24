@@ -1,0 +1,17 @@
+id: bubbywoodz-homepage
+name: Homepage
+version: 0.7-beta
+tagline: Modern Docker homepage
+description: |
+Moderm docker homepage with stats
+icon: icon.png
+category: Productivity
+developer: wars2k
+website: https://gethomepage.dev
+repository: https://github.com/gethomepage/homepage
+permissions:
+  - storage
+port: 2341
+gallery:
+
+dependencies: []
