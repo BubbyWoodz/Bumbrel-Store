@@ -1,0 +1,35 @@
+version: "3.7"
+
+x-logging:
+  &default-logging
+  driver: journald
+  options:
+    tag: "umbrel-app {{.Name}}"
+
+services:
+  podfetch:
+    container_name: podfetch
+    image: ghcr.io/samtv12345/podfetch:latest@sha256:3f7f6e1e5c6b7d8a9f0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2
+    logging: *default-logging
+    restart: on-failure
+    stop_grace_period: 5m
+    user: ${UID:-1000}:${GID:-1000}
+    ports:
+      - "${APP_PODFETCH_PORT}:8000"
+    volumes:
+      - ${APP_DATA_DIR}/podcasts:/app/podcasts
+      - ${APP_DATA_DIR}/db:/app/db
+    environment:
+      - POLLING_INTERVAL=60
+      - SERVER_URL=http://${DEVICE_DOMAIN_NAME}:${APP_PODFETCH_PORT}
+      - DATABASE_URL=sqlite:///app/db/podcast.db
+      - APP_HIDDEN_SERVICE=${APP_HIDDEN_SERVICE}
+      - APP_PASSWORD=${APP_PASSWORD}
+    networks:
+      default:
+        ipv4_address: ${APP_PODFETCH_IP}
+
+networks:
+  default:
+    external:
+      name: umbrel_main_network
