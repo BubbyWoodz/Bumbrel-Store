@@ -1,5 +1,5 @@
 manifestVersion: 1
-id: podfetch
+id: bubbywoodz-podfetch
 name: PodFetch
 tagline: A sleek, self-hosted podcast manager and downloader
 icon: https://raw.githubusercontent.com/SamTV12345/PodFetch/main/ui/public/favicon.png
