@@ -22,9 +22,10 @@ services:
     environment:
       - POLLING_INTERVAL=60
       - SERVER_URL=http://${DEVICE_DOMAIN_NAME}:${APP_PODFETCH_PORT}
-      - DATABASE_URL=sqlite:///app/db/podcast.db
+      - DATABASE_URL=sqlite:/app/db/podcast.db
       - APP_HIDDEN_SERVICE=${APP_HIDDEN_SERVICE}
       - APP_PASSWORD=${APP_PASSWORD}
+      - RUST_BACKTRACE=1  # Added for debugging
     networks:
       default:
         ipv4_address: ${APP_PODFETCH_IP}
