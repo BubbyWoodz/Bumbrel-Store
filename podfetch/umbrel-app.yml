@@ -1,20 +1,45 @@
+manifestVersion: 1
 id: podfetch
 name: PodFetch
-tagline: A sleek and efficient podcast downloader
+tagline: A sleek, self-hosted podcast manager and downloader
 icon: https://raw.githubusercontent.com/SamTV12345/PodFetch/main/ui/public/favicon.png
-category: Media
-version: latest
+category: media
+version: "latest"
 port: 8000
-description: |
-  PodFetch is a self-hosted podcast manager that lets you download and listen to podcasts through a web-based interface. Written in Rust with a React frontend, it offers GPodder integration for seamless syncing with your favorite podcast apps. Stay updated with automatic Docker image updates via Watchtower.
-repository: https://github.com/SamTV12345/PodFetch
+description: >-
+  PodFetch is a self-hosted podcast manager that lets you download and listen to your favorite podcasts through a beautiful web-based interface. Built with Rust and a React frontend, it offers GPodder integration for seamless syncing with your podcast apps. Organize your subscriptions, download episodes automatically, and enjoy your podcasts without subscriptions or ads—just your content, your way.
+
+  Here are some cool features offered by PodFetch:
+
+  🎙️ Subscribe to podcasts and download episodes automatically with customizable polling intervals.
+
+  📱 Sync your subscriptions and playback progress with GPodder-compatible apps.
+
+  🌐 Access your podcast library from any browser with a responsive, user-friendly interface.
+
+  🗂️ Organize your podcasts with ease, including support for custom categories and playlists.
+
+  🚀 Lightweight and efficient, built with Rust for performance and reliability.
+
+  📡 Supports Watchtower for automatic updates to keep your PodFetch instance current.
+
+  🔒 Run it on your Umbrel node for complete control over your podcast library.
+
+  PodFetch is actively developed, with new features and improvements on the way. Stay tuned for updates!
+
+developer: Samuel Schepp
 website: https://www.samtv.fyi
+submitter: <your-github-username>
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/SamTV12345/PodFetch
 support: https://github.com/SamTV12345/PodFetch/discussions
 gallery:
   - https://raw.githubusercontent.com/SamTV12345/PodFetch/main/docs/screenshot1.png
   - https://raw.githubusercontent.com/SamTV12345/PodFetch/main/docs/screenshot2.png
   - https://raw.githubusercontent.com/SamTV12345/PodFetch/main/docs/screenshot3.png
+releaseNotes: >-
+  Initial release for Umbrel Community App Store. Includes support for GPodder sync, automatic episode downloads, and a modern web UI.
 dependencies: []
 path: ""
 defaultUsername: ""
-defaultPassword: ${APP_PASSWORD}
+defaultPassword: ""
