@@ -3,7 +3,7 @@ id: bubbywoodz-kavita-reader
 category: media
 name: Kavita
 icon: https://www.kavitareader.com/img/logo.png
-version: "0.7.7"
+version: "0.8.6.2"
 tagline: Digital ebook library which supports a vast array of file formats.
 description: >-
   Lighting fast with a slick design, Kavita is a rocket fueled self-hosted digital library which supports a vast array of file formats. Install to start reading and share your server with your friends.
