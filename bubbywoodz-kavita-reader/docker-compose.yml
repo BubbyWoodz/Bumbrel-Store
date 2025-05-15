@@ -1,11 +1,9 @@
 services:
-  app_proxy:
     environment:
-      APP_HOST: bubbywoodz-kavita-reader
-  web:
+      APP_HOST: bubbywoodz-kavita-reader_server_1
+  server:
     image: ghcr.io/kareadita/kavita:latest
     restart: on-failure
-    stop_grace_period: 1m
     ports:
       - "5000:5000"
     volumes:
