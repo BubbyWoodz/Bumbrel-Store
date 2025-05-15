@@ -10,7 +10,6 @@ description: >
   Easily configured via YAML files (or discovery via docker labels).
 developer: Benphelps
 website: https://gethomepage.dev
-dependencies: []
 repo: https://github.com/gethomepage/homepage
 support: https://github.com/gethomepage/homepage/issues
 port: 7204
@@ -39,4 +38,4 @@ releaseNotes: >
   - Enhancement: add label formatting for dynamic-list customapi widget by @rayanmestiri in #5217
   - Enhancement: Add support for specifying a datastore to PBS widget by @choehn86 and @shamoon in #4614
   - New Crowdin translations by GitHub Action by @github-actions in #5092
-Key Changes in the Example
+submitter: bubbywoodz
