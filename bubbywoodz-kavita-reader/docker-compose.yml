@@ -2,16 +2,16 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: kavita
+      APP_HOST: bubbywoodz-kavita-reader_kavita_1
       APP_PORT: 5012
   kavita:
     image: ghcr.io/kareadita/kavita:latest
     container_name: kavita
     volumes:
-      - ${APP_DATA_DIR}/manga:/manga
-      - ${APP_DATA_DIR}/comics:/comics
-      - ${APP_DATA_DIR}/books:/books
-      - ${APP_DATA_DIR}/config:/kavita/config
+      - /umbrel/app-data/bubbywoodz-kavita-reader/data/manga:/manga
+      - /umbrel/app-data/bubbywoodz-kavita-reader/data/comics:/comics
+      - /umbrel/app-data/bubbywoodz-kavita-reader/data/books:/books
+      - /umbrel/app-data/bubbywoodz-kavita-reader/data/config:/kavita/config
     environment:
       - TZ=America/Los_Angeles
       - PUID=1000
