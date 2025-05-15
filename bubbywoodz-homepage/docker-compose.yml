@@ -5,6 +5,7 @@ services:
     container_name: bubbywoodz-homepage_server_1
     environment:
       - APP_PORT=3000
+      - HOMEPAGE_ALLOWED_HOSTS=umbrel.local:7204,localhost:7204,127.0.0.1:7204
     ports:
       - "7204:3000"
     volumes:
