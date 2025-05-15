@@ -1,14 +1,13 @@
 services:
   app_proxy:
     environment:
-      APP_HOST: beaver-kavita-reader_web_1
-      APP_PORT: 5012
+      APP_HOST: bubbywoodz-kavita-reader
   web:
     image: ghcr.io/kareadita/kavita:latest
     restart: on-failure
     stop_grace_period: 1m
     ports:
-      - "5012:5000"
+      - "5000:5000"
     volumes:
       - ${APP_DATA_DIR}/manga:/manga
       - ${APP_DATA_DIR}/comics:/comics
