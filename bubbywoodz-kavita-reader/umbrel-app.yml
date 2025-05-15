@@ -72,5 +72,4 @@ defaultPassword: ""
 torOnly: false
 permissions:
   - STORAGE_DOWNLOADS
-submitter: buttonbeaver
-submission: https://github.com/buttonbeaver/beaver-umbrel-app-store
+submitter: bubbywoodz
