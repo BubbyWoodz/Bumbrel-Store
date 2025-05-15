@@ -1,13 +1,21 @@
+version: "3.7"
 services:
+  app_proxy:
     environment:
-      APP_HOST: bubbywoodz-kavita-reader_server_1
-  server:
+      APP_HOST: kavita
+      APP_PORT: 5012
+  kavita:
     image: ghcr.io/kareadita/kavita:latest
-    restart: on-failure
-    ports:
-      - "5000:5000"
+    container_name: kavita
     volumes:
       - ${APP_DATA_DIR}/manga:/manga
       - ${APP_DATA_DIR}/comics:/comics
       - ${APP_DATA_DIR}/books:/books
       - ${APP_DATA_DIR}/config:/kavita/config
+    environment:
+      - TZ=America/Los_Angeles
+      - PUID=1000
+      - PGID=1000
+    ports:
+      - "5012:5000"
+    restart: unless-stopped
