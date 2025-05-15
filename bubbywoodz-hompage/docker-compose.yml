@@ -3,7 +3,7 @@ version: "1.2"
 services:
   app_proxy:
     environment:
-      APP_HOST: bubbywoodz-umbrel-homepage_server_1
+      APP_HOST: bubbywoodz-homepage_server_1
       APP_PORT: 3000
 
   server:
