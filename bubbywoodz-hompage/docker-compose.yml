@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   server:
-    image: ghcr.io/gethomepage/homepage:main
+    image: ghcr.io/gethomepage/homepage:latest
     volumes:
       - ${APP_DATA_DIR}/data/homepage:/app/config # Make sure your local config directory exists
       - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
