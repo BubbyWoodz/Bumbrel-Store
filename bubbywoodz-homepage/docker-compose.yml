@@ -1,12 +1,13 @@
 version: "3.7"
-
 services:
-  environment:
-    APP_HOST: bubbywoodz-homepage_server_1
-    APP_PORT: 3000
-
   server:
     image: ghcr.io/gethomepage/homepage:latest
+    container_name: bubbywoodz-homepage_server_1
+    environment:
+      - APP_PORT=3000
+    ports:
+      - "7204:3000"
     volumes:
-      - ${APP_DATA_DIR}/data/homepage:/app/config # Make sure your local config directory exists
-      - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
+      - ${APP_DATA_DIR}/homepage:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
