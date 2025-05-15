@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   kavita:
-    image: ghcr.io/kareadita/kavita:latest
+    image: jvmilazz0/kavita:latest
     container_name: bubbywoodz-kavita-reader
     user: "1000:1000"
     volumes:
