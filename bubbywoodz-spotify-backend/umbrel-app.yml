@@ -2,19 +2,15 @@ manifestVersion: 1
 id: bubbywoodz-spotify-backend
 name: Spotify Backend
 tagline: Backend server for Spotify Now Playing widget
-icon: ./icon.svg
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/2e489c8e465d780f7fe16a9f67f7f3ee6f9a83a5/bubbywoodz-spotify-backend/icon.svg
 category: media
 version: "1.0.0"
-port: 3000
 description: >-
   Spotify Backend connects to Spotify API to display your currently playing tracks and control playback.
 developer: Umbrel Community
-website: https://github.com/umbrel/umbrel
+website: https://github.com/BubbyWoodz/Bumbrel-Store
 dependencies:
   - homepage
-path: ""
-defaultUsername: ""
-defaultPassword: ""
 permissions:
   - id: APP_SPOTIFY_CLIENT_ID
     name: Spotify Client ID
