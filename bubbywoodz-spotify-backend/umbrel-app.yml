@@ -16,3 +16,25 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 permissions:
+  - id: APP_SPOTIFY_CLIENT_ID
+    name: Spotify Client ID
+    description: Your Spotify Developer Application Client ID
+    type: text
+    required: true
+  - id: APP_SPOTIFY_CLIENT_SECRET
+    name: Spotify Client Secret
+    description: Your Spotify Developer Application Client Secret
+    type: password
+    required: true
+  - id: APP_SESSION_SECRET
+    name: Session Secret
+    description: A random string used to secure session cookies
+    type: password
+    required: true
+    default: $APP_SEED
+  - id: APP_FRONTEND_URL
+    name: Frontend URL
+    description: URL of your Homepage instance
+    type: text
+    required: true
+    default: http://192.168.0.102/homepage
