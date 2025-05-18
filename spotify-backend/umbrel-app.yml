@@ -1,0 +1,40 @@
+name: Spotify Backend
+version: "1.0.0"
+tagline: Backend server for Spotify Now Playing widget
+description: >-
+  A backend server that connects to Spotify API to display currently playing tracks and control playback.
+  Designed to work with Homepage's custom API widget for a seamless Spotify integration.
+developer: Umbrel Community
+website: https://github.com/umbrel/umbrel
+dependencies:
+  - homepage
+repo: https://github.com/umbrel/umbrel-apps
+support: https://community.getumbrel.com
+port: $APP_SPOTIFY_BACKEND_PORT
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+deterministicPassword: false
+permissions:
+  - id: APP_SPOTIFY_CLIENT_ID
+    name: Spotify Client ID
+    description: Your Spotify Developer Application Client ID
+    type: text
+    required: true
+  - id: APP_SPOTIFY_CLIENT_SECRET
+    name: Spotify Client Secret
+    description: Your Spotify Developer Application Client Secret
+    type: password
+    required: true
+  - id: APP_SESSION_SECRET
+    name: Session Secret
+    description: A random string used to secure session cookies
+    type: password
+    required: true
+    default: $APP_SEED
+  - id: APP_FRONTEND_URL
+    name: Frontend URL
+    description: URL of your Homepage instance (e.g., http://umbrel.local/homepage)
+    type: text
+    required: true
+    default: http://umbrel.local/homepage
