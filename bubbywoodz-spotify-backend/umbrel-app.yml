@@ -7,45 +7,14 @@ category: media
 version: "1.0.0"
 port: 3000
 description: >-
-  Spotify Backend is a server that connects to Spotify API to display your currently playing tracks and control playback.
-  Designed to work with Homepage's custom API widget for a seamless Spotify integration on your Umbrel dashboard.
-
-
-  This app provides the backend functionality needed to:
-  
-  
-  🎵 Display your currently playing Spotify track
-  
-  
-  ⏯️ Control playback (play, pause, next, previous)
-  
-  
-  🔄 Automatically refresh track information
-  
-  
-  🔒 Securely authenticate with your Spotify account
-  
-  
-  After installation, add the custom widget to your Homepage dashboard to enjoy your Spotify music directly from your Umbrel.
-
+  Spotify Backend connects to Spotify API to display your currently playing tracks and control playback.
 developer: Umbrel Community
 website: https://github.com/umbrel/umbrel
-submitter: umbrel-community
-submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/umbrel/umbrel-apps
-support: https://community.getumbrel.com
-gallery:
-  - https://i.imgur.com/spotify-widget-1.png
-  - https://i.imgur.com/spotify-widget-2.png
-releaseNotes: >-
-  Initial release of Spotify Backend for Umbrel
-
 dependencies:
   - homepage
 path: ""
 defaultUsername: ""
 defaultPassword: ""
-deterministicPassword: false
 permissions:
   - id: APP_SPOTIFY_CLIENT_ID
     name: Spotify Client ID
@@ -65,8 +34,7 @@ permissions:
     default: $APP_SEED
   - id: APP_FRONTEND_URL
     name: Frontend URL
-    description: URL of your Homepage instance (e.g., http://umbrel.local/homepage)
+    description: URL of your Homepage instance
     type: text
     required: true
-    default: http://umbrel.local/homepage
-
+    default: http://192.168.0.102/homepage
