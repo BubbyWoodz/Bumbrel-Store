@@ -9,8 +9,6 @@ description: >-
   Spotify Backend connects to Spotify API to display your currently playing tracks and control playback.
 developer: Umbrel Community
 website: https://github.com/BubbyWoodz/Bumbrel-Store
-dependencies:
-  - homepage
 permissions:
   - id: APP_SPOTIFY_CLIENT_ID
     name: Spotify Client ID
@@ -27,7 +25,6 @@ permissions:
     description: A random string used to secure session cookies
     type: password
     required: true
-    default: $APP_SEED
   - id: APP_FRONTEND_URL
     name: Frontend URL
     description: URL of your Homepage instance
