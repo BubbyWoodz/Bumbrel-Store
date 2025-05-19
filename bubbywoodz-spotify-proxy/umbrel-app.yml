@@ -41,6 +41,7 @@ gallery:
   - https://i.imgur.com/fSGzZQK.png
 releaseNotes: >- 
   - Fixed Last API Call Status
+  
   - Added About Tab
 dependencies:
 path: ""
