@@ -30,13 +30,6 @@ description: >-
 
   🏠 Built for privacy and local control
 
-releaseNotes: |
-  - Added customizable controls with Apply button
-  - Added hover effect toggle option
-  - Fixed play/pause button to use HTML symbols
-  - Added API call logging with timestamps
-  - Changed duration to duration left
-  - Improved UI with cleaner interface
 developer: bu88yw00dz
 website: https://github.com/bu88yw00dz/spotify-proxy
 submitter: bu88yw00dz
