@@ -46,7 +46,6 @@ releaseNotes: >-
   - Added API call logging with timestamps
   - Changed duration to duration left
   - Improved UI with cleaner interface
-  
 dependencies:
 path: ""
 defaultUsername: ""
