@@ -4,7 +4,7 @@ name: Spotify Proxy
 tagline: A self-hosted proxy to power your Spotify widgets
 icon: https://cdn.jim-nielsen.com/ios/512/spotify-music-2015-07-30.png?rf=1024
 category: developer
-version: "1.0.0"
+version: "0.2"
 port: 3000
 description: >-
   Spotify Proxy is a lightweight, self-hosted backend for securely refreshing Spotify API access tokens using your own credentials.
@@ -30,6 +30,13 @@ description: >-
 
   🏠 Built for privacy and local control
 
+releaseNotes: |
+  - Added customizable controls with Apply button
+  - Added hover effect toggle option
+  - Fixed play/pause button to use HTML symbols
+  - Added API call logging with timestamps
+  - Changed duration to duration left
+  - Improved UI with cleaner interface
 developer: bu88yw00dz
 website: https://github.com/bu88yw00dz/spotify-proxy
 submitter: bu88yw00dz
@@ -40,7 +47,16 @@ gallery:
   - https://i.imgur.com/74DYZJq.png
   - https://i.imgur.com/fSGzZQK.png
 releaseNotes: >-
-  Initial release — designed for homepage.dev Spotify widget integration.
+  2.0 
+  - Added customizable controls with Apply button
+  - Added hover effect toggle option
+  - Fixed play/pause button to use HTML symbols
+  - Added API call logging with timestamps
+  - Changed duration to duration left
+  - Improved UI with cleaner interface
+  
+  0.1 Initial release — designed for homepage.dev Spotify widget integration.
+  
 dependencies:
 path: ""
 defaultUsername: ""
