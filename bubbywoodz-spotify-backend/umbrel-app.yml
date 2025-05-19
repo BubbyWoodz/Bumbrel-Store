@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: bubbywoodz-spotify-backend
+name: Spotify Backend
+tagline: Backend server for Spotify Now Playing widget
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/2e489c8e465d780f7fe16a9f67f7f3ee6f9a83a5/bubbywoodz-spotify-backend/icon.svg
+category: media
+version: "1.0.0"
+description: >-
+  Spotify Backend connects to Spotify API to display your currently playing tracks and control playback.
+developer: Umbrel Community
+website: https://github.com/BubbyWoodz/Bumbrel-Store
+permissions:
+  - id: APP_SPOTIFY_CLIENT_ID
+    name: Spotify Client ID
+    description: Your Spotify Developer Application Client ID
+    type: text
+    required: true
+  - id: APP_SPOTIFY_CLIENT_SECRET
+    name: Spotify Client Secret
+    description: Your Spotify Developer Application Client Secret
+    type: password
+    required: true
+  - id: APP_SESSION_SECRET
+    name: Session Secret
+    description: A random string used to secure session cookies
+    type: password
+    required: true
+  - id: APP_FRONTEND_URL
+    name: Frontend URL
+    description: URL of your Homepage instance
+    type: text
+    required: true
+    default: http://192.168.0.102/homepage
