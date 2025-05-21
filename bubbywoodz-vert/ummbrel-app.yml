@@ -1,0 +1,42 @@
+manifestVersion: 1
+id: bubbywoodz-vert
+name: Vert
+tagline: A self-hosted file converter that runs entirely in your browser
+icon: https://vert.sh/apple-touch-icon.png
+category: utilities
+version: "1.0.0"
+port: 8080
+description: >-
+  Vert is a next-generation, open-source file converter that performs all image, audio, and document processing directly in your browser using WebAssembly. This ensures complete privacy, as no files are uploaded to external servers. For video conversions, Vert utilizes a server-side component, which can also be self-hosted for full control.
+
+  🔄 Convert images, audio, documents, and videos
+
+  🔐 All processing done locally in your browser (except videos)
+
+  🚫 No file size limits, no ads, and no tracking
+
+  🛠️ Built with Svelte and TypeScript for a smooth user experience
+
+  🌐 Fully open-source and free forever
+
+developer: VERT-sh
+website: https://vert.sh
+submitter: bu88yw00dz
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/VERT-sh/VERT
+support: https://github.com/VERT-sh/VERT/issues
+gallery:
+  - https://raw.githubusercontent.com/VERT-sh/VERT/main/.github/assets/screenshot-1.png
+  - https://raw.githubusercontent.com/VERT-sh/VERT/main/.github/assets/screenshot-2.png
+  - https://raw.githubusercontent.com/VERT-sh/VERT/main/.github/assets/screenshot-3.png
+releaseNotes: >-
+  - Initial Umbrel app store release
+
+  - Supports local file conversions via WebAssembly
+
+  - Optional self-hosted video conversion backend
+
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
