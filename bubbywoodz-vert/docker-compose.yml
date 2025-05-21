@@ -1,15 +1,14 @@
 version: "3.7"
+
 services:
   vert:
-    image: ghcr.io/vert-sh/vert:latest
     container_name: vert
-    ports:
-      - "8080:8080"
-    environment:
-      - TZ=UTC
-    volumes:
-      - vert-data:/app/data
+    image: ghcr.io/vert-sh/vert:latest
     restart: unless-stopped
-
-volumes:
-  vert-data:
+    environment:
+      - PUB_HOSTNAME=vert.local
+      - PUB_PLAUSIBLE_URL=
+      - PUB_ENV=production
+      - PUB_VERTD_URL=https://vertd.vert.sh
+    ports:
+      - 3000:80
