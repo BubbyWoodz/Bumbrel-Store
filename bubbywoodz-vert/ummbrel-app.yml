@@ -1,41 +1,45 @@
 manifestVersion: 1
-id: bubbywoodz-vert
+id: vert
 name: Vert
-tagline: A self-hosted file converter that runs entirely in your browser
+tagline: The next-generation file converter. Open source, fully local and free forever.
 icon: https://avatars.githubusercontent.com/u/198117259?s=48&v=4
 category: utilities
 version: "1.0.0"
-port: 8080
+port: 3000
 description: >-
-  Vert is a next-generation, open-source file converter that performs all image, audio, and document processing directly in your browser using WebAssembly. This ensures complete privacy, as no files are uploaded to external servers. For video conversions, Vert utilizes a server-side component, which can also be self-hosted for full control.
+  Vert is a powerful file conversion utility that uses WebAssembly to convert files directly on your device instead of relying on cloud services. This approach ensures your files never leave your system, providing enhanced privacy and security for all your conversion needs.
 
-  🔄 Convert images, audio, documents, and videos
+  
+  With Vert, you can convert between multiple file formats with a user-friendly interface built with Svelte. The application runs entirely in your browser, making it fast, efficient, and accessible from any device on your network.
 
-  🔐 All processing done locally in your browser (except videos)
 
-  🚫 No file size limits, no ads, and no tracking
+  Vert offers a seamless conversion experience with no file size limits, allowing you to process even large files without restrictions. The intuitive design makes it easy to select files, choose your desired output format, and download the converted results.
 
-  🛠️ Built with Svelte and TypeScript for a smooth user experience
 
-  🌐 Fully open-source and free forever
+  🔒 Convert files locally with complete privacy
+
+
+  🚀 No file size limits for your conversions
+
+
+  📄 Support for multiple file formats
+
+
+  🎨 User-friendly interface built with Svelte
+
+
+  🌐 Fully self-hosted solution for your network
 
 developer: VERT-sh
 website: https://vert.sh
-submitter: bu88yw00dz
+submitter: umbrel-community
 submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/VERT-sh/VERT
 support: https://github.com/VERT-sh/VERT/issues
 gallery:
-  - https://raw.githubusercontent.com/VERT-sh/VERT/main/.github/assets/screenshot-1.png
-  - https://raw.githubusercontent.com/VERT-sh/VERT/main/.github/assets/screenshot-2.png
-  - https://raw.githubusercontent.com/VERT-sh/VERT/main/.github/assets/screenshot-3.png
-releaseNotes: >-
-  - Initial Umbrel app store release
-
-  - Supports local file conversions via WebAssembly
-
-  - Optional self-hosted video conversion backend
-
+  - https://raw.githubusercontent.com/VERT-sh/VERT/main/static/banner.png
+releaseNotes: >- 
+  - Initial release for Umbrel
 dependencies:
 path: ""
 defaultUsername: ""
