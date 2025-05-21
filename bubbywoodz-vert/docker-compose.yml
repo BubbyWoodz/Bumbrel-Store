@@ -1,5 +1,4 @@
 version: "3.7"
-
 services:
   vert:
     image: ghcr.io/vert-sh/vert:latest
