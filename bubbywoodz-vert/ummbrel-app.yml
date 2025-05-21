@@ -2,7 +2,7 @@ manifestVersion: 1
 id: bubbywoodz-vert
 name: Vert
 tagline: A self-hosted file converter that runs entirely in your browser
-icon: https://vert.sh/apple-touch-icon.png
+icon: https://avatars.githubusercontent.com/u/198117259?s=48&v=4
 category: utilities
 version: "1.0.0"
 port: 8080
