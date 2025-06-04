@@ -1,0 +1,50 @@
+manifestVersion: 1
+id: bubbywoodz-spotify-proxy
+name: Spotify Proxy
+tagline: A self-hosted proxy to power your Spotify widgets
+icon: https://cdn.jim-nielsen.com/ios/512/spotify-music-2015-07-30.png?rf=1024
+category: developer
+version: "1.0.0"
+port: 3000
+description: >-
+  Spotify Proxy is a lightweight, self-hosted backend for securely refreshing Spotify API access tokens using your own credentials.
+
+
+  It was designed to integrate seamlessly with tools like [homepage.dev](https://github.com/benphelps/homepage), enabling beautiful, secure Spotify widgets on your custom dashboard.
+
+
+  Just plug in your credentials once, and let Spotify Proxy handle access token rotation behind the scenes.
+
+
+  🎧 Perfect for homepage.dev Spotify widgets
+
+  
+  🔐 Keeps your `client_secret` safe from the frontend
+
+  
+  🔄 Automatically refreshes and returns Spotify access tokens
+
+
+  🧩 Easy integration with any dashboard, app, or project that uses Spotify's Web API
+
+
+  🏠 Built for privacy and local control
+
+developer: bu88yw00dz
+website: https://github.com/bu88yw00dz/spotify-proxy
+submitter: bu88yw00dz
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/bu88yw00dz/spotify-proxy
+support: https://github.com/bu88yw00dz/spotify-proxy/issues
+gallery:
+  - https://i.imgur.com/mOBQut7.jpeg
+  - https://i.imgur.com/353uyOd.jpeg
+  - https://i.imgur.com/wdaEpKn.jpeg
+releaseNotes: >- 
+  - Fixed Last API Call Status
+  
+  - Added About Tab
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
