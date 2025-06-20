@@ -9,7 +9,7 @@ port: 3000
 description: >-
   Plant-it is a free and open-source gardening companion app designed to help you care for your plants. It allows you to log activities like watering and fertilizing, track plant care history, and manage your plant collection with a user-friendly web interface. With a built-in calendar, notifications, and a database of over 400,000 plant species via FloraCodex, Plant-it keeps you organized and ensures your plants thrive.
 
-  Key Features:
+  Key Features
 
   🌱 Activity Logging: Record watering, fertilizing, and other care events with timestamps and photos.
   📅 Calendar View: View and filter plant care events in a chronological calendar.
