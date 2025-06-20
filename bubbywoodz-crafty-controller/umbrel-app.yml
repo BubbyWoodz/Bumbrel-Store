@@ -46,4 +46,4 @@ releaseNotes: >-
 dependencies: []
 path: ""
 defaultUsername: "Admin"
-defaultPassword: "Generated on first boot; check logs"
+defaultPassword:
