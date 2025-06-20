@@ -1,18 +1,30 @@
 services:
-    crafty:
-        container_name: crafty_container
-        image: registry.gitlab.com/crafty-controller/crafty-4:latest
-        restart: always
-        environment:
-            - TZ=Etc/UTC
-        ports:
-            - "8443:8443" # HTTPS
-            - "8123:8123" # DYNMAP
-            - "19132:19132/udp" # BEDROCK
-            - "25500-25600:25500-25600" # MC SERV PORT RANGE
-        volumes:
-            - ./docker/backups:/crafty/backups
-            - ./docker/logs:/crafty/logs
-            - ./docker/servers:/crafty/servers
-            - ./docker/config:/crafty/app/config
-            - ./docker/import:/crafty/import
+  crafty:
+    container_name: crafty_container
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: unless-stopped
+    ports:
+      - "8443:8443" # HTTPS
+      - "8123:8123" # Dynmap
+      - "19132:19132/udp" # Bedrock
+      - "25565:25565" # Default Java Minecraft port
+    volumes:
+      - ${UMBREL_APP_DATA_DIR}/backups:/crafty/backups
+      - ${UMBREL_APP_DATA_DIR}/logs:/crafty/logs
+      - ${UMBREL_APP_DATA_DIR}/servers:/crafty/servers
+      - ${UMBREL_APP_DATA_DIR}/config:/crafty/app/config
+      - ${UMBREL_APP_DATA_DIR}/import:/crafty/import
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8443"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "umbrel.app.name=Crafty Controller"
+      - "umbrel.app.icon=https://docs.craftycontrol.com/img/favicon.ico"
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: umbrel_main_network
