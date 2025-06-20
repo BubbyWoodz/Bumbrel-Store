@@ -1,7 +1,7 @@
 services:
   crafty:
     container_name: crafty_container
-    image: registry.gitlab.com/crafty-controller/crafty-4:4.2.0
+    image: arcadiatechnology/crafty-4:latest
     restart: unless-stopped
     ports:
       - "8443:8443" # HTTPS
