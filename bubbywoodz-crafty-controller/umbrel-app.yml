@@ -1,0 +1,49 @@
+manifestVersion: 1
+id: bubbywoodz-crafty-controller
+name: Crafty Controller
+tagline: A self-hosted Minecraft server control panel
+icon: https://docs.craftycontrol.com/img/favicon.ico
+category: games
+version: "4.2.0"
+port: 8443
+description: >-
+  Crafty Controller is a free and open-source Minecraft server management platform that allows you to control and administer your servers from a user-friendly web interface. Accessible via a self-hosted web server, it’s designed for ease of use, requiring minimal technical knowledge to set up and manage multiple Minecraft servers across different versions.
+
+  Key Features:
+
+  🖥️ Web-Based Control: Manage your Minecraft servers (Java and Bedrock) through an intuitive browser interface, accessible locally or externally with port forwarding.
+
+  ⚙️ Server Management: Create, start, stop, and restart servers, execute commands, modify settings, and edit server files with a built-in file manager.
+
+  📊 Real-Time Monitoring: Monitor CPU, memory, disk usage, and server status directly from the dashboard, providing insights into your host system’s performance.
+
+  🔒 Secure and Self-Hosted: Uses HTTPS with self-signed SSL certificates and Argon2 password hashing. All data is stored locally, ensuring privacy and control.
+
+  📅 Task Scheduling: Automate tasks like backups, restarts, or commands with flexible scheduling options, including cron-based triggers.
+
+  👥 User Management: Assign roles and permissions to users for collaborative server management, with features like player control (OP, kick, ban) and file access.
+
+  🔄 Cross-Platform Support: Compatible with Windows, Linux, and macOS, with Docker support for streamlined deployment.
+
+  🎨 Customizable Interface: Features a clean, modern design with Gravatar integration for user profiles and language selection for accessibility.
+
+  Crafty Controller is ideal for Minecraft enthusiasts looking to simplify server administration while maintaining full control. Its open-source nature (GNU GPL v3) ensures transparency and community-driven development.
+
+developer: Arcadia Technology
+website: https://craftycontrol.com/
+submitter: crafty-controller
+submission: https://gitlab.com/crafty-controller/crafty-4
+repo: https://gitlab.com/crafty-controller/crafty-4
+support: https://discord.com/invite/9VJPhCE
+gallery:
+  - https://craftycontrol.com/img/screenshot1.png
+  - https://craftycontrol.com/img/screenshot2.png
+  - https://craftycontrol.com/img/screenshot3.png
+  - https://craftycontrol.com/img/screenshot4.png
+releaseNotes: >-
+  The latest release of Crafty Controller brings enhanced stability and new features. Highlights include improved support for Bedrock servers, refined Docker integration, and an updated API (v2) for better third-party integrations. The update also introduces advanced backup management options and performance optimizations for the web interface, particularly for the file manager and logs viewer. Bug fixes address issues with user authentication, MFA setup, and scheduled task execution, ensuring a smoother experience.
+
+dependencies: []
+path: ""
+defaultUsername: "Admin"
+defaultPassword: ""
