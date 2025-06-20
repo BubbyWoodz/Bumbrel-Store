@@ -31,7 +31,7 @@ description: >-
 
 developer: Arcadia Technology
 website: https://craftycontrol.com/
-submitter: crafty-controller
+submitter: bubbywoodz
 submission: https://gitlab.com/crafty-controller/crafty-4
 repo: https://gitlab.com/crafty-controller/crafty-4
 support: https://discord.com/invite/9VJPhCE
@@ -46,4 +46,4 @@ releaseNotes: >-
 dependencies: []
 path: ""
 defaultUsername: "Admin"
-defaultPassword: ""
+defaultPassword: "Generated on first boot; check logs"

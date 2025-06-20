@@ -1,7 +1,7 @@
 services:
   crafty:
     container_name: crafty_container
-    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    image: registry.gitlab.com/crafty-controller/crafty-4:4.2.0
     restart: unless-stopped
     ports:
       - "8443:8443" # HTTPS
@@ -15,7 +15,7 @@ services:
       - ${UMBREL_APP_DATA_DIR}/config:/crafty/app/config
       - ${UMBREL_APP_DATA_DIR}/import:/crafty/import
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8443"]
+      test: ["CMD", "curl", "-f", "--insecure", "https://localhost:8443"]
       interval: 30s
       timeout: 10s
       retries: 3
