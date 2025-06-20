@@ -1,0 +1,60 @@
+version: "3"
+name: plant-it
+services:
+  server:
+    container_name: plant-it-server
+    image: msdeluise/plant-it-server:latest
+    restart: unless-stopped
+    env_file: server.env
+    depends_on:
+      - db
+      - cache
+    volumes:
+      - ${UMBREL_APP_DATA_DIR}/upload-dir:/upload-dir
+    ports:
+      - "3000:3000" # Frontend
+      - "8080:8080" # API
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 60s
+      timeout: 20s
+      retries: 5
+      start_period: 30s
+    labels:
+      - "umbrel.app.name=Plant-it"
+      - "umbrel.app.icon=https://plant-it.org/favicon.ico"
+    networks:
+      - default
+  db:
+    container_name: plant-it-db
+    image: mysql:8.0
+    restart: unless-stopped
+    env_file: server.env
+    volumes:
+      - ${UMBREL_APP_DATA_DIR}/db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 60s
+      timeout: 20s
+      retries: 5
+      start_period: 30s
+    networks:
+      - default
+  cache:
+    container_name: plant-it-cache
+    image: redis:7.2.1
+    restart: unless-stopped
+    volumes:
+      - ${UMBREL_APP_DATA_DIR}/cache:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 60s
+      timeout: 20s
+      retries: 5
+      start_period: 30s
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: umbrel_main_network
