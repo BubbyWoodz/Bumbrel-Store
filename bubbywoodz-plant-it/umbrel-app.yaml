@@ -3,23 +3,23 @@ id: bubbywoodz-plant-it
 name: Plant-it
 tagline: A self-hosted gardening companion app
 icon: https://plant-it.org/favicon.ico
-category: files & productivity
-version: "latest"
+category: productivity
+version: "0.9.0"
 port: 3000
 description: >-
-  Plant-it is a free and open-source gardening companion app designed to help you care for your plants. It allows you to log activities like watering and fertilizing, track plant care history, and manage your plant collection with a user-friendly web interface. With a built-in calendar, notifications, and a database of over 400,000 plant species via FloraCodex, Plant-it keeps you organized and ensures your plants thrive.
+  Plant-it is a free and open-source gardening companion app designed to help you care for your plants. Log activities like watering and fertilizing, track plant care history, and manage your plant collection with a user-friendly web interface. With a built-in calendar, notifications, and a database of over 400,000 plant species via FloraCodex, Plant-it keeps you organized and ensures your plants thrive.
 
   Key Features:
 
   🌱 Activity Logging: Record watering, fertilizing, and other care events with timestamps and photos.
   📅 Calendar View: View and filter plant care events in a chronological calendar.
-  🌿 Plant Database: Search over 400,000 species via FloraCodex or add custom plants with details like purchase date and location.
+  🌿 Plant Database: Search over 400,000 species via FloraCodex or add custom plants.
   🔔 Notifications: Get reminders for plant care based on your logged activities.
   📸 Photo Uploads: Attach images to track your plants’ growth and health.
-  🔄 Cross-Platform: Access via web browser or Android app (APK, F-Droid, Obtanium).
+  🔄 Cross-Platform: Access via web browser or Android app.
   🔒 Self-Hosted: Keep your data private with local storage and secure authentication.
 
-  Plant-it empowers gardeners to take charge of their plant care with a focus on user-driven logging and organization. Its open-source nature (MIT License) encourages community contributions and transparency.
+  Plant-it empowers gardeners to take charge of their plant care with a focus on user-driven logging and organization. Its open-source nature (MIT License) encourages community contributions.
 
 developer: Marco DeLuise
 website: https://plant-it.org/
@@ -28,11 +28,11 @@ submission: https://github.com/MDeLuise/plant-it
 repo: https://github.com/MDeLuise/plant-it
 support: https://github.com/MDeLuise/plant-it/issues
 gallery:
-  - https://plant-it.org/images/screenshot1.png
-  - https://plant-it.org/images/screenshot2.png
-  - https://plant-it.org/images/screenshot3.png
+  - https://plant-it.org/assets/screenshots/screenshot1.jpg
+  - https://plant-it.org/assets/screenshots/screenshot2.jpg
+  - https://plant-it.org/assets/screenshots/screenshot3.jpg
 releaseNotes: >-
-  The latest release of Plant-it includes a stable feature set with a user-friendly web interface, calendar view, and FloraCodex integration. Recent updates improve performance, add support for custom plant species, and enhance notification reliability. Bug fixes address issues with event filtering and photo uploads, ensuring a seamless gardening experience.
+  The latest release (0.9.0) includes a stable web interface, calendar view, and FloraCodex integration. Updates improve performance, support custom plant species, and enhance notification reliability. Bug fixes address event filtering and photo uploads.
 
 dependencies: []
 path: ""
