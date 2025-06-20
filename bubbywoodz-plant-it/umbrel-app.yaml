@@ -3,7 +3,7 @@ id: bubbywoodz-plant-it
 name: Plant-it
 tagline: A self-hosted gardening companion app
 icon: https://plant-it.org/favicon.ico
-category: productivity
+category: files & productivity
 version: "latest"
 port: 3000
 description: >-
