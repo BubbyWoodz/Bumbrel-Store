@@ -1,8 +1,6 @@
-version: '3.7'
-
 services:
   selfhst-icons:
-    container_name: selfhst-icons
+    container_name: bubbywoodz-icons-selfhst-icons
     image: ghcr.io/selfhst/icons:latest
     ports:
       - "4050:4050"
