@@ -1,0 +1,43 @@
+manifestVersion: 1
+id: bubbywoodz-plant-it
+name: Plant-it
+tagline: Self-hosted gardening companion app
+icon: https://raw.githubusercontent.com/MDeLuise/plant-it/main/images/logo.png
+category: lifestyle
+version: "latest"
+port: 8080
+description: >-
+  Plant-it is a beautiful, simple, self-hosted gardening companion app that makes plant care effortless. Manage watering schedules, capture the beauty of your plants with photos, and watch your garden thrive with this comprehensive plant management platform.
+
+  Key Features:
+
+  🌱 Plant Management: Add existing plants or create custom plants for your collection with detailed profiles.
+  💧 Event Tracking & Reminders: Schedule and log watering, fertilizing, biostimulating, and other care activities with built-in calendar integration.
+  📸 Photo Documentation: Upload and organize photos of your plants to track growth and document their journey.
+  📊 Care History: View all logged events with filtering by plant and event type to monitor plant health patterns.
+  🔔 Smart Notifications: Set customizable reminders for plant care activities (e.g., notify if not watered every 4 days).
+  🌿 Extensive Plant Database: Access over 400,000 plant species through FloraCodex integration for comprehensive plant information.
+  📱 Cross-Platform Access: Works seamlessly on Android, iOS, and web browsers for convenient access anywhere.
+  🏠 Self-Hosted Privacy: Keep your gardening data private and secure on your own server with no external dependencies.
+
+  Plant-it is designed for gardening enthusiasts, plant lovers, and anyone seeking a comprehensive platform to enhance their gardening experience. Whether you're a beginner starting your first garden or an experienced gardener wanting to streamline plant care tracking, Plant-it offers an intuitive solution that helps you remember care schedules, document plant growth, and maintain healthy, vibrant plants.
+
+developer: MDeLuise
+website: https://plant-it.org
+submitter: umbrel-community
+submission: https://github.com/MDeLuise/plant-it
+repo: https://github.com/MDeLuise/plant-it
+support: https://github.com/MDeLuise/plant-it/issues
+gallery:
+  - https://raw.githubusercontent.com/MDeLuise/plant-it/main/images/screenshot1.png
+  - https://raw.githubusercontent.com/MDeLuise/plant-it/main/images/screenshot2.png
+  - https://raw.githubusercontent.com/MDeLuise/plant-it/main/images/screenshot3.png
+  - https://raw.githubusercontent.com/MDeLuise/plant-it/main/images/screenshot4.png
+releaseNotes: >-
+  The latest release of Plant-it includes enhanced plant database integration with FloraCodex, improved photo management capabilities, and refined user interface for better mobile experience. New features include advanced reminder customization, bulk plant operations, and improved data export functionality. Bug fixes address notification timing, photo upload stability, and database performance optimizations.
+
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+

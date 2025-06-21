@@ -1,0 +1,8 @@
+name: selfhst-icons
+services:
+  selfhst-icons:
+    image: ghcr.io/selfhst/icons:latest
+    restart: unless-stopped
+    ports:
+      - "4050:4050"
+

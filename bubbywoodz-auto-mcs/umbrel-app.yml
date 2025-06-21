@@ -1,0 +1,45 @@
+manifestVersion: 1
+id: bubbywoodz-auto-mcs
+name: Auto-MCS
+tagline: Cross-platform Minecraft server manager
+icon: https://raw.githubusercontent.com/macarooni-man/auto-mcs/main/other/img/auto-mcs.png
+category: games
+version: "latest"
+port: 8080
+description: >-
+  Auto-MCS is a powerful, cross-platform Minecraft server manager that allows you to create, import, or update any Minecraft server in less than a minute. Whether you're running Purpur, Fabric, Forge, modpacks, or Geyser-based Bedrock servers, Auto-MCS provides a comprehensive solution for server administration with advanced features and remote management capabilities.
+
+  Key Features:
+
+  🚀 Lightning Fast Setup: Create any Minecraft server (Purpur, Fabric, Forge, modpacks, Bedrock) in under a minute with automated installation and configuration.
+  🌐 Remote Management: Built-in Telepath integration enables seamless remote server management from any device without complex networking setup.
+  🔗 Easy Connectivity: Integrated playit.gg support eliminates the need for port forwarding, allowing friends to join instantly with a simple switch.
+  🖥️ Web-Based Interface: Access your server through a modern web terminal (TTYD) with customizable themes and responsive design.
+  📜 Custom Scripting: Powerful amscript language for automation, custom commands, and advanced server management even in Vanilla Minecraft.
+  🛡️ Advanced Security: Firewall-like access control, user management, and secure authentication for comprehensive server protection.
+  💾 Backup Management: Automated backup systems with scheduling, compression, and easy restoration capabilities.
+  🔧 Add-on Management: Simple installation and management of mods, plugins, and server modifications through the intuitive interface.
+  📊 Real-time Monitoring: Live server status, player tracking, resource usage monitoring, and detailed logging capabilities.
+  🎮 Multi-Server Support: Manage multiple Minecraft servers simultaneously with independent configurations and settings.
+
+  Auto-MCS is perfect for Minecraft enthusiasts, server administrators, and gaming communities who want professional-grade server management without the complexity. The application combines ease of use with powerful features, making it suitable for both beginners setting up their first server and experienced administrators managing multiple game instances.
+
+developer: macarooni-man
+website: https://www.auto-mcs.com
+submitter: bubbywoodz
+submission: https://github.com/macarooni-man/auto-mcs
+repo: https://github.com/macarooni-man/auto-mcs
+support: https://discord.gg/auto-mcs
+gallery:
+  - https://raw.githubusercontent.com/macarooni-man/auto-mcs/main/other/img/screenshot1.png
+  - https://raw.githubusercontent.com/macarooni-man/auto-mcs/main/other/img/screenshot2.png
+  - https://raw.githubusercontent.com/macarooni-man/auto-mcs/main/other/img/screenshot3.png
+  - https://raw.githubusercontent.com/macarooni-man/auto-mcs/main/other/img/screenshot4.png
+releaseNotes: >-
+  The latest release of Auto-MCS includes enhanced Telepath API functionality, improved Docker integration with multi-architecture support (amd64/arm64), and expanded server type compatibility. New features include advanced amscript capabilities, better backup compression algorithms, and improved web interface responsiveness. Bug fixes address server startup timing, memory optimization, and cross-platform compatibility issues.
+
+dependencies: []
+path: ""
+defaultUsername: "root"
+defaultPassword: "auto-mcs"
+

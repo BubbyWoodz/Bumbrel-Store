@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: bubbywoodz-selfhst-icons
+name: selfhst/icons
+tagline: Self-hosted icon collection for dashboards
+icon: https://raw.githubusercontent.com/selfhst/icons/main/svg/selfhst.svg
+category: utilities
+version: "latest"
+port: 4050
+description: >-
+  selfhst/icons is a comprehensive collection of 4,500+ icons and logos specifically curated for self-hosted software and applications. This lightweight, self-hosted service provides easy access to high-quality icons for your dashboards, documentation, and projects with advanced customization options.
+
+  Key Features:
+
+  🎨 Extensive Icon Library: Access over 4,500 carefully curated icons and logos for popular self-hosted applications and services.
+  🌈 Multiple Color Options: Choose from standard, dark (#000000), or light (#FFFFFF) versions of each icon for perfect theme integration.
+  🎯 Custom Color Support: Apply any custom color using hex color codes via URL parameters for precise brand matching.
+  📁 Multiple Formats: Icons available in SVG, PNG, and WebP formats to suit different use cases and performance requirements.
+  ⚡ Lightweight & Fast: Minimal resource usage with a simple, efficient proxy server for real-time color conversion.
+  🔗 Easy Integration: Simple URL-based access makes it effortless to integrate icons into any dashboard or application.
+  🏠 Self-Hosted Privacy: Keep your icon serving completely private and independent from external services.
+  📱 Responsive Design: Icons work perfectly across desktop and mobile interfaces with consistent quality.
+
+  Perfect for homelab enthusiasts, dashboard creators, and anyone building self-hosted solutions who needs consistent, high-quality icons. The service acts as a lightweight proxy that can dynamically modify icon colors on-the-fly, making it ideal for theming and branding purposes.
+
+developer: selfhst
+website: https://selfh.st/icons
+submitter: bubbywoodz
+submission: https://github.com/selfhst/icons
+repo: https://github.com/selfhst/icons
+support: https://selfh.st/support/
+gallery:
+  - https://raw.githubusercontent.com/selfhst/icons/main/images/screenshot1.png
+  - https://raw.githubusercontent.com/selfhst/icons/main/images/screenshot2.png
+releaseNotes: >-
+  The latest release of selfhst/icons includes new icon additions, improved color conversion algorithms, and enhanced performance optimizations. The collection now features over 4,500 icons with better support for custom color parameters and improved caching mechanisms for faster icon delivery.
+
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+

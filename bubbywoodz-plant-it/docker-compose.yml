@@ -1,0 +1,26 @@
+name: plant-it
+services:
+  server:
+    image: msdeluise/plant-it-server:latest
+    env_file: server.env
+    depends_on:
+      - db
+      - cache
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR}/upload-dir:/upload-dir"
+    ports:
+      - "8080:8080"
+      - "3000:3000"
+
+  db:
+    image: mysql:8.0
+    restart: always
+    env_file: server.env
+    volumes:
+      - "${APP_DATA_DIR}/db:/var/lib/mysql"
+
+  cache:
+    image: redis:7.2.1
+    restart: always
+
