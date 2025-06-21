@@ -1,27 +1,29 @@
 name: auto-mcs
 services:
-  app:
-    command: [
-      "auto-mcs-ttyd",
-      "-W",
-      "-t", "disableLeaveAlert=true",
-      "-t", "titleFixed=auto-mcs (docker)",
-      "-t", "fontSize=20",
-      "-t", "theme={\"background\": \"#1A1A1A\"}",
-      "-p", "8080",
-      "-c", "root:auto-mcs",
-      "tmux", "-u", "-2", "new", "-A", "-s", "-c",
-      "./auto-mcs"
-    ]
+  auto-mcs:
     image: macarooniman/auto-mcs:latest
     container_name: auto-mcs
+    restart: unless-stopped
     stdin_open: true
     tty: true
-    restart: unless-stopped
     ports:
       - "8080:8080"   # ttyd web UI
       - "7001:7001"   # Telepath API
       - "25565:25565" # Default Minecraft server port
     volumes:
       - "${APP_DATA_DIR}/auto-mcs-data:/root/.auto-mcs"
+    environment:
+      - DISPLAY=:99
+    command: >
+      sh -c "
+      auto-mcs-ttyd
+      -W
+      -t disableLeaveAlert=true
+      -t titleFixed='auto-mcs (docker)'
+      -t fontSize=20
+      -t theme='{\"background\": \"#1A1A1A\"}'
+      -p 8080
+      -c root:auto-mcs
+      tmux -u -2 new -A -s auto-mcs -c ./auto-mcs
+      "
 
