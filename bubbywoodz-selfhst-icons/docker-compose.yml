@@ -2,6 +2,7 @@ name: selfhst-icons
 services:
   selfhst-icons:
     image: ghcr.io/selfhst/icons:latest
+    container_name: selfhst-icons
     restart: unless-stopped
     ports:
       - "4050:4050"

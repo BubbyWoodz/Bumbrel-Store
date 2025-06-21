@@ -1,26 +1,63 @@
 name: plant-it
 services:
+  db:
+    image: mysql:8.0
+    container_name: plant-it-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bootdb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - "${APP_DATA_DIR}/db:/var/lib/mysql"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  cache:
+    image: redis:7.2.1
+    container_name: plant-it-cache
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      timeout: 20s
+      retries: 5
+
   server:
     image: msdeluise/plant-it-server:latest
-    env_file: server.env
-    depends_on:
-      - db
-      - cache
+    container_name: plant-it-server
     restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+    environment:
+      # DB
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_USERNAME: root
+      MYSQL_PSW: root
+      MYSQL_DATABASE: bootdb
+      # JWT
+      JWT_SECRET: putTheSecretHere
+      JWT_EXP: 1
+      # Server config
+      USERS_LIMIT: -1
+      UPLOAD_DIR: /upload-dir
+      API_PORT: 8080
+      FLORACODEX_KEY: ""
+      LOG_LEVEL: DEBUG
+      ALLOWED_ORIGINS: "*"
+      # Cache
+      CACHE_TTL: 86400
+      CACHE_HOST: cache
+      CACHE_PORT: 6379
     volumes:
       - "${APP_DATA_DIR}/upload-dir:/upload-dir"
     ports:
       - "8080:8080"
       - "3000:3000"
-
-  db:
-    image: mysql:8.0
-    restart: always
-    env_file: server.env
-    volumes:
-      - "${APP_DATA_DIR}/db:/var/lib/mysql"
-
-  cache:
-    image: redis:7.2.1
-    restart: always
 
