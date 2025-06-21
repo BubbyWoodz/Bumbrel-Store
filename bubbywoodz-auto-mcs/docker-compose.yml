@@ -12,6 +12,7 @@ services:
     restart: on-failure
     stdin_open: true
     tty: true
+    command: sh -c "cd /opt/auto-mcs && python3 main.py"
     ports:
       - "7001:7001"
       - "25565:25565"
