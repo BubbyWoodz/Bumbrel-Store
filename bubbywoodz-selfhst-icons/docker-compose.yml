@@ -1,9 +1,9 @@
-name: selfhst-icons
+version: '3.7'
+
 services:
   selfhst-icons:
-    image: ghcr.io/selfhst/icons:latest
     container_name: selfhst-icons
-    restart: unless-stopped
+    image: ghcr.io/selfhst/icons:latest
     ports:
       - "4050:4050"
-
+    restart: on-failure
