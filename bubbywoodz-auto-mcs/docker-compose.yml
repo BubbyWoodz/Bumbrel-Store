@@ -1,4 +1,11 @@
 services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-auto-mcs-server
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: 'false'
+    container_name: bubbywoodz-auto-mcs-app-proxy
+
   auto-mcs:
     container_name: bubbywoodz-auto-mcs-server
     image: macarooniman/auto-mcs:latest
