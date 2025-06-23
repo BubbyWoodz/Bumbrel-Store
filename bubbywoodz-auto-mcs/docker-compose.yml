@@ -1,18 +1,16 @@
-version: "3"
-
+version: '3.7'
 services:
-  app_proxy:
-    image: getumbrel/umbrel-app-proxy:1.0.0
-    environment:
-      APP_HOST: app
-      APP_PORT: 8082
-      PROXY_AUTH_ADD: "false"
-
-  app:
+  server:
     image: macarooniman/auto-mcs:latest
-    stdin_open: true
-    tty: true
-    restart: always
+    container_name: bubbywoodz-auto-mcs_server_1
+    environment:
+      - APP_PORT=8082
+    ports:
+      - '8082:8082'     # Web TTYD interface
+      - '7001:7001'     # Telepath API
+      - '25565:25565'   # Minecraft server
+    volumes:
+      - ${APP_DATA_DIR}/data/auto-mcs:/root/.auto-mcs
     command: >
       auto-mcs-ttyd
       -W
@@ -23,9 +21,4 @@ services:
       -p 8082
       -c root:auto-mcs
       tmux -u -2 new -A -s -c ./auto-mcs
-    ports:
-      - 7001
-      - 25565
-      - 8082
-    volumes:
-      - ${APP_DATA_DIR}/data/auto-mcs:/root/.auto-mcs
+    restart: unless-stopped
