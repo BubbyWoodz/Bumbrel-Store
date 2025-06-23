@@ -5,7 +5,7 @@ tagline: A self-hosted Minecraft server control panel
 icon: https://raw.githubusercontent.com/macarooni-man/auto-mcs/main/other/logo.png
 category: games
 version: "latest"
-port: 8080
+port: 8082
 description: >-
   Auto-MCS is a free and open-source Minecraft server management platform that allows you to control and administer your servers from a user-friendly web interface. Accessible via a self-hosted web server, it's designed for ease of use, requiring minimal technical knowledge to set up and manage multiple Minecraft servers across different versions.
 
