@@ -1,36 +1,31 @@
+version: "3"
+
 services:
   app_proxy:
+    image: getumbrel/umbrel-app-proxy:1.0.0
     environment:
-      APP_HOST: auto-mcs
-      APP_PORT: 8080
-      PROXY_AUTH_ADD: 'false'
-    container_name: bubbywoodz-auto-mcs-app-proxy
+      APP_HOST: app
+      APP_PORT: 8082
+      PROXY_AUTH_ADD: "false"
 
   app:
-    container_name: bubbywoodz-auto-mcs-server
     image: macarooniman/auto-mcs:latest
     stdin_open: true
     tty: true
     restart: always
-    command: [
-      "auto-mcs-ttyd",
-      "-W",
-      "-t", "disableLeaveAlert=true",
-      "-t", "titleFixed=auto-mcs (docker)",
-      "-t", "fontSize=20",
-      "-t", "theme={\"background\": \"#1A1A1A\"}",
-      "-p", "8080",
-      "-c", "root:auto-mcs",
-      "tmux", "-u", "-2", "new", "-A", "-s", "-c",
-      "./auto-mcs"
-    ]
+    command: >
+      auto-mcs-ttyd
+      -W
+      -t disableLeaveAlert=true
+      -t titleFixed=auto-mcs (docker)
+      -t fontSize=20
+      -t theme={"background": "#1A1A1A"}
+      -p 8082
+      -c root:auto-mcs
+      tmux -u -2 new -A -s -c ./auto-mcs
     ports:
-      - "8082:8080"  # Map host port 8082 to container port 8080
-      - "7001:7001"  # Telepath API
-      - "25565:25565"  # Minecraft server
+      - 7001
+      - 25565
+      - 8082
     volumes:
       - ${APP_DATA_DIR}/data/auto-mcs:/root/.auto-mcs
-
-volumes:
-  auto-mcs-data:
-    name: ${APP_DATA_DIR}/data/auto-mcs
