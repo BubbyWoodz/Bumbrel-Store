@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: ${APP_ID}_app
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: unless-stopped
+    environment:
+      - TZ=${TIME_ZONE:-Etc/UTC}
+    volumes:
+      - ${APP_DATA_DIR}/backups:/crafty/backups
+      - ${APP_DATA_DIR}/logs:/crafty/logs
+      - ${APP_DATA_DIR}/servers:/crafty/servers
+      - ${APP_DATA_DIR}/config:/crafty/app/config
+      - ${APP_DATA_DIR}/import:/crafty/import
+    ports:
+      - 8000:8000  # HTTP panel (for Umbrel proxy; disable HTTPS post-install)
+      - 8443:8443  # HTTPS panel (temporary, disable after setup)
+      - ${APP_DYNMAP_PORT:-8123}:8123  # Dynmap (optional)
+      - ${APP_BEDROCK_PORT:-19132}:19132/udp  # Bedrock server
+      - 25500-25600:25500-25600  # Range for Minecraft servers (adjust if needed; monitor for conflicts)

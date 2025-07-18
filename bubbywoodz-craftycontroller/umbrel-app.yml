@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: bubbywoodz-craftycontroller
+category: games
+name: Crafty Controller
+version: "latest"
+tagline: Manage your Minecraft servers with ease
+description: >-
+  Crafty Controller is a free and open-source Minecraft server control panel.
+  It allows you to create, manage, and monitor multiple Java and Bedrock servers
+  from a web-based dashboard. Features include console access, file editing,
+  backups, player management, and more.
+
+  Note: After installation, access the panel and disable HTTPS in settings (or edit config.json: "https": false) for full compatibility with Umbrel's app proxy.
+  Minecraft server ports (25500-25600) are exposed; ensure no conflicts with other apps.
+releaseNotes: >-
+  Uses the latest stable Docker image. Check https://craftycontrol.com for updates.
+icon: https://craftycontrol.com/assets/images/crafty.png
+author: Arcadia Technology
+url: https://craftycontrol.com
+license: GPL-3.0
+port: 8000
+dependencies: []
