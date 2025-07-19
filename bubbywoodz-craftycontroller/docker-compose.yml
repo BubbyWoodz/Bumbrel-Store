@@ -1,7 +1,7 @@
 services:
   app_proxy:
     container_name: ${APP_ID}_app_proxy
-    image: getumbrel/umbrel-app-proxy:v1
+    image: getumbrel/app-proxy:1.0.0
     restart: on-failure
     environment:
       APP_HOST: app
