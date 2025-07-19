@@ -1,6 +1,16 @@
-version: '3.7'
-
 services:
+  app_proxy:
+    container_name: ${APP_ID}_app_proxy
+    image: getumbrel/umbrel-app-proxy:v1
+    restart: on-failure
+    environment:
+      APP_HOST: app
+      APP_PORT: 8000
+    depends_on:
+      - app
+    networks:
+      - default
+
   app:
     container_name: ${APP_ID}_app
     image: registry.gitlab.com/crafty-controller/crafty-4:latest
@@ -14,8 +24,13 @@ services:
       - ${APP_DATA_DIR}/config:/crafty/app/config
       - ${APP_DATA_DIR}/import:/crafty/import
     ports:
-      - 8000:8000  # HTTP panel (for Umbrel proxy; disable HTTPS post-install)
-      - 8443:8443  # HTTPS panel (temporary, disable after setup)
-      - ${APP_DYNMAP_PORT:-8123}:8123  # Dynmap (optional)
-      - ${APP_BEDROCK_PORT:-19132}:19132/udp  # Bedrock server
-      - 25500-25600:25500-25600  # Range for Minecraft servers (adjust if needed; monitor for conflicts)
+      - ${APP_DYNMAP_PORT}:8123  # Dynamic for Dynmap
+      - ${APP_BEDROCK_PORT}:19132/udp  # Dynamic for Bedrock
+      - 30000-30100:30000-30100  # Range for Minecraft servers (monitor conflicts)
+    networks:
+      - default
+
+networks:
+  default:
+    name: umbrel_main_network
+    external: true
