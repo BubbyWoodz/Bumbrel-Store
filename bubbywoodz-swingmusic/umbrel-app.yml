@@ -55,13 +55,7 @@ gallery:
   - https://i.imgur.com/tM9ojJq.png
   - https://i.imgur.com/9fXRfQC.png
 releaseNotes: >-
-What's New ✨
-Stats cards now use the album or artist accent color ✨
-Bug fixes:
-#335 The lowercase letter "b" being removed from track metadata (you will need to remove your root dirs and restart swing music to take effect)
-Double click on tracks not playing a track
-SEE ALL button not visible on favorites and artist page (for albums)
-Have fun guys!
+
 dependencies:
 path: ""
 defaultUsername: ""
