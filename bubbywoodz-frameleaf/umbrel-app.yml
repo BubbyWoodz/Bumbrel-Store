@@ -1,0 +1,49 @@
+manifestVersion: 1.1
+id: bubbywoodz-frameleaf
+storage:
+  dataRoot: data
+folderAccess:
+  - id: external-library
+    name: External Library
+    note: Select a folder containing photos or videos, then configure /mnt/external-library as an import path for an External Library in Frameleaf. Access is read-only to protect the original files.
+    mounts:
+      - service: server
+        targetPath: /mnt/external-library
+        readOnly: true
+category: files
+name: Frameleaf
+version: "3.2.0-15"
+tagline: Immich fork with local NSFW detection and a PIN-locked private library
+description: >-
+  Frameleaf is a maintained fork of Immich (v3.2.0) with a privacy suite: on-device NSFW image classification, an NSFW review workflow, and a PIN-gated hidden library. All machine learning runs locally on your Umbrel Home — nothing is sent to the cloud.
+
+
+  Features (everything Immich has, plus):
+
+
+  - Upload and view photos and videos, auto backup from the mobile app
+
+  - Detect NSFW images locally and hide them behind a PIN-locked folder
+
+  - Review and adjust NSFW classifications with a tunable threshold
+
+  - Intel OpenVINO hardware acceleration for machine learning on the Umbrel Home's iGPU
+
+
+  ⚠️ This installs as a separate app with its own fresh database. Your existing Immich app and its data are untouched. Do not point this app at your existing Immich data folders.
+
+
+  After install, enable NSFW detection under Administration → Settings → Machine Learning Settings, then run the NSFW Detection job for all assets.
+developer: Frameleaf
+website: https://github.com/Frameleaf/frameleaf-app
+dependencies: []
+repo: https://github.com/Frameleaf/frameleaf-app
+support: https://github.com/Frameleaf/frameleaf-app/issues
+port: 2283
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+permissions:
+  - GPU
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
