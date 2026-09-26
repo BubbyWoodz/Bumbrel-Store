@@ -1,0 +1,68 @@
+version: "3.7"
+
+x-environment: &env
+  NODE_ENV: "production"
+  DB_HOSTNAME: "bubbywoodz-frameleaf_postgres_1"
+  DB_USERNAME: "immich"
+  DB_PASSWORD: "e79dc3ef6baf61a06987817e8a336910"
+  DB_DATABASE_NAME: "immich"
+  REDIS_HOSTNAME: "bubbywoodz-frameleaf_redis_1"
+  LOG_LEVEL: "log"
+  JWT_SECRET: "dfcb8453eb0179e9660b418e995d518cbe569c00d01a24f651ef4c71b52a5ecb"
+  DISABLE_REVERSE_GEOCODING: "false"
+  REVERSE_GEOCODING_PRECISION: "3"
+  PUBLIC_LOGIN_PAGE_MESSAGE: ""
+  IMMICH_MACHINE_LEARNING_URL: "http://bubbywoodz-frameleaf_machine-learning_1:3003"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-frameleaf_server_1
+      APP_PORT: 2283
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: ghcr.io/frameleaf/frameleaf-server:frameleaf-v3.2.0-15@sha256:b016ab3b03f75950d843bd17172a3dc67d89617ed3c518c61b4f71675315b6e4
+    volumes:
+      - ${APP_DATA_DIR}/data/upload:/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      <<: *env
+    depends_on:
+      - redis
+      - postgres
+    restart: on-failure
+
+  machine-learning:
+    image: ghcr.io/frameleaf/frameleaf-machine-learning:frameleaf-v3.2.0-15-openvino@sha256:fb0b02fa17f8fe1411883cb6c9f6669ddd0184347ca6298ba19f2f459300d5ee
+    volumes:
+      - ${APP_DATA_DIR}/data/model-cache:/cache
+    environment:
+      <<: *env
+    # OpenVINO hardware acceleration for Intel iGPUs (Umbrel Home).
+    # If the machine-learning container fails to start, comment out the
+    # two lines below to fall back to CPU inference.
+    devices:
+      - /dev/dri:/dev/dri
+    device_cgroup_rules:
+      - 'c 189:* rmw'
+    restart: on-failure
+
+  redis:
+    image: docker.io/valkey/valkey:9@sha256:c123e3715db63d06d4ad6964884037aa0d5d4d703939b9929954112889708e1d
+    user: "1000:1000"
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+
+  postgres:
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:41eacbe83eca995561fe43814fd4891e16e39632806253848efaf04d3c8a8b84
+    environment:
+      <<: *env
+      POSTGRES_PASSWORD: "e79dc3ef6baf61a06987817e8a336910"
+      POSTGRES_USER: "immich"
+      POSTGRES_DB: "immich"
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    restart: on-failure
