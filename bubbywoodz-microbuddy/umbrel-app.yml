@@ -1,0 +1,23 @@
+manifestVersion: 1.1
+id: bubbywoodz-microbuddy
+category: Dashboards
+name: Micro Buddy
+version: "1.0.0"
+tagline: Micro Center sales dashboard
+description: >-
+  Micro Buddy is a personal Micro Center sales dashboard — track tickets, commission, base pay,
+  take-home pay, schedule, journal, coworkers, and goals. Sign in by scanning a QR code with the
+  Micro Buddy iOS app; your phone's Supabase session becomes the dashboard login, so you always
+  see your own data. Works offline after the first sync.
+developer: BubbyWoodz
+website: https://github.com/BubbyWoodz/Bumbrel-Store
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 5002
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-microbuddy/icon.png
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
