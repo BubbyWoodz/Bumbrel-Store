@@ -1,0 +1,43 @@
+manifestVersion: 1.1
+id: bubbywoodz-pinepods
+category: media
+name: PinePods
+version: "0.9.0"
+tagline: Self-hosted podcast manager with audio and video support
+description: >-
+  PinePods is a complete, self-hosted podcast management system. Run one server and your subscriptions,
+  history, queue, downloads, and settings follow you from device to device.
+
+
+  Features:
+
+  - Audio AND video podcasts, variable speed, chapters, transcripts, downloads
+
+  - Auto-download new episodes, smart playlists, full listening history
+
+  - Local file-system podcasts — point it at your existing podcast folders
+
+  - Native iOS and Android apps with CarPlay and Android Auto
+
+  - Multi-user with individual libraries, stats, and settings
+
+  - Search across Podcast Index, iTunes, and YouTube
+
+  - Built-in gpodder-compatible sync server (works with AntennaPod and friends)
+
+
+  After install, open the web UI and create your admin account. Then connect the PinePods iOS app
+  (App Store) by pointing it at your server URL. The T7 Podcasts folder is mounted read-only at
+  /opt/pinepods/local-media so you can add your existing downloaded podcasts as local podcasts.
+developer: PinePods
+website: https://github.com/madeofpendletonwool/PinePods
+dependencies: []
+repo: https://github.com/madeofpendletonwool/PinePods
+support: https://github.com/madeofpendletonwool/PinePods/issues
+port: 8040
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/madeofpendletonwool/PinePods/main/images/logo1024actualsquare.png
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
