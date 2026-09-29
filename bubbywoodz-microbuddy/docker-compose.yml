@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-microbuddy_app_1
+      APP_PORT: 5002
+      PROXY_AUTH_ADD: "false"
+
+  app:
+    image: python:3.12-slim
+    container_name: bubbywoodz-microbuddy_app_1
+    working_dir: /app
+    command: python3 microbuddy.py
+    ports:
+      - "5002:5002"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SUPABASE_URL=https://tgarraczeevyrjfxzkkf.supabase.co
+    volumes:
+      - /home/umbrel/microbuddy-dashboard:/app
+    restart: on-failure
