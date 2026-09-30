@@ -1,0 +1,32 @@
+manifestVersion: 1.1
+id: bubbywoodz-rongnote
+category: Productivity
+name: RongNote
+version: "1.0.0"
+releaseNotes: >-
+  Initial Brumble release. Self-hosted end-to-end encrypted notes, passwords,
+  files and tasks vault (Rust + SvelteKit + Postgres). Register your account,
+  then close registration (see README). Passkey/YubiKey unlock needs HTTPS —
+  flip APP_ENV to production once on umbrelOS 2.0.
+tagline: End-to-end encrypted notes vault
+description: >-
+  Your private, end-to-end encrypted info hub: notes, passwords, files and
+  tasks with wiki-links, version history and share-via-link. Everything is
+  encrypted in the browser before it touches the server. WebAuthn passkeys
+  (including YubiKey 5 over NFC on iPhone) are supported once the app is
+  served over HTTPS (umbrelOS 2.0's automatic HTTPS mode). After you create
+  your account, close registration so nobody else on the network can sign up —
+  see the README in the Brumble repo.
+developer: operator64
+website: https://github.com/operator64/rongnote
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8090
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-rongnote/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
