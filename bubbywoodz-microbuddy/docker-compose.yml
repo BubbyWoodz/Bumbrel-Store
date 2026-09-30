@@ -18,10 +18,7 @@ services:
       - PYTHONUNBUFFERED=1
       - SUPABASE_URL=https://tgarraczeevyrjfxzkkf.supabase.co
     volumes:
-      # Secrets + user data persist on the host; app code comes from the image.
       - /home/umbrel/microbuddy-dashboard/.token:/app/.token:ro
       - /home/umbrel/microbuddy-dashboard/.supabase_anon_key:/app/.supabase_anon_key:ro
       - /home/umbrel/microbuddy-dashboard/users:/app/users
-      # Theme-aware Umbrel tile icon (server rewrites this file on theme change).
-      - /home/umbrel/umbrel/app-data/bubbywoodz-microbuddy/icon.png:/app/tile-icon.png
     restart: on-failure
