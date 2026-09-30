@@ -32,13 +32,12 @@ services:
       DATABASE_URL: postgres://notes:d9HbJ4BxxTlnSUOZvCbprlH5vNranGyy@db:5432/notes
       DATA_DIR: /data
       # WebAuthn RP ID is derived from this host (umbrel.local). Keep the host
-      # stable — passkeys are bound to it. Only the scheme changes on HTTPS.
-      PUBLIC_URL: http://umbrel.local:8090
+      # stable — passkeys are bound to it.
+      PUBLIC_URL: https://umbrel.local:8090
       BIND_ADDR: 0.0.0.0:8080
-      # Must be 'development' while served over plain HTTP (umbrelOS 1.x):
-      # production mode marks cookies Secure and browsers reject them over http.
-      # Flip to 'production' once on HTTPS (umbrelOS 2.0).
-      APP_ENV: development
+      # production mode: cookies are marked Secure (fine — umbrelOS 2.0 serves
+      # apps over HTTPS). Never use production over plain HTTP.
+      APP_ENV: production
       SESSION_TTL: 30d
       # Close this after creating your account (see README.md).
       REGISTRATION_OPEN: "true"
