@@ -2,12 +2,13 @@ manifestVersion: 1.1
 id: bubbywoodz-rongnote
 category: Productivity
 name: RongNote
-version: "1.0.0"
+version: "1.0.1"
 releaseNotes: >-
-  Initial Brumble release. Self-hosted end-to-end encrypted notes, passwords,
-  files and tasks vault (Rust + SvelteKit + Postgres). Register your account,
-  then close registration (see README). Passkey/YubiKey unlock needs HTTPS —
-  flip APP_ENV to production once on umbrelOS 2.0.
+  umbrelOS 2.0 native: serves over the automatic HTTPS gateway in production
+  mode, so WebAuthn passkeys (YubiKey 5, iPhone NFC) work out of the box once
+  the Umbrel CA is trusted on your devices. Self-hosted end-to-end encrypted
+  notes, passwords, files and tasks vault (Rust + SvelteKit + Postgres).
+  Register your account, then close registration (see README).
 tagline: End-to-end encrypted notes vault
 description: >-
   Your private, end-to-end encrypted info hub: notes, passwords, files and
