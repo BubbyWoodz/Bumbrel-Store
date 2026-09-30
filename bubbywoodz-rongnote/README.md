@@ -3,30 +3,24 @@
 Packaged from [operator64/rongnote](https://github.com/operator64/rongnote) —
 self-hosted, end-to-end encrypted notes/passwords/files/tasks vault.
 Images are digest-pinned; data persists under Umbrel's app-data dir.
+Configured for **umbrelOS 2.0**: served over the automatic HTTPS gateway in
+production mode, so WebAuthn passkeys work out of the box.
 
 ## After install
 
-1. Open the app and **register your account**.
-2. **Close registration** so nobody else can sign up: over SSH, edit
+1. Make sure the **Umbrel CA is installed and trusted** on your iPhone
+   (Settings → install the profile → trust it), otherwise Safari will warn
+   on the https://umbrel.local address.
+2. Open the app and **register your account**.
+3. **Close registration** so nobody else can sign up: over SSH, edit
    `~/umbrel/app-data/bubbywoodz-rongnote/docker-compose.yml`, set
    `REGISTRATION_OPEN: "false"`, then restart the app from the Umbrel UI.
    (Umbrel has no install-time config, so this stays open on first boot.)
-
-## Passkeys / YubiKey (needs HTTPS)
-
-WebAuthn passkeys require a secure context. While on umbrelOS 1.x (plain
-HTTP) the app runs with `APP_ENV: development` so login cookies work —
-passkey *registration* will not work until HTTPS is in front.
-
-Once on **umbrelOS 2.0** (automatic HTTPS):
-
-1. Install the Umbrel CA on your iPhone (Settings → install profile → trust).
-2. Over SSH, set `APP_ENV: production` and
-   `PUBLIC_URL: https://umbrel.local:8090` in the compose file, restart.
-   (The RP ID stays `umbrel.local`, so passkeys remain valid.)
-3. Register your YubiKey in RongNote → Settings → Passkeys.
+4. Register your **YubiKey** in RongNote → Settings → Passkeys. Add a second
+   passkey or recovery method so losing one key doesn't lock you out.
 
 ## Ports
 
-- `8090` on the host → app (also reachable over Tailscale at
-  `http://100.96.4.85:8090`, and via the Umbrel dashboard "Open" button).
+- `8090` on the host → app, served as `https://umbrel.local:8090` through the
+  2.0 app gateway (also reachable over Tailscale at
+  `https://100.96.4.85:8090`, cert warning on the raw IP — use umbrel.local).
