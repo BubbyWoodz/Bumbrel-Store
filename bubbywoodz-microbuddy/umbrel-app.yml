@@ -3,6 +3,9 @@ id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
 version: "1.1.0"
+releaseNotes: >-
+  Theme-aware Homepage widget icon — /widget-icon now serves your theme's icon
+  via ?theme=. Also includes paste-time brand auto-apply (iOS parity).
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
