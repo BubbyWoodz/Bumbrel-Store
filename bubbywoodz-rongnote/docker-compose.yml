@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-rongnote_app_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+
+  db:
+    image: docker.io/library/postgres:16-alpine@sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: notes
+      POSTGRES_PASSWORD: d9HbJ4BxxTlnSUOZvCbprlH5vNranGyy
+      POSTGRES_DB: notes
+    volumes:
+      - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U notes -d notes"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    image: ghcr.io/operator64/rongnote-server:latest@sha256:3a64e866e8bb17c0077f008b541f6f70b8892019dad9408cf4e8ee797ddad8fc
+    container_name: bubbywoodz-rongnote_app_1
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+    environment:
+      DATABASE_URL: postgres://notes:d9HbJ4BxxTlnSUOZvCbprlH5vNranGyy@db:5432/notes
+      DATA_DIR: /data
+      # WebAuthn RP ID is derived from this host (umbrel.local). Keep the host
+      # stable — passkeys are bound to it. Only the scheme changes on HTTPS.
+      PUBLIC_URL: http://umbrel.local:8090
+      BIND_ADDR: 0.0.0.0:8080
+      # Must be 'development' while served over plain HTTP (umbrelOS 1.x):
+      # production mode marks cookies Secure and browsers reject them over http.
+      # Flip to 'production' once on HTTPS (umbrelOS 2.0).
+      APP_ENV: development
+      SESSION_TTL: 30d
+      # Close this after creating your account (see README.md).
+      REGISTRATION_OPEN: "true"
+      RUST_LOG: info,sqlx=warn
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    depends_on:
+      db:
+        condition: service_healthy
