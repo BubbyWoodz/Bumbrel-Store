@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.2.0"
+version: "1.1.0"
 tagline: Micro Center sales dashboard
 description: >-
   Micro Buddy is a personal Micro Center sales dashboard — track tickets, commission, base pay,
