@@ -1,0 +1,59 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-endurain_endurain_1
+      APP_PORT: 8080
+
+  endurain:
+    container_name: bubbywoodz-endurain_endurain_1
+    image: codeberg.org/endurain-project/endurain:v0.19.0@sha256:a43273a30588f344f103e978a2e17aae75de31ffdb21dddd8ac8e71d70a08f3c
+    restart: on-failure
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DB_PASSWORD: ${APP_SEED}
+      POSTGRES_PASSWORD: ${APP_SEED}
+      SECRET_KEY: ${APP_SEED}
+      FERNET_KEY: ${APP_SEED}
+      TZ: America/Los_Angeles
+      ENDURAIN_HOST: http://umbrel.local:8094
+      BEHIND_PROXY: "true"
+      RATE_LIMIT_STORAGE_URI: redis://redis:6379/0
+      AUTH_SECURITY_STORAGE_URI: redis://redis:6379/0
+    volumes:
+      - ${APP_DATA_DIR}/data/endurain:/app/backend/data
+      - ${APP_DATA_DIR}/data/logs:/app/backend/logs
+
+  postgres:
+    container_name: bubbywoodz-endurain_postgres_1
+    image: docker.io/postgres:18@sha256:8ff36f3c66371cba71d20ceedccfc3de9669a68737607888c4ef0af93abe8e39
+    restart: on-failure
+    environment:
+      POSTGRES_USER: endurain
+      POSTGRES_PASSWORD: ${APP_SEED}
+      POSTGRES_DB: endurain
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U endurain -d endurain"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    container_name: bubbywoodz-endurain_redis_1
+    image: redis:8-alpine@sha256:09160599abd229764c0fb44cb6be640294e1d360a54b19985ab4843dcf2d90f1
+    restart: on-failure
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
