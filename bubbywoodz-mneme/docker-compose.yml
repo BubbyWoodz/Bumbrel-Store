@@ -35,8 +35,8 @@ services:
       - ${APP_DATA_DIR}/data/garage-meta:/var/lib/garage/meta
       - ${APP_DATA_DIR}/data/garage-data:/var/lib/garage/data
 
-  mneme-relay:
-    container_name: bubbywoodz-mneme_mneme-relay_1
+  server:
+    container_name: bubbywoodz-mneme_server_1
     image: ghcr.io/mneme-blog/mneme-server:v0.5.1@sha256:6e36d34db7ee973228d509528f047a9f0709377ed40389cf215c0fee0f758fec
     restart: on-failure
     depends_on:
@@ -73,7 +73,7 @@ services:
     image: ghcr.io/mneme-blog/mneme-web:v0.5.1@sha256:02321d184ea53a96e0ae6dc7abad000d42ffa8bff9d988298c892677db8bf4dd
     restart: on-failure
     depends_on:
-      - mneme-relay
+      - server
     ports:
       - "8092:80"
     volumes:
