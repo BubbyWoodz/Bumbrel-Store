@@ -1,0 +1,36 @@
+manifestVersion: 1.1
+id: bubbywoodz-stack
+category: Health
+name: Stack
+version: "1.0.0"
+releaseNotes: >-
+  Initial release. Self-hosted supplement tracker with end-to-end encryption —
+  your 12-word recovery code is the only key. Groups (Morning/Afternoon/Evening
+  + custom), daily logging with per-group "log all", streak calendar, per-supplement
+  history stats, per-group reminders, and a liquid-glass UI. Server stores only
+  ciphertext.
+tagline: Encrypted supplement tracker
+description: >-
+  Your daily supplement stack, beautifully tracked and fully encrypted. Organize
+  supplements into Morning, Afternoon, Evening, or your own custom groups. Log
+  with one tap or hit "log all" per group. A streak calendar shows your consistency
+  at a glance, and the history page tracks how long you've been on each supplement —
+  even ones you've archived. Set reminders per group. Everything is end-to-end
+  encrypted with a 12-word recovery code (like Mneme) — the server only ever sees
+  ciphertext. Optional device password for quick unlock. Forget the 12 words and
+  it's gone; there is no recovery. Liquid-glass UI, dark mode, mobile-first.
+developer: BubbyWoodz
+website: https://github.com/BubbyWoodz/stack
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8096
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-stack/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery:
+  - https://raw.githubusercontent.com/BubbyWoodz/stack/main/docs/screenshots/home.png
+  - https://raw.githubusercontent.com/BubbyWoodz/stack/main/docs/screenshots/calendar.png
