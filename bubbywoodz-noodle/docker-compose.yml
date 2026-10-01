@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-noodle_server_1
+      APP_PORT: 2283
+
+  server:
+    container_name: bubbywoodz-noodle_server_1
+    image: ghcr.io/open-noodle/gallery-server:v4.19.0@sha256:ad493a2cbe1eef1e74b18cbdf040af4453058bc7a79b4219ea2da2adf4cef8b9
+    restart: on-failure
+    depends_on:
+      - redis
+      - database
+    volumes:
+      - ${APP_DATA_DIR}/data/upload:/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      DB_HOSTNAME: database
+      DB_USERNAME: postgres
+      DB_PASSWORD: ${APP_SEED}
+      DB_DATABASE_NAME: immich
+      REDIS_HOSTNAME: redis
+
+  machine-learning:
+    container_name: bubbywoodz-noodle_ml_1
+    image: ghcr.io/open-noodle/gallery-ml:v4.19.0@sha256:90bc09de5ce88a976a4a839ac67295b83224b48597a380f191f81e40fe34f9d3
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/model-cache:/cache
+
+  redis:
+    container_name: bubbywoodz-noodle_redis_1
+    image: docker.io/valkey/valkey:9@sha256:c123e3715db63d06d4ad6964884037aa0d5d4d703939b9929954112889708e1d
+    restart: on-failure
+    healthcheck:
+      test: redis-cli ping | grep -q PONG || exit 1
+
+  database:
+    container_name: bubbywoodz-noodle_db_1
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
+    restart: on-failure
+    environment:
+      POSTGRES_PASSWORD: ${APP_SEED}
+      POSTGRES_USER: postgres
+      POSTGRES_DB: immich
+      POSTGRES_INITDB_ARGS: '--data-checksums'
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    shm_size: 128mb
