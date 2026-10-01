@@ -9,16 +9,16 @@
 
 	# Relay API + health + admin -> Go relay
 	handle /mneme/v1/* {
-		reverse_proxy mneme-relay:8080
+		reverse_proxy localhost:8080
 	}
 	handle /mneme/healthz {
-		reverse_proxy mneme-relay:8080
+		reverse_proxy localhost:8080
 	}
 	handle /mneme/readyz {
-		reverse_proxy mneme-relay:8080
+		reverse_proxy localhost:8080
 	}
 	handle /mneme/admin* {
-		reverse_proxy mneme-relay:8080
+		reverse_proxy localhost:8080
 	}
 
 	# Static SPA (everything else under /mneme/)
