@@ -36,4 +36,8 @@ defaultPassword: ""
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-mneme/icon.svg
 submitter: BubbyWoodz
 submission: https://github.com/BubbyWoodz/Bumbrel-Store
-gallery: []
+gallery:
+  - https://raw.githubusercontent.com/mneme-blog/mneme/main/docs/screenshots/desktop-editor.png
+  - https://raw.githubusercontent.com/mneme-blog/mneme/main/docs/screenshots/desktop-calendar.png
+  - https://raw.githubusercontent.com/mneme-blog/mneme/main/docs/screenshots/mobile-journal.png
+  - https://raw.githubusercontent.com/mneme-blog/mneme/main/docs/screenshots/mobile-editor.png
