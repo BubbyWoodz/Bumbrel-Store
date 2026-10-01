@@ -15,8 +15,6 @@ dependencies: []
 repo: https://github.com/BubbyWoodz/Bumbrel-Store
 support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
 port: 8093
-gallery:
-  - 1.jpg
 path: ""
 defaultUsername: ""
 defaultPassword: ""
