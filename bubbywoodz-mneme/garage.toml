@@ -1,4 +1,4 @@
-# Garage configuration for Mneme (BubbyWoodz package v1.0.2+).
+# Garage configuration for Mneme (BubbyWoodz package v2.0+).
 # Secrets (rpc_secret, s3 access/secret keys) come from environment variables,
 # NOT from this file. See docker-compose.yml.
 #
@@ -9,6 +9,8 @@ metadata_dir = "/var/lib/garage/meta"
 data_dir = "/var/lib/garage/data"
 
 replication_factor = 1
+
+db_engine = "lmdb"
 
 rpc_bind_addr = "[::]:3901"
 rpc_public_addr = "127.0.0.1:3901"
@@ -21,6 +23,7 @@ s3_region = "us-east-1"
 api_bind_addr = "[::]:3900"
 
 [s3_web]
+root_domain = "localhost"
 bind_addr = "[::]:3902"
 
 [k2v]
@@ -29,6 +32,3 @@ enabled = true
 [admin]
 api_bind_addr = "127.0.0.1:3903"
 metrics = true
-
-[db_engine]
-engine = "lmdb"
