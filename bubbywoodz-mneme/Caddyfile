@@ -11,16 +11,16 @@
 	handle_path /mneme/* {
 		# Relay API + admin dashboard + health
 		handle /v1/* {
-			reverse_proxy mneme-relay:8080
+			reverse_proxy server:8080
 		}
 		handle /healthz {
-			reverse_proxy mneme-relay:8080
+			reverse_proxy server:8080
 		}
 		handle /readyz {
-			reverse_proxy mneme-relay:8080
+			reverse_proxy server:8080
 		}
 		handle /admin* {
-			reverse_proxy mneme-relay:8080
+			reverse_proxy server:8080
 		}
 
 		# Static SPA
