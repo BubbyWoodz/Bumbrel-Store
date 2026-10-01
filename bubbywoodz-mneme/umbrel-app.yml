@@ -2,17 +2,17 @@ manifestVersion: 1.1
 id: bubbywoodz-mneme
 category: Productivity
 name: Mneme
-version: "1.0.11"
+version: "2.0"
 releaseNotes: >-
-  LEGIT FIX for the relay API: renamed the Go relay service from the generic
-  'server' to 'mneme-relay'. Ten apps on this Umbrel use 'server' as a
-  service name, causing a Docker DNS collision — the Caddy proxy was
-  reaching a different app's nginx (1.30.5) instead of Mneme's Go relay,
-  hence POST /v1/register returned 405. The unique name guarantees correct
-  routing. Architecture unchanged from upstream (Caddy + Go relay + Postgres
-  + Garage); only the service name is more specific. All images digest-pinned.
-  Still pre-1.0, no external audit — keep backups on, write down your
-  12-word recovery phrase (no reset exists).
+  Mneme is WORKING. Fixed the Garage S3 backend which was crashing on startup:
+  the db_engine setting was written as a TOML table instead of a plain string,
+  and the s3_web section was missing its required root_domain field. With
+  Garage running, the relay's S3 bucket check passes and the API is fully
+  live: vault registration, entry sync, and media uploads all work.
+  Verified end-to-end with a test vault. Architecture unchanged from upstream
+  (Caddy + Go relay + Postgres + Garage); all images digest-pinned. Still
+  pre-1.0, no external audit — keep backups on, write down your 12-word
+  recovery phrase (no reset exists).
 tagline: Local-first, end-to-end encrypted journal
 description: >-
   Mneme is a private journal designed so that even the server operator can't
