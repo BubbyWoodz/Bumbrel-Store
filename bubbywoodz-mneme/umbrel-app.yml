@@ -2,16 +2,18 @@ manifestVersion: 1.1
 id: bubbywoodz-mneme
 category: Productivity
 name: Mneme
-version: "1.0.2"
+version: "1.0.3"
 releaseNotes: >-
-  Media uploads are back. Replaced MinIO with Garage, an S3-compatible store
-  run by Deuxfleurs (a French non-profit focused on decentralization and
-  self-hosting): no telemetry, no phone-home, privacy-aligned with Mneme's
-  own philosophy. Photos and voice notes now upload to your own server again.
-  All credentials remain per-install via Umbrel's APP_SEED. A fallback image
-  mirror is kept on GHCR in case Docker Hub ever becomes unavailable. Still
-  pre-1.0 with no external audit — promising beta, keep backups on, and
-  write down your 12-word recovery phrase (no reset exists).
+  Critical sync fix. Journal entries were not reaching the relay — the web
+  frontend proxied API requests to the generic hostname "server", which can
+  collide with other apps on the shared Docker network and route to the wrong
+  backend (API calls returned 405, entries stayed stuck locally). The proxy
+  now targets the relay's unique container hostname, so registration, entry
+  sync, and media uploads reach the actual Mneme relay. If your entries were
+  stuck "syncing", they should now upload after updating. Garage S3 media
+  storage from 1.0.2 is unchanged. Still pre-1.0 with no external audit —
+  promising beta, keep backups on, and write down your 12-word recovery
+  phrase (no reset exists).
 tagline: Local-first, end-to-end encrypted journal
 description: >-
   Mneme is a private journal designed so that even the server operator can't
