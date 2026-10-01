@@ -31,6 +31,4 @@ defaultPassword: ""
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-stack/icon.svg
 submitter: BubbyWoodz
 submission: https://github.com/BubbyWoodz/Bumbrel-Store
-gallery:
-  - https://raw.githubusercontent.com/BubbyWoodz/stack/main/docs/screenshots/home.png
-  - https://raw.githubusercontent.com/BubbyWoodz/stack/main/docs/screenshots/calendar.png
+gallery: []
