@@ -1,44 +1,46 @@
 # Mneme on Umbrel: plain HTTP inside the container network.
 # Umbrel's app gateway terminates TLS in front of this, so browsers still get
 # the secure context Mneme requires (OPFS, media, service worker).
+# Mirrors upstream's routing (app + API under /mneme/) minus the internal ACME.
 :80 {
 	encode zstd gzip
 
 	redir / /mneme/ 302
 	redir /mneme /mneme/
 
-	# Relay API + health + admin -> Go relay
-	handle /mneme/v1/* {
-		reverse_proxy server:8080
-	}
-	handle /mneme/healthz {
-		reverse_proxy server:8080
-	}
-	handle /mneme/readyz {
-		reverse_proxy server:8080
-	}
-	handle /mneme/admin* {
-		reverse_proxy server:8080
-	}
-
-	# Static SPA (everything else under /mneme/)
-	handle /mneme/* {
-		root * /srv
-		header {
-			Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://api.github.com; worker-src 'self' blob:; manifest-src 'self'"
-			X-Content-Type-Options "nosniff"
-			X-Frame-Options "DENY"
-			Referrer-Policy "no-referrer"
-			Permissions-Policy "camera=(), microphone=(), geolocation=(self), payment=(), usb=(), interest-cohort=()"
-			-Server
+	handle_path /mneme/* {
+		# Relay API + admin dashboard + health
+		handle /v1/* {
+			reverse_proxy server:8080
 		}
-		uri strip_prefix /mneme
-		@assets path /assets/*
-		header @assets Cache-Control "public, max-age=31536000, immutable"
-		@revalidate not path /assets/*
-		header @revalidate Cache-Control "no-cache"
-		try_files {path} /index.html
-		file_server
+		handle /healthz {
+			reverse_proxy server:8080
+		}
+		handle /readyz {
+			reverse_proxy server:8080
+		}
+		handle /admin* {
+			reverse_proxy server:8080
+		}
+
+		# Static SPA
+		handle {
+			root * /srv
+			header {
+				Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://api.github.com; worker-src 'self' blob:; manifest-src 'self'"
+				X-Content-Type-Options "nosniff"
+				X-Frame-Options "DENY"
+				Referrer-Policy "no-referrer"
+				Permissions-Policy "camera=(), microphone=(), geolocation=(self), payment=(), usb=(), interest-cohort=()"
+				-Server
+			}
+			@assets path /assets/*
+			header @assets Cache-Control "public, max-age=31536000, immutable"
+			@revalidate not path /assets/*
+			header @revalidate Cache-Control "no-cache"
+			try_files {path} /index.html
+			file_server
+		}
 	}
 
 	handle {
