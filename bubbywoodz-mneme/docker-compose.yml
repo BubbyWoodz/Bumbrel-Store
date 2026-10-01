@@ -1,0 +1,78 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-mneme_web_1
+      APP_PORT: 80
+
+  postgres:
+    container_name: bubbywoodz-mneme_postgres_1
+    image: postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    restart: on-failure
+    environment:
+      POSTGRES_USER: journal
+      POSTGRES_PASSWORD: "niCyaAZfiy73QqrQB4TzGJopdZhjjNlf"
+      POSTGRES_DB: journal
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U journal -d journal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    container_name: bubbywoodz-mneme_minio_1
+    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e
+    restart: on-failure
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: "mnemeadmin"
+      MINIO_ROOT_PASSWORD: "G4hsTJ1wXuWIHDAYhilMrN1peiq7QEWk"
+    volumes:
+      - ${APP_DATA_DIR}/data/minio:/data
+    healthcheck:
+      test: ["CMD-SHELL", "mc ready local || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  server:
+    container_name: bubbywoodz-mneme_server_1
+    image: ghcr.io/mneme-blog/mneme-server:v0.5.1@sha256:6e36d34db7ee973228d509528f047a9f0709377ed40389cf215c0fee0f758fec
+    restart: on-failure
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    environment:
+      DATABASE_URL: "postgres://journal:niCyaAZfiy73QqrQB4TzGJopdZhjjNlf@postgres:5432/journal?sslmode=disable"
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "mnemeadmin"
+      S3_SECRET_KEY: "G4hsTJ1wXuWIHDAYhilMrN1peiq7QEWk"
+      S3_BUCKET: journal-media
+      LISTEN_ADDR: ":8080"
+      CORS_ORIGINS: ""
+      ADMIN_TOKEN: "9FmhhUau34C6wlvOkEbJAWa3CbwnUlxXEOoO7Xupuvo="
+      BACKUP_DIR: /backups
+      BACKUP_INTERVAL: 24h
+      BACKUP_KEEP: "14"
+      BACKUP_HOST_DIR: /mnt/host-backups
+      UPDATE_CHECK: "on"
+      TRUST_PROXY_HEADERS: "true"
+    volumes:
+      - ${APP_DATA_DIR}/data/backups:/backups
+      - ${APP_DATA_DIR}/data/host-backups:/mnt/host-backups
+
+  web:
+    container_name: bubbywoodz-mneme_web_1
+    image: ghcr.io/mneme-blog/mneme-web:v0.5.1@sha256:02321d184ea53a96e0ae6dc7abad000d42ffa8bff9d988298c892677db8bf4dd
+    restart: on-failure
+    depends_on:
+      - server
+    ports:
+      - "8092:80"
+    volumes:
+      - ${APP_DATA_DIR}/Caddyfile:/etc/caddy/Caddyfile:ro
