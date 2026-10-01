@@ -22,6 +22,28 @@ services:
       timeout: 5s
       retries: 5
 
+  garage:
+    container_name: bubbywoodz-mneme_garage_1
+    image: dxflrs/garage:v2.4.1@sha256:9c96caa2612d3411acc5b0e6701fb238dbfba33e533a6d7d3d811a4b12d0d020
+    restart: on-failure
+    command: ["/garage", "server", "--single-node", "--default-bucket"]
+    environment:
+      # All secrets are per-install via Umbrel's APP_SEED. Nothing hardcoded.
+      GARAGE_RPC_SECRET: ${APP_SEED}
+      GARAGE_DEFAULT_ACCESS_KEY: "GK${APP_SEED}"
+      GARAGE_DEFAULT_SECRET_KEY: ${APP_SEED}
+      GARAGE_DEFAULT_BUCKET: "journal-media"
+    volumes:
+      - ${APP_DATA_DIR}/garage.toml:/etc/garage.toml:ro
+      - ${APP_DATA_DIR}/data/garage-meta:/var/lib/garage/meta
+      - ${APP_DATA_DIR}/data/garage-data:/var/lib/garage/data
+    healthcheck:
+      # Distroless image: no shell, so use the garage binary directly.
+      test: ["CMD", "/garage", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   server:
     container_name: bubbywoodz-mneme_server_1
     image: ghcr.io/mneme-blog/mneme-server:v0.5.1@sha256:6e36d34db7ee973228d509528f047a9f0709377ed40389cf215c0fee0f758fec
@@ -29,11 +51,16 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      garage:
+        condition: service_healthy
     environment:
       DATABASE_URL: "postgres://journal:${APP_SEED}@postgres:5432/journal?sslmode=disable"
-      # Media storage (S3-compatible) is intentionally unset: the relay runs
-      # without media (media endpoints answer 503) until a reliably pullable
-      # S3 image is available. Text journaling, sync and backups work fully.
+      # Media storage: Garage (S3-compatible, run by the Deuxfleurs non-profit;
+      # no telemetry, privacy-aligned). Bucket auto-created on first boot.
+      S3_ENDPOINT: "http://garage:3900"
+      S3_ACCESS_KEY: "GK${APP_SEED}"
+      S3_SECRET_KEY: ${APP_SEED}
+      S3_BUCKET: "journal-media"
       LISTEN_ADDR: ":8080"
       CORS_ORIGINS: ""
       # Admin surface disabled (empty token => every /admin path 404s).
