@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1b3a"/>
+      <stop offset="50%" stop-color="#2d1b4e"/>
+      <stop offset="100%" stop-color="#0f0c29"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="240" fill="url(#bg)"/>
+  <rect x="112" y="112" width="800" height="800" rx="180" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.3" stroke-width="4"/>
+  <!-- stacked pills -->
+  <g transform="translate(512, 420)">
+    <rect x="-180" y="-55" width="360" height="110" rx="55" fill="url(#pill)" opacity="0.9" transform="rotate(-18)"/>
+    <rect x="-180" y="-55" width="180" height="110" rx="55" fill="#ffffff" opacity="0.35" transform="rotate(-18)"/>
+  </g>
+  <g transform="translate(512, 600)">
+    <rect x="-180" y="-55" width="360" height="110" rx="55" fill="url(#pill)" opacity="0.7" transform="rotate(12)"/>
+    <rect x="-180" y="-55" width="180" height="110" rx="55" fill="#ffffff" opacity="0.3" transform="rotate(12)"/>
+  </g>
+  <!-- checkmark -->
+  <circle cx="512" cy="800" r="70" fill="#10b981" opacity="0.9"/>
+  <path d="M478 800 l24 24 l48 -52" stroke="#ffffff" stroke-width="28" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
