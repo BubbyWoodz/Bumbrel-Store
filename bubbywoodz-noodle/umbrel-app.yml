@@ -1,0 +1,33 @@
+manifestVersion: 1.1
+id: bubbywoodz-noodle
+category: Photos
+name: Noodle Gallery
+version: "1.0.0"
+releaseNotes: >-
+  Initial release. Noodle Gallery is a community fork of Immich — a
+  self-hosted Google Photos alternative. Smart search, face recognition,
+  Shared Spaces, S3 storage support, and Google Photos import. Your
+  photos stay on hardware you own. Images digest-pinned (Gallery Server
+  v4.19.0, Gallery ML v4.19.0, Valkey 9, Postgres 14 with pgvector);
+  per-install secrets via ${APP_SEED}.
+tagline: Self-hosted photo and video management — your Google Photos alternative
+description: >-
+  Noodle Gallery is a self-hosted photo and video app, a community fork
+  of Immich with extra features. Smart search with natural language
+  queries, face recognition (including Global People across libraries),
+  Shared Spaces for collaborative timelines, S3-compatible storage when
+  your disk fills up, and a Google Photos Takeout import wizard. Free
+  and open source (AGPL-3.0) — you run the server, you own the data.
+developer: open-noodle
+website: https://opennoodle.de
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8095
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-noodle/icon.png
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
