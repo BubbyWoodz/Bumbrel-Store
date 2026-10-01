@@ -2,16 +2,17 @@ manifestVersion: 1.1
 id: bubbywoodz-mneme
 category: Productivity
 name: Mneme
-version: "1.0.5"
+version: "1.0.6"
 releaseNotes: >-
-  Reverts the v1.0.3/v1.0.4 service rename experiment (the renamed relay
-  container failed to start under Umbrel). Back to the original `server`
-  service name with the Caddy proxy targeting `server:8080`. This restores
-  the v1.0.2 networking behavior while keeping the v1.0.3 garage digest pin
-  and all v1.0.2 media features. If sync issues persist, the root cause is
-  elsewhere and under investigation. Still pre-1.0 with no external audit —
-  promising beta, keep backups on, and write down your 12-word recovery
-  phrase (no reset exists).
+  Fixes the Caddy routing that broke all relay API access. The nested
+  handle_path structure was not matching API routes — /healthz and /v1/*
+  fell through to the SPA file server instead of proxying to the Go relay
+  (POSTs got 405, health checks returned HTML). The Caddyfile now uses flat
+  handle blocks with full /mneme/* paths, so the relay API, health checks,
+  and admin routes correctly proxy to the server. The SPA still serves from
+  /srv with the /mneme prefix stripped. All images remain digest-pinned.
+  Still pre-1.0 with no external audit — promising beta, keep backups on,
+  and write down your 12-word recovery phrase (no reset exists).
 tagline: Local-first, end-to-end encrypted journal
 description: >-
   Mneme is a private journal designed so that even the server operator can't
