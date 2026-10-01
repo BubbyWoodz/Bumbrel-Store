@@ -1,0 +1,33 @@
+manifestVersion: 1.1
+id: bubbywoodz-endurain
+category: Fitness
+name: Endurain
+version: "1.0.0"
+releaseNotes: >-
+  Initial release. Endurain is a self-hosted fitness tracking service —
+  a privacy-focused Strava alternative. Track runs, rides, and workouts
+  with GPX/TCX/FIT file imports, Strava and Garmin Connect sync, gear
+  management, activity feeds, and statistics. All data stays on your
+  Umbrel. Images digest-pinned (Endurain v0.19.0, Postgres 18, Redis 8);
+  per-install secrets via ${APP_SEED}.
+tagline: Self-hosted fitness tracking — your Strava alternative
+description: >-
+  Endurain is a self-hosted fitness tracking service designed to give you
+  full control over your data. Import activities via GPX, TCX, and FIT
+  files, or sync from Strava and Garmin Connect. Track gear (bikes, shoes,
+  wetsuits), view statistics and activity feeds, follow other users, and
+  set goals. No vendor lock-in, no subscription — your workout history
+  lives on your own server.
+developer: joaovitoriasilva
+website: https://github.com/endurain-project/endurain
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8094
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-endurain/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
