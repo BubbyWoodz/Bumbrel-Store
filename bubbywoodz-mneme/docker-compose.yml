@@ -23,12 +23,9 @@ services:
       retries: 5
 
   garage:
-    container_name: bubbywoodz-mneme_garage_1
     image: dxflrs/garage:v2.4.1
-    restart: on-failure
-    command: ["/garage", "server", "--single-node", "--default-bucket"]
+    command: /garage server --single-node --default-bucket
     environment:
-      # All secrets are per-install via Umbrel's APP_SEED. Nothing hardcoded.
       GARAGE_RPC_SECRET: ${APP_SEED}
       GARAGE_DEFAULT_ACCESS_KEY: "GK${APP_SEED}"
       GARAGE_DEFAULT_SECRET_KEY: ${APP_SEED}
@@ -37,12 +34,6 @@ services:
       - ${APP_DATA_DIR}/garage.toml:/etc/garage.toml:ro
       - ${APP_DATA_DIR}/data/garage-meta:/var/lib/garage/meta
       - ${APP_DATA_DIR}/data/garage-data:/var/lib/garage/data
-    healthcheck:
-      # Distroless image: no shell, so use the garage binary directly.
-      test: ["CMD", "/garage", "status"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   server:
     container_name: bubbywoodz-mneme_server_1
@@ -52,7 +43,7 @@ services:
       postgres:
         condition: service_healthy
       garage:
-        condition: service_healthy
+        condition: service_started
     environment:
       DATABASE_URL: "postgres://journal:${APP_SEED}@postgres:5432/journal?sslmode=disable"
       # Media storage: Garage (S3-compatible, run by the Deuxfleurs non-profit;
