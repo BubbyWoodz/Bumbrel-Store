@@ -21,8 +21,17 @@ digest-pinned; all data persists under Umbrel's app-data dir.
 
 ## Admin
 
-The relay's operator dashboard is at `/mneme/admin` and needs the
-`ADMIN_TOKEN` from `docker-compose.yml`.
+The relay's operator dashboard is disabled in this package (empty
+`ADMIN_TOKEN` => `/admin` 404s). It only shows aggregate stats and isn't
+needed: vault approval is off, so new vaults work immediately.
+
+## Media uploads
+
+Photo/voice attachments are **temporarily disabled** — the relay answers
+503 on media endpoints. MinIO left Docker Hub and its new registry
+(quay.io) stopped allowing anonymous pulls, so the storage container
+can't be installed right now. Text journaling, encryption, sync and
+backups all work. Media support comes back in a later package update.
 
 ## Ports
 
@@ -35,9 +44,10 @@ The relay's operator dashboard is at `/mneme/admin` and needs the
 - `web`: Mneme PWA behind Caddy (plain HTTP internally — Umbrel's gateway
   provides the HTTPS browsers require for OPFS/media/service worker)
 - `server`: Mneme relay (sync + encrypted backups)
-- `postgres`: metadata database
-- `minio`: encrypted media/blob storage (pulled from `quay.io` — MinIO
-  left Docker Hub in September 2026)
+- `postgres`: metadata database (password = per-install `APP_SEED`)
+
+Secrets are per-install via Umbrel's `APP_SEED` — every install gets
+unique credentials, nothing shared.
 
 Voice transcription is omitted (upstream's ~1.6GB Whisper model); the
 journal works fully without it.
