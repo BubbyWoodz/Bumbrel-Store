@@ -2,15 +2,17 @@ manifestVersion: 1.1
 id: bubbywoodz-mneme
 category: Productivity
 name: Mneme
-version: "1.0.0"
+version: "1.0.1"
 releaseNotes: >-
-  First Brumble release: Mneme v0.5.1, the local-first end-to-end encrypted
-  journal. Entries, media, offline use and encrypted backups; your 12-word
-  recovery phrase is the only key — write it down, there is no reset.
-  Digest-pinned images (relay + web + postgres + minio), Umbrel gateway
-  HTTPS in front, data persists under Umbrel's app-data dir. Note: Mneme is
-  pre-1.0 with no external security audit yet — promising beta, keep the
-  automatic backups on.
+  Security + reliability fix. Secrets are now per-install (Umbrel's APP_SEED)
+  instead of shared values — every install gets unique credentials.
+  Removed the MinIO service: its registry stopped allowing anonymous pulls,
+  so installs were failing. The relay runs without media storage for now
+  (photo/voice uploads answer 503); text journaling, E2E encryption, sync
+  and automatic encrypted backups all work. Media support returns in a
+  later update once a reliably pullable S3 image is available. Still
+  pre-1.0 with no external audit — promising beta, keep backups on, and
+  write down your 12-word recovery phrase (no reset exists).
 tagline: Local-first, end-to-end encrypted journal
 description: >-
   Mneme is a private journal designed so that even the server operator can't
