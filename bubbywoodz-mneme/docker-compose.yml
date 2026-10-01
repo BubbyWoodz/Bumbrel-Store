@@ -12,28 +12,12 @@ services:
     restart: on-failure
     environment:
       POSTGRES_USER: journal
-      POSTGRES_PASSWORD: "niCyaAZfiy73QqrQB4TzGJopdZhjjNlf"
+      POSTGRES_PASSWORD: ${APP_SEED}
       POSTGRES_DB: journal
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U journal -d journal"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  minio:
-    container_name: bubbywoodz-mneme_minio_1
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e
-    restart: on-failure
-    command: server /data
-    environment:
-      MINIO_ROOT_USER: "mnemeadmin"
-      MINIO_ROOT_PASSWORD: "G4hsTJ1wXuWIHDAYhilMrN1peiq7QEWk"
-    volumes:
-      - ${APP_DATA_DIR}/data/minio:/data
-    healthcheck:
-      test: ["CMD-SHELL", "mc ready local || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -45,17 +29,17 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      minio:
-        condition: service_started
     environment:
-      DATABASE_URL: "postgres://journal:niCyaAZfiy73QqrQB4TzGJopdZhjjNlf@postgres:5432/journal?sslmode=disable"
-      S3_ENDPOINT: "http://minio:9000"
-      S3_ACCESS_KEY: "mnemeadmin"
-      S3_SECRET_KEY: "G4hsTJ1wXuWIHDAYhilMrN1peiq7QEWk"
-      S3_BUCKET: journal-media
+      DATABASE_URL: "postgres://journal:${APP_SEED}@postgres:5432/journal?sslmode=disable"
+      # Media storage (S3-compatible) is intentionally unset: the relay runs
+      # without media (media endpoints answer 503) until a reliably pullable
+      # S3 image is available. Text journaling, sync and backups work fully.
       LISTEN_ADDR: ":8080"
       CORS_ORIGINS: ""
-      ADMIN_TOKEN: "9FmhhUau34C6wlvOkEbJAWa3CbwnUlxXEOoO7Xupuvo="
+      # Admin surface disabled (empty token => every /admin path 404s).
+      # Not needed: operator approval is off, vaults are trust-on-first-use.
+      ADMIN_TOKEN: ""
+      REQUIRE_APPROVAL: "false"
       BACKUP_DIR: /backups
       BACKUP_INTERVAL: 24h
       BACKUP_KEEP: "14"
