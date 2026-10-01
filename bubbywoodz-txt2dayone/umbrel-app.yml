@@ -1,0 +1,29 @@
+manifestVersion: 1.1
+id: bubbywoodz-txt2dayone
+name: TXT to Day One
+category: Utilities
+version: "1.0.0"
+tagline: Convert TXT journal entries to Day One format for Mneme import
+description: >-
+  Upload a zip of .txt journal entries and get back a Day One-format zip
+  ready for Mneme's Day One importer. Everything runs locally on your
+  Umbrel — files are wiped from temp storage after conversion. Nothing
+  is sent anywhere.
+developer: BubbyWoodz
+website: https://github.com/BubbyWoodz/Bumbrel-Store
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8093
+gallery:
+  - 1.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Initial release. Upload a zip of .txt/.md journal entries, get a
+  Day One-format zip for Mneme's importer. Dates are parsed from
+  filenames (2024-01-15, Jan 15 2024, etc.) with file mtime as fallback.
+  Temp files are securely wiped after conversion.
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
