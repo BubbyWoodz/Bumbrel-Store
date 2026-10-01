@@ -74,6 +74,8 @@ services:
     restart: on-failure
     depends_on:
       - server
+    links:
+      - "server:mneme-relay"
     ports:
       - "8092:80"
     volumes:
