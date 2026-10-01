@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    image: ghcr.io/bubbywoodz/txt2dayone:1.0.0
+    container_name: bubbywoodz-txt2dayone_web_1
+    restart: on-failure
+    ports:
+      - "8093:8093"
+    environment:
+      - FLASK_ENV=production
