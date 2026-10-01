@@ -1,0 +1,37 @@
+manifestVersion: 1.1
+id: bubbywoodz-mneme
+category: Productivity
+name: Mneme
+version: "1.0.0"
+releaseNotes: >-
+  First Brumble release: Mneme v0.5.1, the local-first end-to-end encrypted
+  journal. Entries, media, offline use and encrypted backups; your 12-word
+  recovery phrase is the only key — write it down, there is no reset.
+  Digest-pinned images (relay + web + postgres + minio), Umbrel gateway
+  HTTPS in front, data persists under Umbrel's app-data dir. Note: Mneme is
+  pre-1.0 with no external security audit yet — promising beta, keep the
+  automatic backups on.
+tagline: Local-first, end-to-end encrypted journal
+description: >-
+  Mneme is a private journal designed so that even the server operator can't
+  read your entries: everything is encrypted end-to-end, unlocked by your
+  12-word recovery phrase (optional passphrase or FIDO2 security key for
+  seed sealing). Write entries with rich text and media, works offline as a
+  PWA, syncs through your own relay with automatic encrypted backups.
+  WRITE DOWN your 12-word recovery phrase when you create your vault — there
+  is no password reset, losing the words means losing the journal. Mneme is
+  pre-1.0 and hasn't had an external security audit, so treat it as a
+  promising beta for now.
+developer: mneme-blog
+website: https://github.com/mneme-blog/mneme
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8092
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-mneme/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
