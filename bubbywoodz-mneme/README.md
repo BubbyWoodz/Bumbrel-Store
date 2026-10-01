@@ -27,11 +27,14 @@ needed: vault approval is off, so new vaults work immediately.
 
 ## Media uploads
 
-Photo/voice attachments are **temporarily disabled** — the relay answers
-503 on media endpoints. MinIO left Docker Hub and its new registry
-(quay.io) stopped allowing anonymous pulls, so the storage container
-can't be installed right now. Text journaling, encryption, sync and
-backups all work. Media support comes back in a later package update.
+Photo/voice attachments are stored in **Garage**, an S3-compatible object
+store run by Deuxfleurs — a French non-profit focused on decentralization
+and self-hosting. No telemetry, no phone-home: it fits Mneme's own
+privacy philosophy. (MinIO was dropped because it left Docker Hub and its
+new registry stopped allowing anonymous pulls.) The bucket is created
+automatically on first boot; all credentials are per-install via Umbrel's
+APP_SEED. A fallback image mirror is kept on GHCR in case Docker Hub ever
+becomes unavailable.
 
 ## Ports
 
