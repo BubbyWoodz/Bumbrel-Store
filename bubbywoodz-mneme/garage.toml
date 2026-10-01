@@ -1,0 +1,31 @@
+# Garage configuration for Mneme (BubbyWoodz package v1.0.2+).
+# Secrets (rpc_secret, s3 access/secret keys) come from environment variables,
+# NOT from this file. See docker-compose.yml.
+#
+# Garage is run by Deuxfleurs, a French non-profit collective focused on
+# decentralization and self-hosting. No telemetry, no phone-home.
+
+metadata_dir = "/var/lib/garage/meta"
+data_dir = "/var/lib/garage/data"
+
+replication_factor = 1
+
+rpc_bind_addr = "[::]:3901"
+rpc_public_addr = "127.0.0.1:3901"
+rpc_secret = "${GARAGE_RPC_SECRET}"
+
+[s3_api]
+s3_region = "us-east-1"
+api_bind_addr = "[::]:3900"
+
+[s3_web]
+bind_addr = "[::]:3902"
+
+[k2v]
+enabled = true
+
+[admin]
+api_bind_addr = "127.0.0.1:3903"
+metrics = true
+
+[db_engine = "lmdb"]
