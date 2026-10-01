@@ -1,0 +1,34 @@
+manifestVersion: 1.1
+id: bubbywoodz-dailytxt
+category: Productivity
+name: DailyTxT
+version: "1.0.0"
+releaseNotes: >-
+  First Brumble release: DailyTxT 2.6.3, the self-hosted private journal &
+  diary. Daily entries with Markdown, tags, templates, encrypted file
+  uploads, full-text search and HTML export; multi-user capable with an
+  admin panel. Registration starts OPEN — create your account, then close
+  registration (see README for the admin password). Digest-pinned image,
+  data persists under Umbrel's app-data dir.
+tagline: Private journal & diary, self-hosted
+description: >-
+  DailyTxT is your personal journal that lives on your Umbrel: write daily
+  entries with Markdown, organize with tags, reuse templates, attach
+  encrypted file uploads, search everything and export to HTML. Responsive
+  mobile UI with PWA install, so it feels like a native app on your phone.
+  Register your account right after install, then close registration in the
+  admin panel so nobody else on the network can sign up — see the README
+  for the admin password.
+developer: PhiTux
+website: https://github.com/PhiTux/dailytxt
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8091
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-dailytxt/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
