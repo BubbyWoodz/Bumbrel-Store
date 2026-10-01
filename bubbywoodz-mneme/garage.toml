@@ -28,4 +28,5 @@ enabled = true
 api_bind_addr = "127.0.0.1:3903"
 metrics = true
 
-[db_engine = "lmdb"]
+[db_engine]
+engine = "lmdb"
