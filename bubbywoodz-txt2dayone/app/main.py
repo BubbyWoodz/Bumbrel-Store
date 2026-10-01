@@ -21,10 +21,11 @@ app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max
 
 # Common date patterns in filenames
 DATE_PATTERNS = [
-    (r'(\d{4})-(\d{2})-(\d{2})', lambda m: (int(m.group(1)), int(m.group(2)), int(m.group(3)))),  # 2024-01-15
-    (r'(\d{4})_(\d{2})_(\d{2})', lambda m: (int(m.group(1)), int(m.group(2)), int(m.group(3)))),  # 2024_01_15
-    (r'(\d{2})-(\d{2})-(\d{4})', lambda m: (int(m.group(3)), int(m.group(1)), int(m.group(2)))),  # 01-15-2024
-    (r'(\d{4})(\d{2})(\d{2})', lambda m: (int(m.group(1)), int(m.group(2)), int(m.group(3)))),    # 20240115
+    (r'(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})', lambda m: datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)), int(m.group(4)), int(m.group(5)), int(m.group(6)), tzinfo=timezone.utc)),  # 2026-03-05T00-05-21
+    (r'(\d{4})-(\d{2})-(\d{2})', lambda m: datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)), 12, 0, 0, tzinfo=timezone.utc)),  # 2024-01-15
+    (r'(\d{4})_(\d{2})_(\d{2})', lambda m: datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)), 12, 0, 0, tzinfo=timezone.utc)),  # 2024_01_15
+    (r'(\d{2})-(\d{2})-(\d{4})', lambda m: datetime(int(m.group(3)), int(m.group(1)), int(m.group(2)), 12, 0, 0, tzinfo=timezone.utc)),  # 01-15-2024
+    (r'(\d{4})(\d{2})(\d{2})', lambda m: datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)), 12, 0, 0, tzinfo=timezone.utc)),    # 20240115
 ]
 
 MONTH_NAMES = {
@@ -35,17 +36,66 @@ MONTH_NAMES = {
 }
 
 
+def parse_frontmatter_date(text: str) -> tuple[datetime | None, datetime | None, str]:
+    """
+    Parse Light Page-style frontmatter.
+    Returns (created_date, updated_date, content_without_frontmatter).
+    Frontmatter looks like:
+        ---
+        created: Wed Mar 04 2026 16:05:21 GMT-0800
+        updated: Wed Mar 04 2026 16:13:05 GMT-0800
+        ---
+    """
+    created = None
+    updated = None
+    content = text
+
+    # Match frontmatter block at the start
+    fm_match = re.match(r'^---\s*\n(.*?)\n---\s*\n?', text, re.DOTALL)
+    if fm_match:
+        fm_body = fm_match.group(1)
+        content = text[fm_match.end():]
+
+        for line in fm_body.split('\n'):
+            line = line.strip()
+            if line.lower().startswith('created:'):
+                date_str = line[8:].strip()
+                created = parse_lightpage_date(date_str)
+            elif line.lower().startswith('updated:'):
+                date_str = line[8:].strip()
+                updated = parse_lightpage_date(date_str)
+
+    # Strip trailing --- if present
+    content = re.sub(r'\n---\s*$', '', content).strip()
+
+    return created, updated, content
+
+
+def parse_lightpage_date(date_str: str) -> datetime | None:
+    """Parse 'Wed Mar 04 2026 16:05:21 GMT-0800' format."""
+    # Normalize: "GMT-0800" -> "-0800"
+    normalized = re.sub(r'GMT([+-]\d{4})', r'\1', date_str)
+    for fmt in ('%a %b %d %Y %H:%M:%S %z', '%a %b %d %Y %H:%M:%S'):
+        try:
+            dt = datetime.strptime(normalized, fmt)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt
+        except ValueError:
+            continue
+    return None
+
+
 def parse_date_from_filename(filename: str) -> datetime | None:
     """Try to extract a date from a filename. Returns None if no date found."""
     stem = Path(filename).stem
 
-    # Try numeric patterns
+    # Try numeric patterns (lambdas return datetime directly)
     for pattern, extractor in DATE_PATTERNS:
         m = re.search(pattern, stem)
         if m:
             try:
-                year, month, day = extractor(m)
-                return datetime(year, month, day, 12, 0, 0, tzinfo=timezone.utc)
+                return extractor(m)
             except ValueError:
                 continue
 
@@ -130,27 +180,43 @@ def convert():
         skipped = []
         for txt_path in txt_files:
             try:
-                text = txt_path.read_text(encoding='utf-8', errors='replace').strip()
+                raw_text = txt_path.read_text(encoding='utf-8', errors='replace').strip()
             except OSError:
                 skipped.append(txt_path.name)
                 continue
+
+            if not raw_text:
+                skipped.append(txt_path.name)
+                continue
+
+            # Parse frontmatter for dates and strip it from content
+            created_dt, updated_dt, text = parse_frontmatter_date(raw_text)
 
             if not text:
                 skipped.append(txt_path.name)
                 continue
 
-            entry_date = parse_date_from_filename(txt_path.name)
+            # Date priority: frontmatter created > filename > file mtime
+            entry_date = created_dt or parse_date_from_filename(txt_path.name)
             if entry_date is None:
-                # Fall back to file modification time
                 mtime = txt_path.stat().st_mtime
                 entry_date = datetime.fromtimestamp(mtime, tz=timezone.utc)
 
+            # Ensure timezone-aware
+            if entry_date.tzinfo is None:
+                entry_date = entry_date.replace(tzinfo=timezone.utc)
+
             iso_date = entry_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+            modified_iso = iso_date
+            if updated_dt:
+                if updated_dt.tzinfo is None:
+                    updated_dt = updated_dt.replace(tzinfo=timezone.utc)
+                modified_iso = updated_dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
             entries.append({
                 'uuid': str(uuid.uuid4()).upper(),
                 'creationDate': iso_date,
-                'modifiedDate': iso_date,
+                'modifiedDate': modified_iso,
                 'text': text,
                 'tags': [],
                 'starred': False,
