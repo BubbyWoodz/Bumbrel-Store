@@ -213,21 +213,11 @@ def convert():
                     updated_dt = updated_dt.replace(tzinfo=timezone.utc)
                 modified_iso = updated_dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-            # Prepend a title heading with the formatted date
-            # (e.g. "# March 4, 2026") so entries have titles in Mneme
-            title_date = entry_date.strftime('%B %-d, %Y').replace(' 0', ' ')
-            # Handle %-d not working on all platforms
-            try:
-                title_str = entry_date.strftime('%B %-d, %Y')
-            except ValueError:
-                title_str = entry_date.strftime('%B %d, %Y').replace(' 0', ' ')
-            titled_text = f'# {title_str}\n\n{text}'
-
             entries.append({
                 'uuid': str(uuid.uuid4()).upper(),
                 'creationDate': iso_date,
                 'modifiedDate': modified_iso,
-                'text': titled_text,
+                'text': text,
                 'tags': [],
                 'starred': False,
             })
