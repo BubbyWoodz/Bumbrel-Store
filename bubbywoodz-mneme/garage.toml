@@ -12,7 +12,9 @@ replication_factor = 1
 
 rpc_bind_addr = "[::]:3901"
 rpc_public_addr = "127.0.0.1:3901"
-rpc_secret = "${GARAGE_RPC_SECRET}"
+# rpc_secret comes from the GARAGE_RPC_SECRET environment variable (see
+# docker-compose.yml). Do NOT put it here — Garage does not expand env vars
+# in TOML, and a literal "${...}" string fails secret validation.
 
 [s3_api]
 s3_region = "us-east-1"
