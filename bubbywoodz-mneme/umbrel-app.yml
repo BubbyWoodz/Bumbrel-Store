@@ -2,18 +2,18 @@ manifestVersion: 1.1
 id: bubbywoodz-mneme
 category: Productivity
 name: Mneme
-version: "1.0.3"
+version: "1.0.4"
 releaseNotes: >-
-  Critical sync fix. Journal entries were not reaching the relay — the web
-  frontend proxied API requests to the generic hostname "server", which can
-  collide with other apps on the shared Docker network and route to the wrong
-  backend (API calls returned 405, entries stayed stuck locally). The proxy
-  now targets the relay's unique container hostname, so registration, entry
-  sync, and media uploads reach the actual Mneme relay. If your entries were
-  stuck "syncing", they should now upload after updating. Garage S3 media
-  storage from 1.0.2 is unchanged. Still pre-1.0 with no external audit —
-  promising beta, keep backups on, and write down your 12-word recovery
-  phrase (no reset exists).
+  Fixes the relay API routing properly. v1.0.3 tried using the container's
+  full name, but Docker DNS only resolves service names — so the proxy got a
+  502. The relay service is now renamed from the generic "server" to the
+  unique "mneme-relay", which resolves correctly on the Docker network with
+  no collision risk from other apps. Registration, entry sync, and media
+  uploads now reach the actual Mneme relay. If your entries were stuck
+  "syncing", they should now upload after updating. All images remain
+  digest-pinned. Still pre-1.0 with no external audit — promising beta,
+  keep backups on, and write down your 12-word recovery phrase (no reset
+  exists).
 tagline: Local-first, end-to-end encrypted journal
 description: >-
   Mneme is a private journal designed so that even the server operator can't
