@@ -2,17 +2,17 @@ manifestVersion: 1.1
 id: bubbywoodz-mneme
 category: Productivity
 name: Mneme
-version: "1.0.6"
+version: "1.0.7"
 releaseNotes: >-
-  Fixes the Caddy routing that broke all relay API access. The nested
-  handle_path structure was not matching API routes — /healthz and /v1/*
-  fell through to the SPA file server instead of proxying to the Go relay
-  (POSTs got 405, health checks returned HTML). The Caddyfile now uses flat
-  handle blocks with full /mneme/* paths, so the relay API, health checks,
-  and admin routes correctly proxy to the server. The SPA still serves from
-  /srv with the /mneme prefix stripped. All images remain digest-pinned.
-  Still pre-1.0 with no external audit — promising beta, keep backups on,
-  and write down your 12-word recovery phrase (no reset exists).
+  Fixes relay connectivity by bypassing Docker DNS. The generic "server"
+  hostname was colliding with other apps on the Umbrel (returning nginx 405s
+  instead of reaching the Go relay). The web service now uses a Docker
+  "links" alias (mneme-relay) which resolves via /etc/hosts directly to the
+  relay container's IP — no DNS lookup, no collision. The Caddyfile proxies
+  API, health, and admin routes to mneme-relay:8080. All images remain
+  digest-pinned. Still pre-1.0 with no external audit — promising beta,
+  keep backups on, and write down your 12-word recovery phrase (no reset
+  exists).
 tagline: Local-first, end-to-end encrypted journal
 description: >-
   Mneme is a private journal designed so that even the server operator can't
