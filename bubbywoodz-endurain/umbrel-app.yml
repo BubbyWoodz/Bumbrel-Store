@@ -30,4 +30,9 @@ defaultPassword: ""
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-endurain/icon.svg
 submitter: BubbyWoodz
 submission: https://github.com/BubbyWoodz/Bumbrel-Store
-gallery: []
+gallery:
+  - https://docs.endurain.com/assets/gallery/screenshot_home.png
+  - https://docs.endurain.com/assets/gallery/screenshot_activity_page_1.png
+  - https://docs.endurain.com/assets/gallery/screenshot_gears_page.png
+  - https://docs.endurain.com/assets/gallery/screenshot_health_home.png
+  - https://docs.endurain.com/assets/gallery/screenshot_profile.png
