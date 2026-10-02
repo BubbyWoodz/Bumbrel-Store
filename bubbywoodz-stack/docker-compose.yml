@@ -4,7 +4,7 @@ services:
     container_name: bubbywoodz-stack_app_1
     restart: unless-stopped
     ports:
-      - "8096:8096"
+      - "8097:8097"
     volumes:
       - ${APP_DATA_DIR}/data:/data
     environment:
