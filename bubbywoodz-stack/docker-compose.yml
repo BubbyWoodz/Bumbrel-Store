@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/bubbywoodz/stack:latest
+    image: ghcr.io/bubbywoodz/stack:main
     container_name: bubbywoodz-stack_app_1
     restart: unless-stopped
     ports:
