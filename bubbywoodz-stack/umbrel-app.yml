@@ -2,13 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-stack
 category: Health
 name: Stack
-version: "1.0.0"
+version: "1.0.1"
 releaseNotes: >-
-  Initial release. Self-hosted supplement tracker with end-to-end encryption —
-  your 12-word recovery code is the only key. Groups (Morning/Afternoon/Evening
-  + custom), daily logging with per-group "log all", streak calendar, per-supplement
-  history stats, per-group reminders, and a liquid-glass UI. Server stores only
-  ciphertext.
+  Replaced all emojis with theme-aware SVG icons throughout the app. Fixed the
+  Manage tab navigation. New three-pill app icon.
 tagline: Encrypted supplement tracker
 description: >-
   Your daily supplement stack, beautifully tracked and fully encrypted. Organize
