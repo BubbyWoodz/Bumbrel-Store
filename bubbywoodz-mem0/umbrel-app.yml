@@ -1,0 +1,34 @@
+manifestVersion: 1.1
+id: bubbywoodz-mem0
+category: AI
+name: Mem0
+version: "1.0.0"
+releaseNotes: >-
+  Initial release. Self-hosted Mem0 memory layer: add-only long-term memory
+  for AI agents, with fully local inference — memory extraction via
+  llama3.1:8b and embeddings via nomic-embed-text on your Umbrel's own
+  Ollama. No cloud API keys, nothing leaves your network. Telemetry is
+  disabled. Auth is on: create your admin account in the dashboard setup
+  wizard on first open (or use the per-install ADMIN_API_KEY).
+tagline: Long-term memory layer for AI agents, fully local
+description: >-
+  Mem0 gives AI agents persistent, add-only long-term memory: it extracts
+  facts, preferences and context from conversations and recalls them later,
+  instead of forgetting everything when the chat ends. This package runs the
+  self-hosted Mem0 server (REST API + dashboard) on your Umbrel, wired to
+  your local Ollama for both the extraction LLM and embeddings — so every
+  memory is created and searched on your own hardware. Browse memories,
+  manage API keys and switch providers from the dashboard.
+developer: mem0ai
+website: https://github.com/mem0ai/mem0
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8093
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-mem0/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
