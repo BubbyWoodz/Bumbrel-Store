@@ -24,7 +24,7 @@ website: https://github.com/BubbyWoodz/stack
 dependencies: []
 repo: https://github.com/BubbyWoodz/Bumbrel-Store
 support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
-port: 8096
+port: 8097
 path: ""
 defaultUsername: ""
 defaultPassword: ""
