@@ -26,7 +26,7 @@ services:
 
   api:
     container_name: bubbywoodz-mem0_api_1
-    image: mem0/mem0-api-server:latest@sha256:2fcf4bb713cfc584d454bf06993cc7e2fe51540695995bd3aa9c7008b7065c75
+    image: mem0/mem0-api-server:latest
     restart: on-failure
     depends_on:
       postgres:
