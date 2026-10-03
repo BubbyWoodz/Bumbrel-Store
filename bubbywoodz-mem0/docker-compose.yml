@@ -8,7 +8,7 @@ services:
 
   postgres:
     container_name: bubbywoodz-mem0_postgres_1
-    image: pgvector/pgvector:pg17@sha256:ac08538c6f8b9904c33c8224c5e5706be760aca29db1d096972b4052c22a75d
+    image: pgvector/pgvector:pg17
     restart: on-failure
     shm_size: 128mb
     environment:
