@@ -25,7 +25,7 @@ services:
 
   api:
     container_name: bubbywoodz-mem0_api_1
-    image: mem0/mem0-api-server:latest
+    image: ghcr.io/bubbywoodz/mem0-api-server:latest
     restart: on-failure
     depends_on:
       postgres:
