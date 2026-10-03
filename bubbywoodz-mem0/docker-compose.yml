@@ -49,7 +49,7 @@ services:
       MEM0_TELEMETRY: "false"
       DASHBOARD_URL: http://umbrel.local:8093
       APP_DB_NAME: mem0_app
-      OPENAI_API_KEY: ""
+      OPENAI_API_KEY: ${APP_SEED}
       # Route the bundled OpenAI provider at local Ollama (OpenAI-compatible).
       OPENAI_BASE_URL: http://ollama_ollama_1:11434/v1
       MEM0_DEFAULT_LLM_MODEL: llama3.1:8b
