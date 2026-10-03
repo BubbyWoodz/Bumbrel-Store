@@ -69,4 +69,5 @@ services:
     environment:
       NEXT_PUBLIC_API_URL: http://umbrel.local:8888
       API_INTERNAL_URL: http://api:8000
+      DASHBOARD_URL: http://umbrel.local:8093
       NEXT_PUBLIC_INSTANCE_NAME: Mem0
