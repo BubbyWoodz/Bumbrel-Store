@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: bubbywoodz-swingmusic-lean
+name: Swing Music Lean
+tagline: RAM-optimized fork of Swing Music for large libraries
+icon: https://i.imgur.com/B9R2I6L.png
+category: media
+version: "1.0.0"
+port: 1971
+description: >-
+  Swing Music Lean is a RAM-optimized fork of Swing Music, built for
+  collectors with large libraries. It keeps every feature, the full UI,
+  and identical audio quality — but uses dramatically less memory per
+  track through leaner tag parsing, string interning, and slotted
+  dataclasses.
+
+
+  Optimizations in v1.0.0:
+
+
+  - Tag `extra` dict whitelisted to only keys read at runtime
+    (lyrics, track_total, explicit) — drops ~46% of per-track tag memory.
+
+  - Album, folder, and artist name strings interned so thousands of
+    tracks share single string objects.
+
+  - `slots=True` on all dataclass models (no per-instance __dict__).
+
+  - New read-only `/debug/memory` endpoint for measuring footprint.
+
+
+  Runs on port 1971 so it can be tested alongside the standard
+  Swing Music install.
+dependencies: []
