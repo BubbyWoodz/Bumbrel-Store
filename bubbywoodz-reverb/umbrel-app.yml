@@ -4,15 +4,10 @@ name: Reverb
 tagline: Rhydian's enhanced music server — your library, everywhere
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-reverb/icon.png
 category: media
-version: "1.0.0"
+version: "1.0.1"
 port: 1971
 releaseNotes: >-
-  First Reverb release: the full Phase 1 feature set — Subsonic/OpenSubsonic
-  API, Apple Replay-style stats with animated highlight reel, server-validated
-  play logging, Spotify Connect-style device sync with remote control,
-  on-the-fly transcoding, custom playlist artwork, and the lean memory
-  optimizations. Digest-pinned image; runs on port 1971 alongside stock
-  Swing Music.
+  1.0.1: Fix startup crash (bad database imports in Subsonic/Replay modules).
 description: >-
   Reverb is a community fork of Swing Music, built for collectors who want
   more. Everything Swing Music does — beautiful library browsing, fast
