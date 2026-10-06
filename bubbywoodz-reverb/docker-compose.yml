@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-reverb_server_1
+      APP_PORT: 1971
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: ghcr.io/bubbywoodz/swingmusic:latest@sha256:4cf918b423aebc0c11994481a9bccc38cc07a3ad34f957e1f3f6f60ad9d2c08d
+    restart: on-failure
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - SWINGMUSIC_PORT=1971
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+      - ${APP_DATA_DIR}/music:/music:rw
+      - /home/umbrel/umbrel/external/T7/Music/SwingMusic:/music/t7:ro
