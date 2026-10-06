@@ -7,7 +7,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   server:
-    image: ghcr.io/bubbywoodz/swingmusic:latest@sha256:4cf918b423aebc0c11994481a9bccc38cc07a3ad34f957e1f3f6f60ad9d2c08d
+    image: ghcr.io/bubbywoodz/swingmusic:latest@sha256:2dc85b5513244bc4dc71bfbd0b45cb55090278bb741ddfdb51fedcc05dfbcca6
     restart: on-failure
     environment:
       - PUID=1000
@@ -16,4 +16,3 @@ services:
     volumes:
       - ${APP_DATA_DIR}/config:/config
       - ${APP_DATA_DIR}/music:/music:rw
-      - /home/umbrel/umbrel/external/T7/Music/SwingMusic:/music/t7:ro
