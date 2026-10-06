@@ -1,0 +1,49 @@
+manifestVersion: 1
+id: bubbywoodz-reverb
+name: Reverb
+tagline: Rhydian's enhanced music server — your library, everywhere
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-reverb/icon.png
+category: media
+version: "1.0.0"
+port: 1971
+releaseNotes: >-
+  First Reverb release: the full Phase 1 feature set — Subsonic/OpenSubsonic
+  API, Apple Replay-style stats with animated highlight reel, server-validated
+  play logging, Spotify Connect-style device sync with remote control,
+  on-the-fly transcoding, custom playlist artwork, and the lean memory
+  optimizations. Digest-pinned image; runs on port 1971 alongside stock
+  Swing Music.
+description: >-
+  Reverb is a community fork of Swing Music, built for collectors who want
+  more. Everything Swing Music does — beautiful library browsing, fast
+  search, multi-user support — plus:
+
+
+  - Subsonic/OpenSubsonic API (use Arpeggi, Amperfy, play:Sub and more)
+
+  - Replay: Apple Music Replay-style yearly/monthly listening stats with
+    an animated highlight reel and share cards
+
+  - Best-possible play logging: the server validates every play with the
+    Last.fm rule, so skips don't pollute your history
+
+  - Connect-style sync: see what's playing on all your devices, switch
+    playback between them, control from your phone
+
+  - On-the-fly transcoding for compatibility and low-bandwidth playback
+
+  - Custom playlist artwork
+
+  - Lean memory optimizations for large libraries
+
+
+  Runs on port 1971 so it can live alongside the standard Swing Music
+  install while you migrate.
+developer: BubbyWoodz
+website: https://github.com/BubbyWoodz/swingmusic
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
