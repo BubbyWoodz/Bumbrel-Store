@@ -3,7 +3,7 @@ id: bubbywoodz-vert
 name: Vert
 tagline: The next-generation file converter. Open source, fully local and free forever.
 icon: https://avatars.githubusercontent.com/u/198117259?s=48&v=4
-category: utilities
+category: Utilities
 version: "1.0.0"
 port: 3000
 description: >-
