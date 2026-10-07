@@ -10,7 +10,7 @@ folderAccess:
       - service: server
         targetPath: /mnt/external-library
         readOnly: true
-category: files
+category: Files
 name: Frameleaf
 version: "3.2.0-15"
 tagline: Immich fork with local NSFW detection and a PIN-locked private library
