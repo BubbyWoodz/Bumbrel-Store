@@ -4,10 +4,10 @@ name: Reverb
 tagline: Rhydian's enhanced music server — your library, everywhere
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-reverb/icon.png
 category: media
-version: "1.0.1"
+version: "1.0.2"
 port: 1971
 releaseNotes: >-
-  1.0.1: Fix startup crash (bad database imports in Subsonic/Replay modules).
+  1.0.2: Bundle Reverb's own web UI (was serving upstream Swing Music UI).
 description: >-
   Reverb is a community fork of Swing Music, built for collectors who want
   more. Everything Swing Music does — beautiful library browsing, fast
