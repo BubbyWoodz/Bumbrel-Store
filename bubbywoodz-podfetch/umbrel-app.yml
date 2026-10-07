@@ -3,7 +3,7 @@ id: bubbywoodz-podfetch
 name: PodFetch
 tagline: A sleek, self-hosted podcast manager and downloader
 icon: https://raw.githubusercontent.com/SamTV12345/PodFetch/main/ui/public/favicon.png
-category: media
+category: Media
 version: "latest"
 port: 8000
 description: >-
