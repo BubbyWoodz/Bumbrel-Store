@@ -1,7 +1,12 @@
 manifestVersion: "0.1"
 id: haven # Unique app ID (choose a unique ID, preferably using reverse domain name notation e.g., com.example.haven)
 name: Haven
-description: Self-host a private blog instead of using Facebook
+description: >-
+  Haven is a private, self-hosted blog built with Ruby on Rails. Write what
+  you want, create accounts for the people you want to share with, and keep
+  up with each other using built-in RSS. Privacy-first, low-bandwidth
+  friendly, no ads or trackers — share with friends and family, not the
+  whole internet.
 version: "0.0.1" # Initial app version
 category: Social 
 icon: https://avatars.githubusercontent.com/u/77590734?v=4
