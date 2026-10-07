@@ -3,7 +3,7 @@ id: bubbywoodz-selfhst-icons
 name: selfhst/icons
 tagline: Self-hosted icon collection for dashboards
 icon: https://raw.githubusercontent.com/selfhst/icons/main/svg/selfhst.svg
-category: utilities
+category: Utilities
 version: "latest"
 port: 4050
 description: >-
