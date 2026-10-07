@@ -3,7 +3,7 @@ id: bubbywoodz-plant-it
 name: Plant-it
 tagline: Your own personal plant manager
 icon: https://raw.githubusercontent.com/MDeLuise/plant-it/main/images/plant-it-logo.png
-category: productivity
+category: Productivity
 version: "latest"
 port: 3001
 description: >-
