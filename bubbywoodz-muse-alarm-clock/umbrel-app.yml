@@ -18,6 +18,7 @@ port: 8000
 path: ""
 defaultUsername: ""
 defaultPassword: ""
+gallery: []
 releaseNotes: >-
   First release: n8n-style workflow editor, FastAPI execution engine with
   12AM/3AM alarm computation and 10-minute escalation, TC002 community
