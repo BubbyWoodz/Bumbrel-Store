@@ -3,7 +3,7 @@ id: bubbywoodz-swingmusic
 name: Swing Music
 tagline: A beautiful, self-hosted music player for your local audio files
 icon: https://i.imgur.com/B9R2I6L.png
-category: media
+category: Media
 version: "2.0.9"
 port: 1970
 description: >-
