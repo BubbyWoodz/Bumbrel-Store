@@ -3,7 +3,7 @@ id: bubbywoodz-reverb
 name: Reverb
 tagline: Rhydian's enhanced music server — your library, everywhere
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-reverb/icon.png
-category: media
+category: Media
 version: "1.0.5"
 port: 1971
 releaseNotes: >-
