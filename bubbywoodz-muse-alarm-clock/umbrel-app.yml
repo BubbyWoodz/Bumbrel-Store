@@ -14,9 +14,6 @@ dependencies: []
 repo: https://github.com/BubbyWoodz/muse-alarm-clock
 support: https://github.com/BubbyWoodz/muse-alarm-clock/issues
 port: 8000
-gallery:
-  - 1.jpg
-  - 2.jpg
 releaseNotes: >-
   First release: n8n-style workflow editor, FastAPI execution engine with
   12AM/3AM alarm computation and 10-minute escalation, TC002 community
