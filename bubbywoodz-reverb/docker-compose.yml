@@ -7,7 +7,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   server:
-    image: ghcr.io/bubbywoodz/swingmusic:latest@sha256:78f43f68ad0abbad14d623952992460b81987bf8ea39d93a1bafeb1517433f1e
+    image: ghcr.io/bubbywoodz/swingmusic:latest@sha256:5b2a6d02ab8837e6ffa479050b16f189db84f8fe5a4cd3024e44d3d5af09824a
     restart: on-failure
     environment:
       - PUID=1000
