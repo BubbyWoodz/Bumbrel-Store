@@ -1,5 +1,6 @@
-manifestVersion: 1
+manifestVersion: 1.1
 id: bubbywoodz-muse-alarm-clock
+category: Utilities
 name: Muse Alarm Clock
 version: "0.1.0"
 tagline: Visual alarm-sequence builder for your pixel clock
@@ -14,6 +15,9 @@ dependencies: []
 repo: https://github.com/BubbyWoodz/muse-alarm-clock
 support: https://github.com/BubbyWoodz/muse-alarm-clock/issues
 port: 8000
+path: ""
+defaultUsername: ""
+defaultPassword: ""
 releaseNotes: >-
   First release: n8n-style workflow editor, FastAPI execution engine with
   12AM/3AM alarm computation and 10-minute escalation, TC002 community
