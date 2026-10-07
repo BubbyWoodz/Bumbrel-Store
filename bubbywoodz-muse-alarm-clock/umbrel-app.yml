@@ -9,7 +9,7 @@ description: >-
   button dismissal, and morning pages (greeting, weather, wake reason, work
   shift). Drives Ulanzi TC002 clocks running the community firmware over
   your local network. Your AI agent can author and trigger workflows too.
-developer: Ryker for Christian
+developer: Rhydian
 website: https://github.com/BubbyWoodz/muse-alarm-clock
 dependencies: []
 repo: https://github.com/BubbyWoodz/muse-alarm-clock
