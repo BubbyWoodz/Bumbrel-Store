@@ -8,4 +8,3 @@ services:
       - ${APP_DATA_DIR}:/data
     environment:
       - DB_PATH=/data/alarm.db
-      - TC002_TOKEN=${TC002_TOKEN:-}
