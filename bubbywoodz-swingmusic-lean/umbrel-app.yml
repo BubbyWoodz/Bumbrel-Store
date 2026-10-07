@@ -3,7 +3,7 @@ id: bubbywoodz-swingmusic-lean
 name: Swing Music Lean
 tagline: RAM-optimized fork of Swing Music for large libraries
 icon: https://i.imgur.com/B9R2I6L.png
-category: media
+category: Media
 version: "1.0.0"
 port: 1971
 description: >-
