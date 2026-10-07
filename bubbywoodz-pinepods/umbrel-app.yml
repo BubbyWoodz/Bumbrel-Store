@@ -1,6 +1,6 @@
 manifestVersion: 1.1
 id: bubbywoodz-pinepods
-category: media
+category: Media
 name: PinePods
 version: "0.9.0"
 tagline: Self-hosted podcast manager with audio and video support
