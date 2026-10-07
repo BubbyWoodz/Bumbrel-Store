@@ -3,7 +3,7 @@ id: bubbywoodz-karakeep
 name: Karakeep
 tagline: A self-hosted bookmark everything app
 icon: https://i.imgur.com/c9EfF3J.png
-category: files & productivity
+category: Productivity
 version: "0.18.0"
 port: 3888
 description: >-
