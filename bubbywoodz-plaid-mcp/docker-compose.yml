@@ -9,7 +9,7 @@ services:
   app:
     container_name: bubbywoodz-plaid-mcp_app_1
     # Digest-pinned (built 2026-10-08 from BubbyWoodz/plaid-mcp@38bc93c).
-    image: ghcr.io/bubbywoodz/plaid-mcp:latest@sha256:e9cfcad23cf7f522f0a9af5fe9d6eeb094c64baadc84b1280d657500f88b118f
+    image: ghcr.io/bubbywoodz/plaid-mcp:latest@sha256:75d8774b254ebbfd482bc183fa61ad654616a33619d6bc6e2190e128c8c2783d
     restart: on-failure
     ports:
       - "8098:8080"
