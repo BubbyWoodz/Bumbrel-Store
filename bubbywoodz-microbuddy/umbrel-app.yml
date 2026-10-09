@@ -2,11 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.4"
+version: "1.1.5"
 releaseNotes: >-
-  Fixes QR pairing failing with error 500 — the dashboard now mints its login
-  token through the same create_mcp_token function the iPhone app uses
-  (direct table writes are blocked). You must be on this version to link.
+  Fixes QR pairing failing with error 500 — the dashboard now correctly reads
+  back the login token it mints during pairing (the token-creation call was
+  discarding its own response).
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
