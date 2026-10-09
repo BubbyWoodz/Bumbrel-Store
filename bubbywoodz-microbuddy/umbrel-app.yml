@@ -2,10 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.3"
+version: "2.0.4"
 releaseNotes: >-
-  Sales day tiles now show everything in full: no more cut-off weekdays or
-  "..." on the sold, items, hours and returns details.
+  Sales day tiles now read exactly like the iPhone (sold, items, hours or Day
+  off) and are narrower so more fit per row. Removed the extra date under the
+  Sales title.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
