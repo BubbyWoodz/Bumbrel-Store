@@ -2,11 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.4"
+version: "2.0.5"
 releaseNotes: >-
-  Sales day tiles now read exactly like the iPhone (sold, items, hours or Day
-  off) and are narrower so more fit per row. Removed the extra date under the
-  Sales title.
+  Settings > Workday now matches the iPhone: separate Schedule, Reminders and
+  Coworkers pages. Coworkers is fully rebuilt with photos, search, favorites,
+  a detail page and a full add/edit form.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
