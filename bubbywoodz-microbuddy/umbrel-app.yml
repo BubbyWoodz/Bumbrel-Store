@@ -2,11 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.12"
+version: "1.1.13"
 releaseNotes: >-
-  Theme sync fix: dashboard now recognizes all 5 iPhone theme names (og light,
-  og dark, Terminal Blue, Frosted Glass, Windows 95). Wider desktop layout
-  (1600px max).
+  Replaced all emojis with theme-colored SVG icons. No more emoji anywhere
+  in the dashboard.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
