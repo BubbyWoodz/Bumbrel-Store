@@ -2,10 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.11"
+version: "1.1.12"
 releaseNotes: >-
-  Fixes the dashboard home page failing to load ("holidayDates.has is not a
-  function") — the holiday lookup now handles both data formats.
+  Theme sync fix: dashboard now recognizes all 5 iPhone theme names (og light,
+  og dark, Terminal Blue, Frosted Glass, Windows 95). Wider desktop layout
+  (1600px max).
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
