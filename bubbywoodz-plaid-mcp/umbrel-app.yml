@@ -27,11 +27,10 @@ website: https://github.com/lukew0824/plaid-mcp-server
 dependencies: []
 repo: https://github.com/BubbyWoodz/Bumbrel-Store
 support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
-port: 8096
+port: 8098
 path: ""
 defaultUsername: ""
 defaultPassword: ""
 icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-plaid-mcp/icon.svg
 submitter: BubbyWoodz
 submission: https://github.com/BubbyWoodz/Bumbrel-Store
-gallery: []
