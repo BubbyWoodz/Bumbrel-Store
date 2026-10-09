@@ -2,11 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.5"
+version: "2.0.6"
 releaseNotes: >-
-  Settings > Workday now matches the iPhone: separate Schedule, Reminders and
-  Coworkers pages. Coworkers is fully rebuilt with photos, search, favorites,
-  a detail page and a full add/edit form.
+  Security fixes: unlinking a dashboard now requires sign-in and only signs
+  out that user, the health check no longer shows internal details, and each
+  user's data stays strictly their own.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
