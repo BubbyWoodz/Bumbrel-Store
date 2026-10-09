@@ -2,11 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.2"
+version: "2.0.3"
 releaseNotes: >-
-  Sales now mirrors the iPhone Sales tab: log today's sales and find a product
-  side by side, search results that open the day, and your history as a grid of
-  day cards by month. Backgrounds now fill the whole page.
+  Sales day tiles now show everything in full: no more cut-off weekdays or
+  "..." on the sold, items, hours and returns details.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
