@@ -2,10 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.9"
+version: "2.0.10"
 releaseNotes: >-
-  Works offline from your own server, and edits made offline never overwrite
-  newer changes from your phone. Unlinking wipes your data from the server.
+  "Match my phone" in Appearance now follows you across browsers, locks the
+  theme picker while on, and never changes your phone's theme.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
