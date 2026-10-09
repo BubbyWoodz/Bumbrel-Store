@@ -2,13 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.3"
+version: "1.1.4"
 releaseNotes: >-
-  Offline conflict resolution — stale offline edits now yield to newer phone
-  edits instead of overwriting them. Restart-proof logins — the dashboard
-  stays logged in across app restarts and server reboots. New optional
-  screen lock in Settings → Dashboard: password-gate the dashboard after
-  idle (off by default).
+  Fixes QR pairing failing with error 500 — the dashboard now mints its login
+  token through the same create_mcp_token function the iPhone app uses
+  (direct table writes are blocked). You must be on this version to link.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
