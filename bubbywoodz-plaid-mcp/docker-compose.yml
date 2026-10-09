@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: bubbywoodz-plaid-mcp_app_1
+      APP_PORT: 8080
+
+  app:
+    container_name: bubbywoodz-plaid-mcp_app_1
+    # Digest-pinned (built 2026-10-08 from BubbyWoodz/plaid-mcp@38bc93c).
+    image: ghcr.io/bubbywoodz/plaid-mcp:latest@sha256:e9cfcad23cf7f522f0a9af5fe9d6eeb094c64baadc84b1280d657500f88b118f
+    restart: on-failure
+    ports:
+      - "8096:8080"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data

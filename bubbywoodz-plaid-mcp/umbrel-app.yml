@@ -1,0 +1,37 @@
+manifestVersion: 1.1
+id: bubbywoodz-plaid-mcp
+category: Finance
+name: Plaid MCP
+version: "1.0"
+releaseNotes: >-
+  Initial release. Self-hosted Plaid MCP server exposing bank accounts,
+  balances, transactions, merchants, and spending totals over remote MCP
+  (HTTPS) at /mcp — built to plug straight into Poke's MCP integration.
+  Plaid access tokens stay encrypted on your Umbrel; only Plaid and your AI
+  ever see the data. Requires your own Plaid production keys and Google OAuth
+  credentials (see README), plus a public URL such as Tailscale Funnel so Poke
+  can reach it.
+tagline: Your bank accounts, readable by your AI
+description: >-
+  Connects your bank accounts to any MCP-compatible AI (like Poke) without a
+  middleman service. You link your bank once through Plaid; the server keeps
+  the access tokens encrypted on your Umbrel and serves accounts, balances,
+  transaction history, merchants, and spending totals over MCP at /mcp,
+  guarded by Google sign-in with an email allowlist (only you). Ask things
+  like "what did I spend on food last month?" Read-only: nothing here can move
+  money. Note: Plaid itself still sees your transaction data (unavoidable —
+  they're the bank aggregator), and whichever AI you connect will see whatever
+  it queries.
+developer: lukew0824 (upstream)
+website: https://github.com/lukew0824/plaid-mcp-server
+dependencies: []
+repo: https://github.com/BubbyWoodz/Bumbrel-Store
+support: https://github.com/BubbyWoodz/Bumbrel-Store/issues
+port: 8096
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+icon: https://raw.githubusercontent.com/BubbyWoodz/Bumbrel-Store/master/bubbywoodz-plaid-mcp/icon.svg
+submitter: BubbyWoodz
+submission: https://github.com/BubbyWoodz/Bumbrel-Store
+gallery: []
