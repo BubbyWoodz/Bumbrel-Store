@@ -2,12 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.0"
+version: "2.0.1"
 releaseNotes: >-
-  Full rebuild. Full-width desktop layout, all six iPhone themes (Auto, Light,
-  Dark, Terminal, Modern, Windows 95) matched to the app, theme follows your
-  phone, real profile photo and username, working Sales, Products, Pay and
-  Schedule, Stats with Badges, two-pane Settings, and no emojis anywhere.
+  Cleaner Home: tidier greeting card with the name and pills aligned, even
+  padding around the stat boxes, and a simpler top bar.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
