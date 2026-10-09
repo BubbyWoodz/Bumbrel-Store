@@ -2,15 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-plaid-mcp
 category: Finance
 name: Plaid MCP
-version: "1.0"
+version: "1.0.1"
 releaseNotes: >-
-  Initial release. Self-hosted Plaid MCP server exposing bank accounts,
-  balances, transactions, merchants, and spending totals over remote MCP
-  (HTTPS) at /mcp — built to plug straight into Poke's MCP integration.
-  Plaid access tokens stay encrypted on your Umbrel; only Plaid and your AI
-  ever see the data. Requires your own Plaid production keys and Google OAuth
-  credentials (see README), plus a public URL such as Tailscale Funnel so Poke
-  can reach it.
+  Fix container crash-loop on startup: pin the MCP Python library to v1
+  (v2 removed the fastmcp module this server imports). Image rebuilt with
+  the corrected dependency set; no upstream code changes.
 tagline: Your bank accounts, readable by your AI
 description: >-
   Connects your bank accounts to any MCP-compatible AI (like Poke) without a
