@@ -2,10 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.6"
+version: "1.1.7"
 releaseNotes: >-
-  Adds a version identifier to the dashboard's health check so the running
-  version can be verified remotely. No behavior changes.
+  Pairing fix: the dashboard's token request now matches the iPhone app's
+  exactly (no extra headers), fixing the error 500 on QR claim.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
