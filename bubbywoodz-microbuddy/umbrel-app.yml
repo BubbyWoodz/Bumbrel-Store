@@ -2,17 +2,19 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.13"
+version: "2.0.0"
 releaseNotes: >-
-  Replaced all emojis with theme-colored SVG icons. No more emoji anywhere
-  in the dashboard.
+  Full rebuild. Full-width desktop layout, all six iPhone themes (Auto, Light,
+  Dark, Terminal, Modern, Windows 95) matched to the app, theme follows your
+  phone, real profile photo and username, working Sales, Products, Pay and
+  Schedule, Stats with Badges, two-pane Settings, and no emojis anywhere.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
   base pay, and take-home pay with full breakdowns. Paste in sales reports and watch
   them parse automatically. Keep a journal with @coworker mentions and product links,
   manage goals, check your schedule, and chat with Buddy AI (bring your own model).
-  Four themes including Win95 and terminal. Sign in by scanning a QR code with the
+  Six themes matching the iOS app, including Win95, Terminal and Modern. Sign in by scanning a QR code with the
   Micro Buddy iOS app — your phone's session becomes the dashboard login. Works
   offline after the first sync; your data stays on your server.
 developer: BubbyWoodz
