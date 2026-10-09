@@ -2,11 +2,12 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.1"
+version: "1.1.2"
 releaseNotes: >-
-  True unlink for QR pairing — Unlink in the iOS app now calls POST
-  /api/pair/revoke, which clears pair codes, browser sessions, and the widget
-  token on the dashboard. The dashboard actually logs out.
+  Full unlink wipe — when the iPhone app unlinks, the dashboard now detects it
+  within seconds, wipes all local data (cached data, chats, preferences, saved
+  session), and drops straight back to the QR login screen. Manual sign-out
+  wipes fully too.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
