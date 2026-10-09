@@ -2,11 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.5"
+version: "1.1.6"
 releaseNotes: >-
-  Fixes QR pairing failing with error 500 — the dashboard now correctly reads
-  back the login token it mints during pairing (the token-creation call was
-  discarding its own response).
+  Adds a version identifier to the dashboard's health check so the running
+  version can be verified remotely. No behavior changes.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
