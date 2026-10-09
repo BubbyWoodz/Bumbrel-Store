@@ -2,11 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "1.1.9"
+version: "1.1.10"
 releaseNotes: >-
-  Fixes QR pairing error 500 — the dashboard had two functions with the same
-  name, and the wrong one was handling the login token request. Renamed the
-  older one so the correct token logic runs.
+  Security: the unlink endpoint now requires your sign-in token and only
+  revokes your own sessions (previously anyone on the network could log out
+  the dashboard). The iOS app must be updated to send its token when unlinking.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
