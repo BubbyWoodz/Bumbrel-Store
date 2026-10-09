@@ -12,6 +12,6 @@ services:
     image: ghcr.io/bubbywoodz/plaid-mcp:latest@sha256:e9cfcad23cf7f522f0a9af5fe9d6eeb094c64baadc84b1280d657500f88b118f
     restart: on-failure
     ports:
-      - "8096:8080"
+      - "8098:8080"
     volumes:
       - ${APP_DATA_DIR}/data:/data
