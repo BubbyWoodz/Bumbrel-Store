@@ -2,11 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.6"
+version: "2.0.7"
 releaseNotes: >-
-  Security fixes: unlinking a dashboard now requires sign-in and only signs
-  out that user, the health check no longer shows internal details, and each
-  user's data stays strictly their own.
+  Your dashboard login now survives app updates (pair once more after this
+  update). Signing out or unlinking on the phone now unlinks the dashboard
+  everywhere.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
