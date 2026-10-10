@@ -2,10 +2,11 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.12"
+version: "2.0.13"
 releaseNotes: >-
-  2.0.12 brings back the retro computer room photo behind the pairing screen. It fills the whole window,
-  the sign-in card stays easy to read on top in every theme, and the photo is saved for offline use.
+  2.0.13 is a privacy fix. When this dashboard isn't linked (after unlinking from the phone, signing out, or a lost session),
+  it no longer flashes the previous person's dashboard while it loads. Nothing personal shows until the server confirms you're signed in,
+  and any data left in the browser is erased before the pairing screen appears.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
