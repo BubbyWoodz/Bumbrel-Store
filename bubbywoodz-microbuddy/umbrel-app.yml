@@ -2,11 +2,10 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.13"
+version: "2.0.14"
 releaseNotes: >-
-  2.0.13 is a privacy fix. When this dashboard isn't linked (after unlinking from the phone, signing out, or a lost session),
-  it no longer flashes the previous person's dashboard while it loads. Nothing personal shows until the server confirms you're signed in,
-  and any data left in the browser is erased before the pairing screen appears.
+  2.0.14 fixes coworker photos that showed up as colorful noise. Photos imported from your iPhone contacts are often saved in Apple's
+  high-quality HEIC format, which browsers can't show. The dashboard now converts them on your Umbrel, so every coworker photo matches the phone.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
