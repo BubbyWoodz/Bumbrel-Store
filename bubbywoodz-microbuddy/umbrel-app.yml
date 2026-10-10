@@ -2,10 +2,16 @@ manifestVersion: 1.1
 id: bubbywoodz-microbuddy
 category: Dashboards
 name: Micro Buddy
-version: "2.0.10"
+version: "2.0.11"
 releaseNotes: >-
-  "Match my phone" in Appearance now follows you across browsers, locks the
-  theme picker while on, and never changes your phone's theme.
+  2.0.11 catches the dashboard up with the iPhone app (batches 14 to 33).
+  New: E-key and Walkie gear checkout on the Schedule day and Day detail, a Store picker in Account (locked when your UKG calendar detects your store),
+  the Auto Working With switch in Workday > Schedule with automatic coworkers on each shift, missed shifts you can restore,
+  edited UKG shifts that keep the posted time on record and pay on your real hours, and a guard against overlapping shifts.
+  Stats now fold product lines into brands (UniFi counts as Ubiquiti), count coworkers from your saved schedule with real overlap hours,
+  and leave exchanges out of customers and items. Pay math matches the phone: commission brackets, your default lunch, the second meal on long shifts, and payday showing the period that just closed.
+  Sync is safer: if your phone and the dashboard edit at the same time, both edits are merged field by field and the phone wins only where you both changed the same thing.
+  Long names and labels now wrap instead of being cut off.
 tagline: Micro Center sales dashboard
 description: >-
   Your Micro Center sales companion on the big screen. Track tickets, commission,
